@@ -1,3 +1,113 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// ============
+// universal
+// ============
+html {
+  font-size: 62.5%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.3rem;
+  padding: 70px 30px;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// ============
+// header
+// ============
+
+header {
+
+  .container {
+    // display: flex;
+
+    h1 {
+      margin-right: 10px;
+      padding-top: 5px;
+      font-size: 2.0rem;
+      justify-content: flex-start;
+      float: left;
+
+      a {
+        color: #fff;
+        text-transform: uppercase;
+      }
+    }
+
+    nav {
+
+      li {
+        display: inline-block;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+
+// ============
+// home
+// ============
+
+.home {
+  padding: 30px;
+
+  .search {
+    border: 1px solid black;
+    font-size: 30px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .map {
+    border: 1px solid black;
+    font-size: 30px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+  }
+
+  .feedarea {
+    // background-color: orange;
+
+    .row {
+      margin: 0;
+      height: 300px;
+      padding: 30px 0;
+  
+      .feed {
+        border: 0.3px solid gray;
+        height: 150px;
+        // margin: 30px 0;
+        padding: 5px;
+
+        .feed-item {
+          height: 136px;
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+
+
+}
