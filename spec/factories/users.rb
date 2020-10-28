@@ -1,15 +1,18 @@
 FactoryBot.define do
+  #値が適切なユーザー
   factory :user do
-    name { "tester" }
-    email { "tester@example.com" }
-
-    factory :user_too_long_name do
-      name { "a" *31 }
-    end
-
-    factory :user_too_long_email do
-      email { "a" *243 +"@example.com" }
-    end
-
+    name { "factory_user" }
+    email { "factory@example.com" }
+    password { "password" }
+    password_confirmation { "password" }
   end
+
+  #値が不適切なユーザー
+  factory :user_invalid, class: User do
+    name { " " }
+    email { "a@example" }
+    password { "wrong" }
+    password_confirmation { "invalid" }
+  end
+
 end

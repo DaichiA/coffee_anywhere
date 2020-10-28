@@ -23,5 +23,9 @@ module CoffeeAnywhere
         routing_specs: false
     end
 
+    # i18n
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+
   end
 end
