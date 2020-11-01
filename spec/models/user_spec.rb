@@ -14,8 +14,8 @@ RSpec.describe User, type: :model do
   it "is valid with name, email and password" do
     @user.name = "a"*30
     @user.email = "a" *243 +"@example.com"
-    @user.password = "a" *6
-    @user.password_confirmation = "a" *6
+    @user.password = "a" *8
+    @user.password_confirmation = "a" *8
     expect(@user).to be_valid
   end
 
@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     user.valid?
     expect(user.errors[:name]).to include("を入力してください")
     expect(user.errors[:email]).to include("を入力してください")
-    expect(user.errors[:password]).to include("は6文字以上で入力してください")
+    expect(user.errors[:password]).to include("は8文字以上で入力してください")
     expect(user.errors[:password_confirmation]).to include("を入力してください")
   end
 
@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
     @user.valid?
     expect(@user.errors[:name]).to include("は30文字以内で入力してください")
     expect(@user.errors[:email]).to include("は255文字以内で入力してください")
-    expect(@user.errors[:password]).to include("は6文字以上で入力してください")
+    expect(@user.errors[:password]).to include("は8文字以上で入力してください")
   end
 
   it "is acceptable with valid email" do

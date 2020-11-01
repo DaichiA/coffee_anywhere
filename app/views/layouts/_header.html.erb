@@ -1,11 +1,30 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>coffee anywhere</title>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim' %>
+
+    <!-- 余力があれば管理ページ作成のためAdminLTEで使う↓-->
+    <!-- Google Font: Source Sans Pro -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
+    
+  </head>
+  <body>
+
+  <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <h1><%= link_to "coffee anywhere", root_path %></h1>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
-          <li><%= link_to "設定", "#" %></li>
+          <li><%= link_to "profile", current_user %></li>
+          <li><%= link_to "設定", edit_user_path(current_user) %></li>
           <li><%= link_to "Logout", :logout, method: :post %></li>
         <% else %>
           <li><%= link_to "Login", login_path %></li>

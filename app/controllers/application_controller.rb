@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
 
   private
     def not_authenticated
-      redirect_to login_path, alert: "ログインしてください。"
+      redirect_to login_path
+      flash[:danger] = "ログインしてください。"
+    end
+
+    def reject_logged_in
+      if logged_in?
+        redirect_back(fallback_location: root_path)
+      end
     end
 end

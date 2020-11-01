@@ -1,8 +1,8 @@
 FactoryBot.define do
   #値が適切なユーザー
   factory :user do
-    name { "factory_user" }
-    email { "factory@example.com" }
+    name { "factory" }
+    sequence(:email) { |n| "factory#{n}@example.com" }
     password { "password" }
     password_confirmation { "password" }
   end

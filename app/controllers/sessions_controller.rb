@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  before_action :require_login
-  skip_before_action :require_login, only: [:new, :create]
+  before_action :require_login, only: [:destroy]
+  before_action :reject_logged_in, only: [:new, :create]
 
   def new
     @user = User.new
@@ -9,10 +9,10 @@ class SessionsController < ApplicationController
   def create
     @user = login(params[:email], params[:password])
     if @user
-      redirect_back_or_to root_path
+      redirect_back_or_to user_path(@user)
       flash[:success] = 'ログインしました。'
     else
-      flash.now[:success] = 'ログインに失敗しました。'
+      flash.now[:danger] = 'ログインに失敗しました。'
       render action: 'new'
     end
   end
