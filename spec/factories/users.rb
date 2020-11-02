@@ -5,6 +5,7 @@ FactoryBot.define do
     sequence(:email) { |n| "factory#{n}@example.com" }
     password { "password" }
     password_confirmation { "password" }
+    activation_state { "active" }
   end
 
   #値が不適切なユーザー
@@ -13,6 +14,14 @@ FactoryBot.define do
     email { "a@example" }
     password { "wrong" }
     password_confirmation { "invalid" }
+  end
+
+  #他のユーザー
+  factory :other_user, class: User do 
+    name { "other_user" }
+    sequence(:email) { |n| "otheruser#{n}@example.com" }
+    password { "password" }
+    password_confirmation { "password" }
   end
 
 end

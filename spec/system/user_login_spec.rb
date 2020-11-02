@@ -5,10 +5,7 @@ RSpec.describe "User login", type: :system do
 
   describe "with valid information followed by logout" do
     before do
-      visit login_path
-      fill_in "メールアドレス", with: user.email
-      fill_in "パスワード", with: "password"
-      click_button "ログイン"
+      login(user) #モジュールに切り分けた
     end
 
     subject { page }

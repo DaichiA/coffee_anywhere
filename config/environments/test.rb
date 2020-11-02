@@ -46,4 +46,9 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+
+
+  #追記 これ記載しないとmailerのtestできなかった
+  host = 'localhost:3000' 
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 end

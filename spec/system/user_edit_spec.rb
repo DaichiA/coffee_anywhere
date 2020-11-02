@@ -5,7 +5,7 @@ RSpec.describe "User edit", type: :system do
 
   describe "as a authenticated user" do
     before do
-      login(user)
+      login(user) #モジュールに切り分けた
       click_link "設定"
     end
 
