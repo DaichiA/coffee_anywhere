@@ -4,11 +4,12 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1> ようこそCoffee Anywhereへ！ <%= @user.email %> </h1>
+    <h1> Welcome to Coffee Anywhere, <%= @user.email %> </h1>
     <p>
-      You have successfully signed up to www.example.com, and your username is: <%= @user.email %>
+      You have successfully signed up to Coffee Anywhere
+      <%= @user.email %>
     </p>
-    ログインするにはこちらのリンクをクリックしてください。
+    To login to the site, just follow this link:
     <%= @url %> 
  
   </body>

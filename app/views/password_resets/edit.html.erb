@@ -1,0 +1,21 @@
+<% provide(:title, 'パスワードリセット') %>
+<% provide(:button_text, '決定') %>
+
+<h1>パスワードリセット</h1>
+ 
+ <%= form_with(model:@user, url: password_reset_path(@token), html: {:method => :put}, local: true) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <%= f.label :email, "メールアドレス" %><br />
+  <%= @user.email %><br />
+  
+  <br />
+
+  <%= f.label :password, "パスワード" %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.label :password_confirmation, "パスワード確認" %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary " %>
+<% end %>

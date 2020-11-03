@@ -1,11 +1,15 @@
 FactoryBot.define do
-  #値が適切なユーザー
+  #値が適切なユーザーuse
   factory :user do
     name { "factory" }
     sequence(:email) { |n| "factory#{n}@example.com" }
     password { "password" }
     password_confirmation { "password" }
-    activation_state { "active" }
+    activation_state { "active" }  #←いる? 
+
+    # trait :skip_validate do
+    #   to_create {|instance| instance.save(validate: false)}
+    # end
   end
 
   #値が不適切なユーザー

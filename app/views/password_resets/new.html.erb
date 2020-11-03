@@ -1,0 +1,18 @@
+<% provide(:title, 'パスワードリセット') %>
+<% provide(:button_text, '送信') %>
+
+<h1>パスワードリセット</h1>
+
+<%= form_with(url: password_resets_path, local: true, method: :post) do |f| %>
+
+  <%= f.label :email, "メールアドレス" %>
+  <%= f.email_field :email, class: 'form-control' %>
+  
+  <%= f.submit yield(:button_text), class: "btn btn-primary " %>
+
+<% end %>
+
+<!-- ↓コントローラー側でif @userで条件を分けてる -->
+<% unless @user %>
+  <%= javascript_pack_tag 'password_resets/new_render' %>
+<% end %>

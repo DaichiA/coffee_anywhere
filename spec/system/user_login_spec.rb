@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "User login", type: :system do
   let(:user) { FactoryBot.create(:user) }
-
+  
   describe "with valid information followed by logout" do
     before do
       login(user) #モジュールに切り分けた

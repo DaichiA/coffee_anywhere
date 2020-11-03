@@ -11,6 +11,10 @@ RSpec.describe User, type: :model do
     )
   end
 
+  # it "is a valid factory" do
+  #   expect(FactoryBot.create(:user)).to be_valid
+  # end
+
   it "is valid with name, email and password" do
     @user.name = "a"*30
     @user.email = "a" *243 +"@example.com"
