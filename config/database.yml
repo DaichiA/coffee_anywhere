@@ -58,6 +58,11 @@ test:
 #
 production:
   <<: *default
-  database: coffee_anywhere_production
-  username: coffee_anywhere
-  password: <%= ENV['COFFEE_ANYWHERE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %> 
+  username: <%= ENV['DB_USERNAME'] %>
+
+  password: <%= ENV['DB_PASSWORD'] %>
+
+  # database: coffee_anywhere_production
+  # username: coffee_anywhere
+  # password: <%= ENV['COFFEE_ANYWHERE_DATABASE_PASSWORD'] %>
