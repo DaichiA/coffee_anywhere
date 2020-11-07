@@ -7,3 +7,7 @@
     <%= render 'form' %>
   </div>
 </div>
+
+<% if @user.errors.any? %>
+  <%= javascript_pack_tag 'users/edit_render' %>
+<% end %>
