@@ -11,3 +11,8 @@
   <%= f.submit yield(:button_text), class: "btn btn-primary " %>
 
 <% end %>
+
+<!-- ↓コントローラー側でif @userで条件を分けてる -->
+<% unless @user %>
+  <%= javascript_pack_tag 'password_resets/new_render' %>
+<% end %>
