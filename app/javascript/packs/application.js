@@ -9,9 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 
 // 追記
-require("users/signup_render")
-require("users/edit_render")
-require("password_resets/new_render")
+// require("users/signup_render")
+// require("users/edit_render")
+// require("password_resets/new_render")
 
 // ↓余力があれば管理ページのレイアウト整える
 // require("admin-lte")
