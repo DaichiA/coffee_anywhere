@@ -22,7 +22,12 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
-        <% if current_user %>
+        <% if !current_user.nil? && current_user.admin? %>
+          <li><%= link_to "profile", current_user %></li>
+          <li><%= link_to "設定", edit_user_path(current_user) %></li>
+          <li><%= link_to "Shops", shops_path %></li>
+          <li><%= link_to "Logout", :logout, method: :post %></li>
+        <% elsif current_user %>
           <li><%= link_to "profile", current_user %></li>
           <li><%= link_to "設定", edit_user_path(current_user) %></li>
           <li><%= link_to "Logout", :logout, method: :post %></li>

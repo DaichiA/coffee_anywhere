@@ -5,6 +5,10 @@ ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
+gem 'aws-sdk-s3', require: false
+gem 'image_processing'
+gem 'mini_magick'
+gem 'active_storage_validations'
 gem 'bcrypt'
 gem 'sorcery'
 gem 'rails-i18n'

@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  has_one_attached :image
   validates :name, presence: true, length: { maximum: 30 }
+  validates :image,   content_type: { in: %w[image/jpeg image/gif image/png],
+                                      message: "はjpg, gif, png形式のみ利用できます。" },
+                      size:         { less_than: 5.megabytes,
+                                      message: "に5MB以上のファイルは利用できません。" }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255},
                     format: { with: VALID_EMAIL_REGEX},
@@ -9,4 +14,10 @@ class User < ApplicationRecord
                        confirmation: true,
                        length: { minimum: 8 }
   validates :password_confirmation, presence: true
+
+  #表示用のリサイズ済み画像を返す
+  def display_image
+    image.variant(resize_to_limit: [500, 500])
+  end
+
 end

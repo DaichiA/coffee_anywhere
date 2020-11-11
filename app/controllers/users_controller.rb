@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   before_action :require_login, only: [:edit, :update]
   before_action :reject_logged_in, only: [:new, :create]
   before_action :correct_user, only: [:show, :edit, :update]
+  before_action :admin_user, only: [:index]
 
+  def index
+    @users = User.all
+  end
+  
   def show
     @user = User.find(params[:id])
   end
@@ -13,6 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.image.attach(params[:user][:image])
     if @user.save
       # UserMailer.activation_needed_email(@user).deliver_now
       #↑sorceryによってactiveteアクションで自動でメール送られているみたいなので上記コードは不要
@@ -54,7 +60,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :image, :email, :password, :password_confirmation)
     end
 
     #beforeアクション
