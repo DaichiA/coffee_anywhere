@@ -1,3 +1,7 @@
 <%= @user.name %>, <%= @user.email %>
 
-<%= image_tag @user.display_image if @user.image.attached? %>
+<% if @user.image.attached? %>
+  <%= image_tag @user.display_image, :size =>'100x100' %>
+<% else %>
+  <%= image_tag("default_user.jpg", :size => "100x100") %>
+<% end %>

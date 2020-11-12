@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      shop: 店
     attributes:
       user:
         name: 名前
@@ -9,3 +10,10 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+
+      shop:
+        name: 店名
+        image: 画像
+        address: 住所
+        phone_number: 電話番号
+        description: 説明

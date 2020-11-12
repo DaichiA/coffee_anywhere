@@ -4,11 +4,16 @@
   <%= f.label :name, "店名" %>
   <%= f.text_field :name, class: 'form-control' %>
 
+  <%= f.label :image, "画像" %>
+  <span class="image">
+    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+  </span>
+
   <%= f.label :adddress, "住所" %>
   <%= f.text_field :address, class: 'form-control' %>
 
-  <%= f.label :tel, "電話番号" %>
-  <%= f.text_field :tel, class: 'form-control' %>
+  <%= f.label :phone_number, "電話番号" %> (ハイフン 「-」 は付けないでください)
+  <%= f.text_field :phone_number, class: 'form-control' %>
 
   <%= f.label :business_hours, "営業時間" %>
   <%= f.text_field :business_hours, class: 'form-control' %>

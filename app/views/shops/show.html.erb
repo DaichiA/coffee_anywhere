@@ -2,7 +2,13 @@
   <div class="index_left col-md-7 col-md-offset-1">
       <h1 class="shop_name">Shop Name</h1>
 
-      <section class="shop_image">image</section>
+      <section class="shop_image">
+        <% if @shop.image.attached? %>
+          <%= image_tag @shop.display_image, :size =>'300x300' %>
+        <% else %>
+          <%= image_tag("default_shop.jpg", :size => "300x300") %>
+        <% end %>
+      </section>
 
       <section class="shop_desc">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</section>
 

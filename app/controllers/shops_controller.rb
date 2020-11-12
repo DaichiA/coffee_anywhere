@@ -6,6 +6,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @shop = Shop.find(params[:id])
   end
 
   def new
@@ -14,6 +15,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
+    @shop.image.attach(params[:shop][:image])
     if @shop.save
       flash[:success] = "店情報を登録しました。"
       redirect_to shops_path
@@ -39,7 +41,7 @@ class ShopsController < ApplicationController
   private
     
     def shop_params
-      params.require(:shop).permit(:name, :address, :tel, :description)
+      params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :description)
     end
 
     

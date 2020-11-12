@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:edit, :update]
+  before_action :require_login, only: [:show, :edit, :update]
   before_action :reject_logged_in, only: [:new, :create]
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:index]
 
   def index
