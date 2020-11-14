@@ -6,7 +6,7 @@ RSpec.describe "Password reset", type: :system do
   describe "password reset" do
     before do
       login(user) #モジュールに切り分けた
-      click_on "Logout"
+      click_on "ログアウト"
     end
     
     it "reset password" do
@@ -38,11 +38,10 @@ RSpec.describe "Password reset", type: :system do
       expect(page).to have_selector('.alert-success', text: 'パスワードを更新しました。')
 
       #同時にログインされているか
-      expect(page).to have_content "profile"
-      expect(page).to have_content "設定"
-      expect(page).to have_content "Logout"
-      expect(page).to_not have_content "Login"
-      expect(page).to_not have_content "Signup"
+      expect(page).to have_content "マイページ"
+      expect(page).to have_content "ログアウト"
+      expect(page).to_not have_content "ログイン"
+      expect(page).to_not have_content "登録"
     end
 
 

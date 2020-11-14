@@ -13,9 +13,10 @@ RSpec.describe "User signup and account activation", type: :system do
     # )
   end
 
-  describe "with valid signup information" do
-    it "sign up" do
-      visit signup_path
+  # describe "with valid signup information" do
+    it "valid sign up" do
+      visit root_path
+      click_link "登録"
       fill_in "名前", with: "Example User"
       fill_in "メールアドレス", with: "test@example.com"
       fill_in "パスワード", with: "password"
@@ -41,21 +42,24 @@ RSpec.describe "User signup and account activation", type: :system do
       #正しい有効化トークンでログイン 
       visit activate_user_url(User.last.activation_token)
       expect(page).to have_selector('.alert-success', text: 'アクティベートされました') 
-
-      #同時にログインされているか
-      expect(page).to have_content "profile"
-      expect(page).to have_content "設定"
-      expect(page).to have_content "Logout"
-      expect(page).to_not have_content "Login"
-      expect(page).to_not have_content "Signup"
       
+      #同時にログインされているか
+      within ".nav" do
+        expect(page).to have_content "マイページ"
+        expect(page).to have_content "ログアウト"
+        expect(page).to_not have_content "ログイン"
+        expect(page).to_not have_content "登録"
+      end
     end
+    
+      
 
 
-  end
+  # end
 
-  example "with invalid signup information" do
-    visit signup_path
+  it "invalid signup" do
+    visit root_path
+    click_link "登録"
     fill_in "名前", with: " "
     fill_in "メールアドレス", with: "example.com"
     fill_in "パスワード", with: "pass"

@@ -13,21 +13,21 @@ RSpec.describe "User login", type: :system do
       expect(current_path).to eq user_path(user)
       is_expected.to have_selector('.alert-success', text: 'ログインしました。') 
       within ".nav" do
-        is_expected.to_not have_content "Sign up"
-        is_expected.to_not have_content "Login"
-        is_expected.to have_content "Logout"
-        is_expected.to have_content "設定"
+        is_expected.to_not have_content "登録"
+        is_expected.to_not have_content "ログイン"
+        is_expected.to have_content "ログアウト"
+        is_expected.to have_content "マイページ"
       end
     end
 
     it "log out" do
-      click_link "Logout"
+      find('.dropdown-toggle').click
+      click_link "ログアウト"
       is_expected.to have_selector('.alert-success', text: 'ログアウトしました。') 
       within ".nav" do
-        is_expected.to have_content "Sign up"
-        is_expected.to have_content "Login"
-        is_expected.to_not have_content "Logout"
-        is_expected.to_not have_content "設定"
+        is_expected.to have_content "登録"
+        is_expected.to have_content "ログイン"
+        is_expected.to_not have_selector('.dropdown-toggle')
       end
     end
   end
@@ -45,10 +45,9 @@ RSpec.describe "User login", type: :system do
       click_button "ログイン"
       expect(page).to have_selector('.alert-danger', text: 'ログインに失敗しました。') 
       within ".nav" do
-        is_expected.to have_content "Sign up"
-        is_expected.to have_content "Login"
-        is_expected.to_not have_content "Logout"
-        is_expected.to_not have_content "設定"
+        is_expected.to have_content "登録"
+        is_expected.to have_content "ログイン"
+        is_expected.to_not have_selector('.dropdown-toggle')
       end
     end
 
@@ -59,10 +58,9 @@ RSpec.describe "User login", type: :system do
       click_button "ログイン"
       expect(page).to have_selector('.alert-danger', text: 'ログインに失敗しました。') 
       within ".nav" do
-        is_expected.to have_content "Sign up"
-        is_expected.to have_content "Login"
-        is_expected.to_not have_content "Logout"
-        is_expected.to_not have_content "設定"
+        is_expected.to have_content "登録"
+        is_expected.to have_content "ログイン"
+        is_expected.to_not have_selector('.dropdown-toggle')
       end
     end
   end

@@ -1,16 +1,21 @@
 
-    <ul class="shops">
-      <% @shops.each do |shop| %>
-        <li>
-          <% if shop.image.attached? %>
-            <%= image_tag shop.display_image, :size =>'200x200' %>
-          <% else %>
-            <%= image_tag("default_shop.jpg", :size => "200x200") %>
-          <% end %>
-          <div class="list_text">
-            <%= link_to shop.name, shop, class: "shop_name" %>
-            <%= link_to shop.description, shop %>
-          </div>
-        </li>
+<%= will_paginate %>
+
+<ul class="shops">
+  <% @shops.each do |shop| %>
+    <li>
+      <% if shop.image.attached? %>
+        <%= image_tag shop.display_image, :size =>'200x200' %>
+      <% else %>
+        <%= image_tag("default_shop.jpg", :size => "200x200") %>
       <% end %>
-    </ul>
+      <div class="list_text">
+        <%= link_to shop.name, shop, class: "shop_name" %>
+        <p class="location">[県名、定休日をタグで]</p>
+        <%= link_to shop.description, shop, class: "shop_desc" %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

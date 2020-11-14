@@ -1,23 +1,62 @@
 <div class="row">
-  <div class="index_left col-md-7 col-md-offset-1">
-      <h1 class="shop_name">Shop Name</h1>
+  <div class="show col-md-8 col-md-offset-2">
+      <h1 class="shop_name">
+        <%= @shop.name %>
+      </h1>
 
       <section class="shop_image">
         <% if @shop.image.attached? %>
-          <%= image_tag @shop.display_image, :size =>'300x300' %>
+          <%= image_tag @shop.display_image,  class: "image" %>
         <% else %>
-          <%= image_tag("default_shop.jpg", :size => "300x300") %>
+          <%= image_tag("default_shop.jpg",  class: "image") %>
         <% end %>
       </section>
 
-      <section class="shop_desc">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</section>
+      <section class="shop_desc">
+        <%= @shop.description %>
+      </section>
 
       <section class="review">reviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreviewreview</section>
 
-      <section class="shop_info">info</section>
+      <section class="shop_info">
+        <table class="table">
+          <thead>
+            <th scope="col">店舗情報</th>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="active col-xs-3 align-middle">店名</th>
+              <td><%= @shop.name %></td>
+            </tr>
+            <tr>
+              <th scope="row" class="active">お問い合わせ電話番号</th>
+              <td><%= @shop.phone_number %></td>
+            </tr>
+            <tr>
+              <th scope="row" class="active">住所</th>
+              <td>
+                <%= @shop.address %><br>
+                ここにGoogleMap
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="active">営業時間</th>
+              <td><%= @shop.business_hours %></td>
+            </tr>
+            <tr>
+              <th scope="row" class="active">支払い方法</th>
+              <td>カード不可とか電子マネー利用可能とか</td>
+            </tr>
+            <tr>
+              <th scope="row" class="active">ホームページ・SNS</th>
+              <td>SNSのアイコンにそのリンクを</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
   
   </div>
 
-  <div class="index_right col-md-3 hidden-sm hidden-xs">reccomend</div>
-
+  <!--<div class="show_right col-md-3 hidden-sm hidden-xs">reccomend</div>
+-->
 </div>

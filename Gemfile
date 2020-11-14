@@ -10,8 +10,12 @@ gem 'image_processing'
 gem 'mini_magick'
 gem 'active_storage_validations'
 gem 'bcrypt'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'sorcery'
 gem 'rails-i18n'
+gem 'jquery-rails'
 
 gem 'bootstrap-sass'
 # Use mysql as the database for Active Record

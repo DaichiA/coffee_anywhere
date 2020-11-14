@@ -23,10 +23,18 @@
       padding-left: 30px;
       width: 75%;
       .shop_name {
-        display: block;
+        display: inline;
         font-size: 25px;
         margin-bottom: 10px;
       } 
+      .location {
+        display: inline;
+        margin-left: 10px;
+      }
+      .shop_desc {
+        display: block;
+        padding-top: 10px;
+      }
     }
   }
 }
@@ -37,38 +45,62 @@
 // show
 // ===========
 
-.index_left {
+.show {
   border: 1px solid black;
-  // height: 70%;
-  
+  margin: 40px auto;
+  padding: 10px;
   .shop_name {
-    
+    padding: auto 60px;
   }
   
   .shop_image {
     border: 1px solid black;
-    height: 300px;
+    text-align: center;
+    max-width: 748px;
+    max-height: 490px;
+    .image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
   }
 
   .shop_desc {
     border: 1px solid black;
-    height: 100px;
+    padding: 5px;
+    margin-top: 10px;
+    // height: 100px;
   }
 
   .review {
     border: 1px solid black;
     height: 100px;
-    word-wrap: break-word
+    padding: 5px;
+    word-wrap: break-word;
   }
   
   .shop_info {
     border: 1px solid black;
     height: 400px;
+    padding: 5px;
     // width: 350px;
+    .table {
+      font-size: 14px;
+      tr {
+        height: 50px;
+        th {
+          vertical-align: middle;
+        }
+        td {
+          padding-left: 20px;
+          vertical-align: middle;
+        }
+      }
+    }
   }
 }
   
-.index_right {
+.show_right {
   border: 1px solid black;
   height: 90%;
 }

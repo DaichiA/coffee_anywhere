@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
   before_action :admin_user, only: [:new, :create, :edit, :update]
   
   def index
-    @shops = Shop.all
+    @shops = Shop.paginate(page: params[:page])
   end
 
   def show
