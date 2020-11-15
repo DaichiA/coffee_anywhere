@@ -14,7 +14,7 @@
  *= require_self
  */
 
- @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+ /* @import '~@fortawesome/fontawesome-free/scss/fontawesome'; */
 
  /* AdminLTEのために追記 余力があれば管理ページに使う */
  /* @import 'admin-lte/plugins/fontawesome-free/css/all.min';
