@@ -2,7 +2,10 @@ class ShopsController < ApplicationController
   before_action :admin_user, only: [:new, :create, :edit, :update]
   
   def index
-    @shops = Shop.paginate(page: params[:page])
+    # @shops = Shop.paginate(page: params[:page])
+    @q = Shop.ransack(params[:q])
+    @shops = @q.result(distinct: true).paginate(page: params[:page])
+    #static_pages_controllerのhomeでも同定義(検索窓を置いてるから)
   end
 
   def show
