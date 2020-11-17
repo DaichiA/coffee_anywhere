@@ -13,10 +13,13 @@
       <div class="list_text">
         <%= link_to shop.name, shop, class: "shop_name" %>
         <p class="location">[県名、定休日をタグで]</p>
+        <% if !current_user.nil? && current_user.admin? %>
+          <%= link_to "<編集>", edit_shop_path(shop) %>
+        <% end %>
         <%= link_to shop.description, shop, class: "shop_desc" %>
       </div>
     </li>
   <% end %>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate class:"text-center" %>

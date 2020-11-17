@@ -18,6 +18,7 @@ gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'ransack'
 gem 'font-awesome-sass'
+gem 'jquery-ui-rails'
 
 gem 'bootstrap-sass'
 # Use mysql as the database for Active Record

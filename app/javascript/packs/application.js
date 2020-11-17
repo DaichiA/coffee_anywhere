@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+// require("jquery-ui")  tag-itを使うためにgemを入れたが、Module not found: Error: Can't resolve 'jquery-ui'が出て解決できず
 import "bootstrap"
 import '@fortawesome/fontawesome-free/js/all';
 

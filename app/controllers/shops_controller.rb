@@ -10,6 +10,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @shop_tags = @shop.tags #タグ実装
   end
 
   def new
@@ -18,8 +19,10 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
+    tag_list = params[:shop][:tag_name].split #タグ実装
     @shop.image.attach(params[:shop][:image])
     if @shop.save
+      @shop.save_tag(tag_list) #タグ実装
       flash[:success] = "店情報を登録しました。"
       redirect_to shops_path
     else
@@ -29,11 +32,15 @@ class ShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
+    @tag_list = @shop.tags.pluck(:tag_name).join(" ") #タグ実装
+    @every_tags = @shop.tags
   end
 
   def update
     @shop = Shop.find(params[:id])
+    tag_list = params[:shop][:tag_name].split(" ") #タグ実装
     if @shop.update(shop_params)
+      @shop.save_tag(tag_list) #タグ実装
       flash[:success] = "店情報を更新しました。"
       redirect_to @shop
     else
@@ -44,8 +51,7 @@ class ShopsController < ApplicationController
   private
     
     def shop_params
-      params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :description)
+      params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :description, tag_name: [] )
     end
 
-    
 end
