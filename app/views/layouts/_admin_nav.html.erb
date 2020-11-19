@@ -1,12 +1,22 @@
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    admin <b class="caret"></b>
-  </a>
-  <ul class="dropdown-menu">
-    <li><%= link_to "店舗 新規登録", new_shop_path %></li>
-    <li><%= link_to "店舗 一覧", shops_path %></li>
-    <li><%= link_to "ユーザー一覧", users_path %></li>
-    <li><%= link_to "マイページ", current_user %></li>
-    <li><%= link_to "ログアウト", :logout, method: :post %></li>
+<ul class="dropdown">
+  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">admin</a>
+
+  <div class="dropdown-menu">
+    <%= link_to "店舗 新規登録", new_shop_path, class:"dropdown-item text-dark" %>
+    <%= link_to "店舗 一覧", shops_path, class:"dropdown-item text-dark" %>
+    <%= link_to "ユーザー一覧", users_path, class:"dropdown-item text-dark" %>
+    <%= link_to "マイページ", current_user, class:"dropdown-item text-dark" %>
+    <%= link_to "ログアウト", :logout, method: :post, class:"dropdown-item text-dark" %>
   </ul>
-</li>
+
+  <!--
+  <ul class="dropdown-menu">
+    <li><%= link_to "店舗 新規登録", new_shop_path, class:"text-dark" %></li>
+    <li><%= link_to "店舗 一覧", shops_path, class:"text-dark" %></li>
+    <li><%= link_to "ユーザー一覧", users_path, class:"text-dark" %></li>
+    <li><%= link_to "マイページ", current_user, class:"text-dark" %></li>
+    <li><%= link_to "ログアウト", :logout, method: :post, class:"text-dark" %></li>
+  </ul>
+</div>
+-->
+

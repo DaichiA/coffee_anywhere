@@ -1,7 +1,10 @@
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
-<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+
 <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-eval': false %>
+
 
 <!-- 
 ↑['data-turbolinks-eval': false]...ヘッダーのドロップダウンが画面遷移後動かなくなるのでそれを解消するために追記、正直その論理を理解しきれていないが問題は解決した。

@@ -20,7 +20,7 @@ gem 'ransack'
 gem 'font-awesome-sass'
 gem 'jquery-ui-rails'
 
-gem 'bootstrap-sass'
+
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
 gem 'dotenv-rails'

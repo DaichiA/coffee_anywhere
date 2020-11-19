@@ -1,25 +1,29 @@
-<div class="shop_index">
-  <%= render 'search_form' %>
-</div>
+<div class="container">
+  <div class="shop_index">
+    <%= render 'search_form' %>
+  </div>
 
-<ul class="shops">
-  <% @shops.each do |shop| %>
-    <li>
-      <% if shop.image.attached? %>
-        <%= image_tag shop.display_image, :size =>'200x200' %>
-      <% else %>
-        <%= image_tag("default_shop.jpg", :size => "200x200") %>
-      <% end %>
-      <div class="list_text">
-        <%= link_to shop.name, shop, class: "shop_name" %>
-        <p class="location">[県名、定休日をタグで]</p>
-        <% if !current_user.nil? && current_user.admin? %>
-          <%= link_to "<編集>", edit_shop_path(shop) %>
+  <ul class="shops">
+    <% @shops.each do |shop| %>
+      <li>
+        <% if shop.image.attached? %>
+          <%= image_tag shop.display_image, :size =>'200x200' %>
+        <% else %>
+          <%= image_tag("default_shop.jpg", :size => "200x200") %>
         <% end %>
-        <%= link_to shop.description, shop, class: "shop_desc" %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+        <div class="list_text">
+          <%= link_to shop.name, shop, class: "shop_name" %>
+          <p class="badge badge-secondary">
+            ここにタグのコード
+            </p>
+          <% if !current_user.nil? && current_user.admin? %>
+            <%= link_to "<編集>", edit_shop_path(shop) %>
+          <% end %>
+          <%= link_to truncate(shop.description, length: 100, omission:"..."), shop, class: "shop_desc" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 
-<%= will_paginate class:"text-center" %>
+  <%= will_paginate class:"text-center" %>
+</div>

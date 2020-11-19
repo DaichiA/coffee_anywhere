@@ -19,7 +19,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
-    tag_list = params[:shop][:tag_name].split #タグ実装
+    tag_list = params[:shop][:tag_name].split #タグ実装 入力されたタグ
     @shop.image.attach(params[:shop][:image])
     if @shop.save
       @shop.save_tag(tag_list) #タグ実装
@@ -51,7 +51,7 @@ class ShopsController < ApplicationController
   private
     
     def shop_params
-      params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :description, tag_name: [] )
+      params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :description, { :tag_name => [], :tag_ids => [] })
     end
 
 end

@@ -10,6 +10,7 @@ require("channels")
 require("jquery")
 // require("jquery-ui")  tag-itを使うためにgemを入れたが、Module not found: Error: Can't resolve 'jquery-ui'が出て解決できず
 import "bootstrap"
+import '../stylesheets/application';
 import '@fortawesome/fontawesome-free/js/all';
 
 // Uncomment to copy all static images under ../images to the output folder and reference

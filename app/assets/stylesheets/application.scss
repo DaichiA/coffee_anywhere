@@ -1,0 +1,28 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ 
+ *= require bootstrap/dist/css/bootstrap.min.css
+ *= require_tree .
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
+ *= require_self
+ */
+
+ /* ↑tag-it 使うためにjquery.tagitとtagit.ui-zendesk追記 */
+
+/* font-awesome導入に手間取った。rails6からはgemではなくyarnでインストールするはずが、まずgemをインストールしてしまった。そこらへんから少し混乱し、下記importがあるとherokuデプロイに失敗したのでコメント化（ Precompiling assets failed.） */
+ /* @import '~@fortawesome/fontawesome-free/scss/fontawesome'; */
+
+ /* AdminLTEのために追記 余力があれば管理ページに使う */
+ /* @import 'admin-lte/plugins/fontawesome-free/css/all.min';
+ @import 'admin-lte/dist/css/adminlte.min'; */

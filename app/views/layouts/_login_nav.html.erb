@@ -1,4 +1,4 @@
-<li class="dropdown">
+<ul class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
     <% if current_user.image.attached? %>
       <%= image_tag current_user.display_image, :size =>'25x25' %>
@@ -7,8 +7,15 @@
     <% end %>
     <b class="caret"></b>
   </a>
+
+  <ul class="dropdown-menu">
+    <%= link_to "マイページ", current_user, class:"dropdown-item text-dark" %>
+    <%= link_to "ログアウト", :logout, method: :post, class:"dropdown-item text-dark" %>
+  </ul>
+  <!--
   <ul class="dropdown-menu">
     <li><%= link_to "マイページ", current_user %></li>
     <li><%= link_to "ログアウト", :logout, method: :post %></li>
   </ul>
-</li>
+  -->
+</ul>

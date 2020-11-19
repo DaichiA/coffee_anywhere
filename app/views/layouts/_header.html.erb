@@ -16,16 +16,15 @@
   </head>
   <body>
 
-  <header class="navbar navbar-fixed-top navbar-inverse">
+  <header class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand">
   <div class="container">
-    <h1><%= link_to "coffee anywhere", root_path %></h1>
+    <h1 class="pl-3"><%= link_to "coffee anywhere", root_path %></h1>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
+      <ul class="navbar navbar-nav navbar-right navbar-expand">
         <% if !current_user.nil? && current_user.admin? %>
-          <%= render 'layouts/admin_nav' %>
+          <li><%= render 'layouts/admin_nav' %></li>
         <% elsif current_user %>
-          <%= render 'layouts/login_nav' %>
+          <li><%= render 'layouts/login_nav' %></li>
         <% else %>
           <li><%= link_to "ログイン", login_path %></li>
           <li><%= link_to "登録", signup_path %></li>

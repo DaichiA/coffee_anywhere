@@ -1,21 +1,15 @@
 const { environment } = require('@rails/webpacker')
 
+// jQueryとBootstapのJSを使えるように
 const webpack = require('webpack')
-environment.plugins.prepend('Provide',
+environment.plugins.prepend(
+  'Provide',
   new webpack.ProvidePlugin({
-    $: 'jquery/src/jquery',
-    jQuery: 'jquery/src/jquery'
+    $: 'jquery',
+    jQuery: 'jquery',
+    Popper: 'popper.js'
   })
 )
 
-// AdminLTEのため追記 余力があれば管理ページのレイアウト整える
-// const webpack = require('webpack')
-
-// environment.plugins.prepend('Provide',
-//   new webpack.ProvidePlugin({
-//     $: 'admin-lte/plugins/jquery/jquery',
-//     jQuery: 'admin-lte/plugins/jquery/jquery',
-//   })
-// )
 
 module.exports = environment

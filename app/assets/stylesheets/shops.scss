@@ -14,7 +14,7 @@
 .shop_index {
   margin-top: 30px;
   .search_field {
-    height: 27px;
+    // height: 27px;
   }
 }
 
@@ -117,3 +117,36 @@
   border: 1px solid black;
   height: 90%;
 }
+
+.search_form {
+      padding: 15px;
+      
+      // position: absolute;
+      // top: 70px;
+      // left: 10%;
+      // right: 10%;
+      p {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .shop_search {
+        width: 100%;
+        font-size: 0;
+        .search_field {
+          height: 25px;
+          // width: 100%;
+          font-size: 1.3rem;
+          vertical-align : middle; //ブラウザによる1pxほどのズレを修正
+          height: 27px;
+          margin-bottom: 0;
+        }
+        .search_submit {
+          height: 18px;
+          // width: 1%;
+          font-size: 1.3rem;
+          vertical-align : middle; //ブラウザによる1pxほどのズレを修正
+          margin-bottom: 0;
+        }
+      }
+  }

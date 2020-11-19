@@ -31,8 +31,8 @@
   <%= f.label :business_hours, "営業時間" %>
   <%= f.text_field :business_hours, class: 'form-control' %>
 
-  <%= f.label :description, "説明" %>
-  <%= f.text_field :description, class: 'form-control' %>
+  <%= f.label :description, "説明" %> (600文字以内)
+  <%= f.text_area :description, rows:10, class: 'form-control text_area' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary " %>
 <% end %>

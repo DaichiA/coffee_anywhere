@@ -1,15 +1,120 @@
 <div class="home">
   <div class="home-header">
-    <p>最高の一杯を</p>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    <h2 class="d-md-block d-none display-3">好みの店で<br>好みの一杯を</h2>
+    <h2 class="d-block d-md-none">好みの店で<br>好みの一杯を</h2>
     <%= render 'shops/search_form' %>
   </div>
-  <div class="feedarea">
+
+  <div class="area">
+    <h2 class="font-weight-bold">エリアで探す</h2>
     <div class="row justify-content-between flex">
-      <div class="feed col-xs-4">
-        <div class="feed-item">feed-item</div>
-      </div>
-      <div class="feed col-xs-4">feed2</div>
-      <div class="feed col-xs-4">feed3</div>
+
+      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '東京'}}, {class: "area-item col-3 p-0" })do %>
+        <div class="flex w-100">
+          <%= image_tag "tokyo.jpg", class:"d-block area-left col-5 p-0" %>
+          <div class="area-right col-7">東京</div>
+        </div>
+      <% end %>
+
+      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '大阪'}}, {class: "area-item col-3 p-0" })do %>
+        <div class="flex w-100">
+          <%= image_tag "osaka.jpg", class:"d-block area-left col-5 p-0" %>
+          <div class="area-right col-7">大阪</div>
+        </div>
+      <% end %>
+
+      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '名古屋'}}, {class: "area-item col-3 p-0" })do %>
+        <div class="flex w-100">
+          <%= image_tag "nagoya.jpg", class:"d-block area-left col-5 p-0" %>
+          <div class="area-right col-7 p-0">名古屋</div>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="row justify-content-between flex">
+    
+      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '仙台'}}, {class: "area-item col-3 p-0" })do %>
+        <div class="flex w-100">
+          <%= image_tag "sendai.jpg", class:"d-block area-left col-5 p-0" %>
+          <div class="area-right col-7">仙台</div>
+        </div>
+      <% end %>
+
+      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '札幌'}}, {class: "area-item col-3 p-0" })do %>
+        <div class="flex w-100">
+          <%= image_tag "sapporo.jpg", class:"d-block area-left col-5 p-0" %>
+          <div class="area-right col-7">札幌</div>
+        </div>
+      <% end %>
+
+      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '福岡'}}, {class: "area-item col-3 p-0" })do %>
+        <div class="flex w-100">
+          <%= image_tag "fukuoka.jpg", class:"d-block area-left col-5 p-0" %>
+          <div class="area-right col-7">福岡</div>
+        </div>
+      <% end %>
+      
     </div>
   </div>
+
+  <div class="method mt-5">
+    <h2 class="font-weight-bold">淹れ方で探す</h2>
+
+    <div class="row justify-content-between flex">
+  
+        <div class="col-6 col-md-2">
+          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'ネルドリップ'}}, {class: "" })do %>
+            <%= image_tag "neldrip.jpg", class:"d-block p-0 col-12"  %>
+            <h5 class="text-center pt-2 font-weight-bold">ネルドリップ</h5>
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'エスプレッソ'}}, {class: "" })do %>
+            <%= image_tag "espresso.jpg", class:"d-block p-0 col-12"  %>
+            <h5 class="text-center pt-2 font-weight-bold">エスプレッソ</h5>
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'フレンチプレス'}}, {class: "" })do %>
+            <%= image_tag "frenchpress.jpg", class:"d-block p-0 col-12"  %>
+            <h5 class="text-center pt-2 font-weight-bold">フレンチプレス</h5>
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'エアロプレス'}}, {class: "" })do %>
+            <%= image_tag "aeropress.jpg", class:"d-block p-0 col-12"  %>
+            <h5 class="text-center pt-2 font-weight-bold">エアロプレス</h5>
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '水出し'}}, {class: "" })do %>
+            <%= image_tag "coldbrew.jpg", class:"d-block p-0 col-12"  %>
+            <h5 class="text-center pt-2 font-weight-bold">水出し</h5>
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-2">
+          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'サイフォン'}}, {class: "" })do %>
+            <%= image_tag "syphon.jpg", class:"d-block p-0 col-12"  %>
+            <h5 class="text-center pt-2 font-weight-bold">サイフォン</h5>
+          <% end %>
+        </div>
+
+    </div>
+
+<!--
+    <% @tags.each do |tag| %>
+      <div class="badge badge-light border"><%= tag.tag_name %></div>
+    <% end %>
+  </div>
+-->
+
 </div>
