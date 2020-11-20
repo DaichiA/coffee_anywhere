@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="show col-md-8 col-md-offset-2">
+  <div class="shop_show col-md-8 col-md-offset-2">
       <h1 class="shop_name">
         <%= @shop.name %>
         <% if !current_user.nil? && current_user.admin? %>
@@ -20,6 +20,52 @@
       </section>
 
       <section class="review">
+    モーダルテスト
+
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+      レビューを書く
+    </button>
+
+<!-- モーダルゾーン-->
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">レビューを書く</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+          <!-- フォーム -->
+            <%= form_with(model:[@shop, @review], local: true) do |f| %>
+
+                <%= f.label :title, "タイトル" %>
+                <%= f.text_field :title, class: 'form-control' %>
+
+                <%= f.label :content, "本文" %> (300文字以内でお書きください)
+                <%= f.text_area :content, rows:10, class: 'form-control text_area' %>
+
+                <%= hidden_field_tag :shop_id, @shop.id %>
+
+              <%= f.submit '登録', class: "btn btn-primary " %>
+            <% end %>
+
+            <!-- フォームここまで -->
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- モーダルここまで-->
+    
+
       <p>reviewエリアだけど一時的にタグ置き場</p>
         <% @shop_tags.each do |tag| %>
           <div class="badge badge-secondary"><%= tag.tag_name %></div>
