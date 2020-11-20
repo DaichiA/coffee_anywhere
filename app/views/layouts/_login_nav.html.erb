@@ -10,6 +10,9 @@
 
   <ul class="dropdown-menu">
     <%= link_to "マイページ", current_user, class:"dropdown-item text-dark" %>
+    <% if logged_in? %>
+      <%= link_to '設定', edit_user_path(current_user), class:"dropdown-item text-dark" %>
+    <% end %>
     <%= link_to "ログアウト", :logout, method: :post, class:"dropdown-item text-dark" %>
   </ul>
   <!--
