@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   post '/logout', to:'sessions#destroy'
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :users do
+    resources :reviews, only: [:index, :edit]
     member do
       get :activate
     end
   end
-  resources :shops
+  resources :shops do
+    resources :reviews, only: [:index, :new, :edit, :create]
+  end
+  resources :reviews, only: [:update, :destroy]
 end

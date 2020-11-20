@@ -1,20 +1,26 @@
 class ReviewsController < ApplicationController
   before_action :require_login
 
+  def index
+  end
+
   # def new
-  #   review = @review.new
+  #   @shop = Shop.find(params[:shop_id])
+  #   shop_id = @shop.id
+  #   @review = @shop.review.build(shop_id: shop_id)
   # end
 
   def create
-    shop = Shop.find(params[:id])
+    shop = Shop.find(params[:shop_id])
     @review = shop.reviews.build(review_params)
     @review.user_id = current_user.id
     if @review.save
       flash[:success] = "レビューを投稿しました"
-      reirect_to shop_path(shop)
+      redirect_to shop_path(shop)
     else
       flash[:danger] = "レビューを投稿できませんでした"
-      reirect_to shop_path(shop)
+      reidrect_to shop_path(shop)
+    end
   end
 
   def destroy

@@ -11,7 +11,7 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @shop_tags = @shop.tags #タグ実装
-    @reviews = @shop.reviews #review実装
+    @review = @shop.reviews.build #review実装
   end
 
   def new
