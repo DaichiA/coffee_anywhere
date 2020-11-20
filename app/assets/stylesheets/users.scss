@@ -47,3 +47,56 @@ input, textarea, select, .uneditable-input {
     }
   }
 }
+
+
+// ===========
+// show
+// ===========
+
+.row {
+  .show_header {
+    // background-image: image-url('show_header.jpg');
+    // background-position: center;
+    // background-size: cover;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    .show_header_image {
+      background-image: image-url('show_header.jpg');
+      background-position: center;
+      background-size: cover;
+      height: 120px;
+      width: 100%;
+    }
+    .image_space {
+      border: 0.3px solid #bbb;
+      height: 112px;
+      width: 112px;
+      border-radius: 3px;
+      background-color: #fff;
+      position: absolute;
+      top: 75px;
+      left: 30px;
+      .user_image {
+        border-radius: 3px;
+      }
+    }
+    .user_info {
+      position: absolute;
+      top: 145px;
+      left: 170px;
+    }
+    nav {
+      position: absolute;
+      top: 130px;
+      // left: 250px;
+      right: 0;
+      li {
+        font-size: 1.4rem;
+        display: inline-block;
+        padding: 15px;
+      }
+    }
+  }
+}

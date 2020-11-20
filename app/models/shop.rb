@@ -1,4 +1,5 @@
 class Shop < ApplicationRecord
+  has_many :reviews
   has_many :shop_tag_relations, dependent: :destroy
   has_many :tags, through: :shop_tag_relations
   validates :name, presence: true, length: { maximum: 30 }
