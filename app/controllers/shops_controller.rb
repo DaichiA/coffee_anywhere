@@ -10,8 +10,16 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @shop_tags = @shop.tags #タグ実装
-    @review = @shop.reviews.build #review実装
+    @shop_tags = @shop.tags #タグ一覧
+    @review_first = @shop.reviews.first 
+    @review_second = @shop.reviews.second
+    @review = @shop.reviews.build #フォーム 
+    #reviewが降順になるのは保存されたタイミングなので、この時点では@review_firstには影響しない
+  end
+
+  def reviews
+    @shop = Shop.find(params[:id])
+    @reviews = @shop.reviews
   end
 
   def new

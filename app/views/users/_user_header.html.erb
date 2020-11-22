@@ -1,0 +1,21 @@
+<div class="user_header">
+    <div class="user_header_image"></div>
+    <div class="image_space d-flex justify-content-center align-items-center">
+      <% if @user.image.attached? %>
+        <%= image_tag @user.display_image, :size =>'100x100', class:"user_image" %>
+      <% else %>
+        <%= image_tag "default_user.jpg", :size => "100x100", class:"user_image" %>
+      <% end %>
+    </div>
+
+    <div class="user_info">
+      <h3 class="font-weight-bold"><%= @user.name %></h3>
+    </div>
+
+    <nav>
+      <ul class="navbar navbar-nav navbar-expand">
+        <li class="border-left border-right"><%= link_to 'お気に入り' %></li>
+        <li class="border-right"><%= link_to 'レビュー', user_reviews_path(current_user) %></li>
+      </ul>
+    </nav>
+  </div>

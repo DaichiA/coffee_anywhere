@@ -1,0 +1,38 @@
+<div class="shop_info pt-5">
+  <h3 class="pb-3">店舗情報</h3>
+  <table class="table">
+    <!-- <thead>
+      <th scope="col">店舗情報</th>
+    </thead>
+    -->
+    <tbody>
+      <tr>
+        <th scope="row" class="active col-xs-3 align-middle">店名</th>
+        <td><%= @shop.name %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="active">お問い合わせ電話番号</th>
+        <td><%= @shop.phone_number %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="active">住所</th>
+        <td>
+          <%= @shop.address %><br>
+          ここにGoogleMap
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" class="active">営業時間</th>
+        <td><%= @shop.business_hours %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="active">支払い方法</th>
+        <td>カード不可とか電子マネー利用可能とか</td>
+      </tr>
+      <tr>
+        <th scope="row" class="active">ホームページ・SNS</th>
+        <td>SNSのアイコンにそのリンクを</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

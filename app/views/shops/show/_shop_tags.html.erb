@@ -1,0 +1,8 @@
+<div class="tags py-5">
+  <h3 class="border-bottom pb-3">こだわり一覧</h3>
+  <div class="tags_space p-3 pb-5">
+    <% @shop_tags.each do |tag| %>
+      <div class="badge badge-dark p-2"><%= tag.tag_name %></div>
+    <% end %>
+  </div>
+</div>

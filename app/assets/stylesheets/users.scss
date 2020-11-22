@@ -54,15 +54,12 @@ input, textarea, select, .uneditable-input {
 // ===========
 
 .row {
-  .show_header {
-    // background-image: image-url('show_header.jpg');
-    // background-position: center;
-    // background-size: cover;
+  .user_header {
     border-bottom: 1px solid #ddd;
     width: 100%;
     height: 200px;
     position: relative;
-    .show_header_image {
+    .user_header_image {
       background-image: image-url('show_header.jpg');
       background-position: center;
       background-size: cover;

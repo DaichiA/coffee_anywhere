@@ -1,0 +1,33 @@
+<div class="reviews py-5">
+  <div class="border-bottom pb-3">
+    <!-- countはdbのレコード数を数えるからformのためにbuildした1つはカウントされない -->
+    <h3 class="d-inline">お店のレビュー(<%= @shop.reviews.count %>件)</h3>
+    <% if logged_in? %>
+      <%= render 'shops/show/shop_review_modal' %>
+    <% end %>
+  </div>
+
+  <!-- lengthはformのためにbuildした1つもカウントされる -->
+  <% if @shop.reviews.length == 1  %> 
+    <!-- レビューがない -->
+    <p class="h5 mt-4">レビューはまだありません。</p>
+  <% elsif @shop.reviews.length >= 2 %>
+    <!-- レビューが1件以上ある -->
+    <%= render 'shops/show/shop_review_first' %>
+
+    <% if @shop.reviews.length >= 3 %>
+      <!-- レビューが2件以上ある -->
+      <%= render 'shops/show/shop_review_second' %>
+
+      <% if @shop.reviews.length >= 4 %>
+        <!-- レビューが3件以上ある -->
+        <div class="reviews_bottom pt-4 row">
+          <span class="col text-right"><%= link_to '<レビューをもっと見る>', reviews_shop_path %></span>
+        </div>
+      <% end %>
+
+    <% end %>
+
+  <% end %>
+
+</div>

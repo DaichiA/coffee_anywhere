@@ -1,0 +1,23 @@
+<h2><%= @shop.name %>のレビュー  (<%= @shop.reviews.count %>件のレビュー)</h2>
+
+<% @reviews.each do |review| %>
+  <div class="my_review border flex w-100 mt-5 mx-4 rounded-lg">
+    <div class="user_info w-100 pl-3 py-3 border-bottom d-flex">
+      <% if review.user.image.attached? %>
+        <%= image_tag review.user.display_image, :size =>'45x45', class:"user_image d-block" %>
+      <% else %>
+        <%= image_tag "default_user.jpg", :size => "45x45", class:"user_image d-block" %>
+      <% end %>
+      <p class="d-inline-block ml-4 mr-auto my-auto h5"><%= review.user.name %> さんのレビュー</p>
+    </div>
+    <div class="review flex-column">
+      <p class="py-3 pl-3 mb-0"><%= review.created_at %></p>
+      <h4 class="review_title h3 border-bottom pl-3 d-inline-block font-weight-bold">
+        <%= review.title %>
+      </h4>
+      <div class="review_cotent p-3">
+        <%= review.content %>
+      </div>
+    </div>
+  </div>
+<% end %>
