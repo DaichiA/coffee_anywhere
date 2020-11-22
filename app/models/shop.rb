@@ -1,6 +1,6 @@
 class Shop < ApplicationRecord
   has_many :reviews
-  has_many :shop_tag_relations, dependent: :destroy
+  has_many :shop_tag_relations, foreign_key: :shop_id, dependent: :destroy
   has_many :tags, through: :shop_tag_relations
   validates :name, presence: true, length: { maximum: 30 }
   has_one_attached :image
@@ -9,6 +9,7 @@ class Shop < ApplicationRecord
   validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
   validates :address, presence: true, length: { maximum: 255 }
   validates :description, length: { maximum: 600 }
+  validates :dayoff, presence: true, length: { maximum: 20 }
 
 
 

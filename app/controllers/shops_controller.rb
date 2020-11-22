@@ -19,7 +19,7 @@ class ShopsController < ApplicationController
 
   def reviews
     @shop = Shop.find(params[:id])
-    @reviews = @shop.reviews
+    @reviews = @shop.reviews.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -60,7 +60,7 @@ class ShopsController < ApplicationController
   private
     
     def shop_params
-      params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :description, { :tag_name => [], :tag_ids => [] })
+      params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :dayoff, :description, { :tag_name => [], :tag_ids => [] })
     end
 
 end

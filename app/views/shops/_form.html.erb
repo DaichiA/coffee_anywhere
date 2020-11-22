@@ -1,38 +1,43 @@
 <%= form_with(model:@shop) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, "店名" %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :name, "店名" %> <span class="text-danger">(必須)</span>
+  <%= f.text_field :name, class: 'form-control mb-4' %>
 
-  <%= f.label :image, "画像" %>
-  <span class="image">
-    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-  </span>
+  <div class="form-controll mb-4">
+    <%= f.label :image, "画像" %>
+    <span class="image">
+      <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+    </span>
+  </div>
 
   <%= f.label :tag_name, "タグ" %> (半角スペースで区切ってください)
   <% if @tag_list %>
-    <%= f.text_field :tag_name, value:@tag_list %>
+    <%= f.text_field :tag_name, value:@tag_list, class: 'form-control mb-4' %>
     <p>既存のタグ</p>
     <% @every_tags.each do |tag| %>
-      <p class="badge badge-secondary"><%= tag.tag_name %></p>
+      <p class="badge badge-secondary form-control mb-4"><%= tag.tag_name %></p>
     <% end %>
   <% else %>
-    <%= f.text_field :tag_name %>
+    <%= f.text_field :tag_name, class: 'form-control mb-4' %>
   <% end %>
 
   <br>
 
-  <%= f.label :adddress, "住所" %>
-  <%= f.text_field :address, class: 'form-control' %>
+  <%= f.label :adddress, "住所" %> <span class="text-danger">(必須)</span>
+  <%= f.text_field :address, class: 'form-control mb-4' %>
 
   <%= f.label :phone_number, "電話番号" %> (ハイフン 「-」 等は付けず、数字だけ入力してください)
-  <%= f.text_field :phone_number, class: 'form-control' %>
+  <%= f.text_field :phone_number, class: 'form-control mb-4' %>
 
   <%= f.label :business_hours, "営業時間" %>
-  <%= f.text_field :business_hours, class: 'form-control' %>
+  <%= f.text_field :business_hours, class: 'form-control mb-4' %>
+
+  <%= f.label :dayoff, "定休日" %> <span class="text-danger">(必須)</span> (年中無休や不定休でもその旨お書きください)
+  <%= f.text_field :dayoff, class: 'form-control mb-4' %>
 
   <%= f.label :description, "説明" %> (600文字以内)
-  <%= f.text_area :description, rows:10, class: 'form-control text_area' %>
+  <%= f.text_area :description, rows:10, class: 'form-control mb-4 text_area' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary " %>
 <% end %>

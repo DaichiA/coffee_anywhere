@@ -8,7 +8,7 @@
     <p class="d-inline-block ml-4 mr-auto my-auto h5"><%= @review_second.user.name %> さんのレビュー</p>
   </div>
   <div class="review flex-column">
-    <p class="py-3 pl-3 mb-0"><%= @review_second.created_at %></p>
+    <p class="py-3 pl-3 mb-0"><%= @review_second.created_at.strftime('%Y年%m月%d日') %></p>
     <h4 class="review_title h3 border-bottom pl-3 d-inline-block font-weight-bold">
       <%= @review_second.title %>
     </h4>

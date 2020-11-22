@@ -1,6 +1,10 @@
 <div class="row">
   <%= render "users/user_header" %>
 
+  <% if @reviews.empty? %>
+    <p class="m-5 h5">まだレビューを投稿していません</p>
+  <% end %>
+
   <% @reviews.each do |review| %>
     <div class="my_review border flex w-100 mt-5 mx-4 rounded-lg">
       <div class="user_info w-100 pl-3 py-3 border-bottom d-flex">
@@ -13,7 +17,7 @@
         <p class="d-inline-block ml-4 mr-4 my-auto h5">行ったお店: <span class="font-weight-bold"><%= link_to review.shop.name, shop_path(review.shop_id) %></span></p>
       </div>
       <div class="review flex-column">
-        <p class="py-3 pl-3 mb-0"><%= review.created_at %></p>
+        <p class="py-3 pl-3 mb-0"><%= review.created_at.strftime('%Y年%m月%d日') %></p>
         <h4 class="review_title h3 border-bottom pl-3 d-inline-block font-weight-bold">
           <%= review.title %>
         </h4>
@@ -23,5 +27,8 @@
       </div>
     </div>
   <% end %>
+
 </div>
+
+  <%= will_paginate @reviews, list_classes: %w(pagination justify-content-center h3 mt-5), aria_label:  'Page Navigation' %>
 

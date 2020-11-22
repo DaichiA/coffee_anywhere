@@ -11,7 +11,7 @@
       <p class="d-inline-block ml-4 mr-auto my-auto h5"><%= review.user.name %> さんのレビュー</p>
     </div>
     <div class="review flex-column">
-      <p class="py-3 pl-3 mb-0"><%= review.created_at %></p>
+      <p class="py-3 pl-3 mb-0"><%= review.created_at.strftime('%Y年%m月%d日') %></p>
       <h4 class="review_title h3 border-bottom pl-3 d-inline-block font-weight-bold">
         <%= review.title %>
       </h4>
@@ -21,3 +21,5 @@
     </div>
   </div>
 <% end %>
+
+<%= will_paginate @reviews, list_classes: %w(pagination justify-content-center h3 mt-5), aria_label:  'Page Navigation' %>
