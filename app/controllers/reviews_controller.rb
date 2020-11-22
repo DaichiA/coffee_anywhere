@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
       @user = User.find(current_user.id)
-      @reviews = @user.reviews
+      @reviews = @user.reviews.paginate(page: params[:page], per_page: 10)
   end
 
   # def new
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
       redirect_to shop_path(shop)
     else
       flash[:danger] = "レビューを投稿できませんでした"
-      reidrect_to shop_path(shop)
+      redirect_to shop_path(shop)
     end
   end
 
@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
   private
 
     def review_params
-      params.require(:review).permit(:user_id, :shop_id, :title, :content)
+      params.require(:review).permit(:title, :content)
     end
 
 end

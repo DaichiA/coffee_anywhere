@@ -13,17 +13,20 @@
         <% end %>
         <div class="list_text">
           <%= link_to shop.name, shop, class: "shop_name" %>
-          <p class="badge badge-secondary">
-            ここにタグのコード
-            </p>
           <% if !current_user.nil? && current_user.admin? %>
-            <%= link_to "<編集>", edit_shop_path(shop) %>
+            <div class="btn btn-warning font-weight-bold px-4 mb-3"><%= link_to "編集", edit_shop_path(shop) %></div>
           <% end %>
+          <div class="">
+            <% shop.tags.each do |tag| %>
+              <div class="badge badge-dark p-2"><%= tag.tag_name %></div>
+            <% end %>
+          </div>
+          <p>定休日: <%= shop.dayoff %></p>
           <%= link_to truncate(shop.description, length: 100, omission:"..."), shop, class: "shop_desc" %>
         </div>
       </li>
     <% end %>
   </ul>
 
-  <%= will_paginate class:"text-center" %>
+  <%= will_paginate @shops, list_classes: %w(pagination justify-content-center h3 mt-5), aria_label:  'Page Navigation' %>
 </div>
