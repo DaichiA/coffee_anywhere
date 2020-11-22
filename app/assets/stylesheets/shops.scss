@@ -59,7 +59,7 @@
 // ===========
 
 .shop_show {
-  border: 1px solid black;
+  // border: 1px solid black;
   margin: 40px auto;
   padding: 10px;
   .shop_name {
@@ -67,7 +67,7 @@
   }
   
   .shop_image {
-    border: 1px solid black;
+    border: 1px solid #bbb;
     text-align: center;
     max-width: 748px;
     max-height: 490px;
@@ -79,21 +79,22 @@
   }
 
   .shop_desc {
-    border: 1px solid black;
+    // border: 1px solid black;
+    font-size: 14px;
     padding: 5px;
     margin-top: 10px;
     // height: 100px;
   }
 
   .review {
-    border: 1px solid black;
+    // border: 1px solid black;
     height: 100px;
     padding: 5px;
     word-wrap: break-word;
   }
   
   .shop_info {
-    border: 1px solid black;
+    // border: 1px solid black;
     height: 400px;
     padding: 5px;
     // width: 350px;

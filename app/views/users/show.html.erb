@@ -1,28 +1,8 @@
 
 <div class="row">
-  <div class="show_header">
-    <div class="show_header_image"></div>
-    <div class="image_space d-flex justify-content-center align-items-center">
-      <% if @user.image.attached? %>
-        <%= image_tag @user.display_image, :size =>'100x100', class:"user_image" %>
-      <% else %>
-        <%= image_tag "default_user.jpg", :size => "100x100", class:"user_image" %>
-      <% end %>
-    </div>
+  <%= render "user_header" %>
 
-    <div class="user_info">
-      <h3 class="font-weight-bold"><%= @user.name %></h3>
-    </div>
-
-    <nav>
-      <ul class="navbar navbar-nav navbar-expand">
-        <li class="border-left border-right"><%= link_to 'お気に入り' %></li>
-        <li class="border-right"><%= link_to 'レビュー' %></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div class="my_review border flex w-100 mt-5 mx-4 rounded-lg">
+  <div class="my_review border flex w-100 my-5 mx-4 rounded-lg">
       <div class="user_info w-100 pl-3 py-3 border-bottom">
         <% if @user.image.attached? %>
           <%= image_tag @user.display_image, :size =>'45x45', class:"user_image" %>
@@ -35,14 +15,18 @@
       <div class="review flex-column">
         <p class="py-3 pl-3">レビューの日付</p>
         <h4 class="review_title border-bottom pl-3 d-inline-block">タイトル</h4>
-        <div class="review_cotent p-3">ベッドを購入する際、直接ベッドに寝転がってみたり、店員さんと直接話しをして、購入するほうが失敗
-しにくいという意見の方が多いかと思います。ただ、大事な睡眠に関わるベッドだから色んなものを見て
-選びたいという方には、通販で一度いろんなベッドをみてまわる、という方法があります。
-ネットの通販であれば、家にいながらいろんなお店のベッドを見てまわることが出来ます。
-素材やサイズは基本的にはサイトに書いてありますし、最近では購入者のレビューも沢山掲載されている
-通販サイトもありますので、ベッドの寝心地の参考にするのもよいでしょう。
-実際の店舗へ行く前に、ネットの通販で下調べする。このようなベッドの買い方も、効率的で
+        <div class="review_cotent p-3">ベッドを購入する際、直接ベッドに寝転がってみたり、店員さんと直接話しをして、購入するほうが失敗しにくいという意見の方が多いかと思います。ただ、大事な睡眠に関わるベッドだから色んなものを見て選びたいという方には、通販で一度いろんなベッドをみてまわる、という方法があります。ネットの通販であれば、家にいながらいろんなお店のベッドを見てまわることが出来ます。素材やサイズは基本的にはサイトに書いてありますし、最近では購入者のレビューも沢山掲載されている通販サイトもありますので、ベッドの寝心地の参考にするのもよいでしょう。実際の店舗へ行く前に、ネットの通販で下調べする。このようなベッドの買い方も、効率的で
         </div>
       </div>
+  </div>
+
+  <div>
+
+    <!-- @userのレビュー一覧を表示できることを確認
+          <% @reviews.each do |review| %>
+            <p>ID: <%= review.id %></p>,<p><%= review.title %></p>
+          <% end %>
+    -->
+
   </div>
 </div>

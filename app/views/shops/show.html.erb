@@ -1,116 +1,19 @@
 <div class="row">
+
   <div class="shop_show col-md-8 col-md-offset-2">
-      <h1 class="shop_name">
-        <%= @shop.name %>
-        <% if !current_user.nil? && current_user.admin? %>
-          <span><%= link_to "<編集>", edit_shop_path(@shop) %></span>
-        <% end %>
-      </h1>
 
-      <section class="shop_image">
-        <% if @shop.image.attached? %>
-          <%= image_tag @shop.display_image,  class: "image" %>
-        <% else %>
-          <%= image_tag("default_shop.jpg",  class: "image") %>
-        <% end %>
-      </section>
+    <%= render 'shops/show/shop_header' %>
 
-      <section class="shop_desc">
-        <%= @shop.description %>
-      </section>
+    <%= render 'shops/show/shop_description' %>
 
-      <section class="review">
-    モーダルテスト
+    <%= render 'shops/show/shop_tags' %>
 
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
-      レビューを書く
-    </button>
-
-<!-- モーダルゾーン-->
-
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">レビューを書く</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-
-          <!-- フォーム -->
-            <%= form_with(model:[@shop, @review], local: true) do |f| %>
-
-                <%= f.label :title, "タイトル" %>
-                <%= f.text_field :title, class: 'form-control' %>
-
-                <%= f.label :content, "本文" %> (300文字以内でお書きください)
-                <%= f.text_area :content, rows:10, class: 'form-control text_area' %>
-
-                <%= hidden_field_tag :shop_id, @shop.id %>
-
-              <%= f.submit '登録', class: "btn btn-primary " %>
-            <% end %>
-
-            <!-- フォームここまで -->
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<!-- モーダルここまで-->
+    <%= render 'shops/show/shop_reviews' %>
     
+    <%= render 'shops/show/shop_info' %>
 
-      <p>reviewエリアだけど一時的にタグ置き場</p>
-        <% @shop_tags.each do |tag| %>
-          <div class="badge badge-secondary"><%= tag.tag_name %></div>
-        <% end %>
-      </section>
-
-      <section class="shop_info">
-        <table class="table">
-          <thead>
-            <th scope="col">店舗情報</th>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row" class="active col-xs-3 align-middle">店名</th>
-              <td><%= @shop.name %></td>
-            </tr>
-            <tr>
-              <th scope="row" class="active">お問い合わせ電話番号</th>
-              <td><%= @shop.phone_number %></td>
-            </tr>
-            <tr>
-              <th scope="row" class="active">住所</th>
-              <td>
-                <%= @shop.address %><br>
-                ここにGoogleMap
-              </td>
-            </tr>
-            <tr>
-              <th scope="row" class="active">営業時間</th>
-              <td><%= @shop.business_hours %></td>
-            </tr>
-            <tr>
-              <th scope="row" class="active">支払い方法</th>
-              <td>カード不可とか電子マネー利用可能とか</td>
-            </tr>
-            <tr>
-              <th scope="row" class="active">ホームページ・SNS</th>
-              <td>SNSのアイコンにそのリンクを</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-  
   </div>
 
   <!--<div class="show_right col-md-3 hidden-sm hidden-xs">reccomend</div>
--->
+    -->
 </div>

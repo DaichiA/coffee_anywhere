@@ -1,0 +1,18 @@
+<div class="shop_header my-5 mx-3">
+  <div class="shop_title border-bottom row mb-5">
+    <h1 class="font-weight-bold d-inline-block col"><%= @shop.name %></h1>
+    <div class="info_right col text-right">
+      <div class="h5">定休日</div>
+      <div class="h5"><%= link_to "<レビュー#{@shop.reviews.count}件>", reviews_shop_path %></div>
+    </div>
+  </div>
+
+  <div class="shop_image">
+    <% if @shop.image.attached? %>
+      <%= image_tag @shop.display_image,  class: "image" %>
+    <% else %>
+      <%= image_tag("default_shop.jpg",  class: "image") %>
+    <% end %>
+  </div>
+  
+</div>

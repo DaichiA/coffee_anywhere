@@ -1,7 +1,9 @@
 class ReviewsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, only: [:index, :create, :destroy]
 
   def index
+      @user = User.find(current_user.id)
+      @reviews = @user.reviews
   end
 
   # def new
@@ -29,7 +31,7 @@ class ReviewsController < ApplicationController
   private
 
     def review_params
-      params.require(:review).permit(:title, :content)
+      params.require(:review).permit(:user_id, :shop_id, :title, :content)
     end
 
 end
