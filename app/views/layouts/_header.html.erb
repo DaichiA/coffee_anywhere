@@ -21,6 +21,7 @@
     <h1 class="pl-3"><%= link_to "coffee anywhere", root_path %></h1>
     <nav>
       <ul class="navbar navbar-nav navbar-right navbar-expand">
+        <li><%= link_to "Home", root_path %></li>
         <% if !current_user.nil? && current_user.admin? %>
           <li><%= render 'layouts/admin_nav' %></li>
         <% elsif current_user %>

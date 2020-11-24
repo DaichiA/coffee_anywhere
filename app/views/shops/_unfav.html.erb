@@ -1,0 +1,5 @@
+<%= form_with(model: current_user.favorites.find_by(shop_id: @shop.id), html: { method: :delete }, remote: true) do |f| %>
+  <%= button_tag type: 'submit', class:"border-0 bg-transparent" do %>
+    <span id="fav" class="h3 text-warning"><i class="fas fa-bookmark"></i></span>
+  <% end %> 
+<% end %>

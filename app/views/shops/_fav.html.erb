@@ -1,0 +1,6 @@
+<%= form_with(model: current_user.favorites.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :shop_id, @shop.id %></div>
+  <%= button_tag type: 'submit', class:"border-0 bg-transparent" do %>
+    <span id="fav" class="h3"><i class="far fa-bookmark"></i></span>
+  <% end %>  
+<% end %>

@@ -1,0 +1,7 @@
+<!--renderする時 locals: user, size -->
+
+<% if user.image.attached? %>
+  <%= image_tag user.display_image, :size => size, class:"user_image" %>
+<% else %>
+  <%= image_tag "default_user.jpg", :size => size, class:"user_image" %>
+<% end %>
