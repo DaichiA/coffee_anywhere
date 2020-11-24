@@ -5,26 +5,7 @@
 
   <ul class="shops">
     <% @shops.each do |shop| %>
-      <li>
-        <% if shop.image.attached? %>
-          <%= image_tag shop.display_image, :size =>'200x200' %>
-        <% else %>
-          <%= image_tag("default_shop.jpg", :size => "200x200") %>
-        <% end %>
-        <div class="list_text">
-          <%= link_to shop.name, shop, class: "shop_name" %>
-          <% if !current_user.nil? && current_user.admin? %>
-            <div class="btn btn-warning font-weight-bold px-4 mb-3"><%= link_to "編集", edit_shop_path(shop) %></div>
-          <% end %>
-          <div class="">
-            <% shop.tags.each do |tag| %>
-              <div class="badge badge-dark p-2"><%= tag.tag_name %></div>
-            <% end %>
-          </div>
-          <p>定休日: <%= shop.dayoff %></p>
-          <%= link_to truncate(shop.description, length: 100, omission:"..."), shop, class: "shop_desc" %>
-        </div>
-      </li>
+      <%= render partial: 'shared/shop_index', locals: { shop: shop } %>
     <% end %>
   </ul>
 

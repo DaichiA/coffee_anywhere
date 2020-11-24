@@ -1,11 +1,7 @@
 <div class="user_header">
     <div class="user_header_image"></div>
     <div class="image_space d-flex justify-content-center align-items-center">
-      <% if @user.image.attached? %>
-        <%= image_tag @user.display_image, :size =>'100x100', class:"user_image" %>
-      <% else %>
-        <%= image_tag "default_user.jpg", :size => "100x100", class:"user_image" %>
-      <% end %>
+    <%= render partial: 'shared/user_image', locals: { user: @user, size: '100x100' } %>
     </div>
 
     <div class="user_info">
@@ -13,9 +9,20 @@
     </div>
 
     <nav>
-      <ul class="navbar navbar-nav navbar-expand">
-        <li class="border-left border-right"><%= link_to 'お気に入り' %></li>
-        <li class="border-right"><%= link_to 'レビュー', user_reviews_path(current_user) %></li>
-      </ul>
+        <ul class="navbar navbar-nav navbar-expand">
+          <li class="border-left border-right d-none d-md-inline-block"><%= link_to 'ブックマーク', user_path(@user) %></li>
+          <li class="border-left border-right d-sm-inline-block d-md-none">
+            <%= link_to user_path(@user) do %>
+              <i class="far fa-bookmark"></i>
+            <% end %>  
+          </li>
+
+          <li class="border-right d-none d-md-inline-block"><%= link_to 'レビュー', user_reviews_path(current_user) %></li>
+          <li class="border-right d-sm-inlineblock d-md-none">
+            <%= link_to user_reviews_path(current_user) do %>
+              <i class="far fa-comment"></i>
+            <% end %>
+          </li>
+        </ul>
     </nav>
   </div>

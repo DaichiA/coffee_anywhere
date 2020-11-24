@@ -11,6 +11,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = @user.reviews
+    @favorites = @user.favorites
+  end
+
+  def favorites
+    @user = User.find(params[:id])
+    @favorites = @user.favorites.paginate(page: params[:page])
   end
   
   def new
@@ -42,6 +48,17 @@ class UsersController < ApplicationController
       #余裕があればアドレスやパスワード毎にフォームを分けて個別に編集できるようにする
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    if !current_user.nil? && current_user.admin?
+      redirect_back(fallback_location: root_path)
+      flash[:success] = "ユーザーを削除しました。"
+    else
+      redirect_to root_path
+      flash[:success] = "アカウントを削除しました。"
     end
   end
 

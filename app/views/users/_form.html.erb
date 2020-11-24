@@ -18,5 +18,9 @@
   <%= f.label :password_confirmation, "パスワード確認" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+  <% if logged_in? && !current_user.admin? %>
+    <%= link_to "アカウント削除", @user, method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class:"ml-3 text-danger" %>
+  <% end %>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary " %>
 <% end %>

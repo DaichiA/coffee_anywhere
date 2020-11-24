@@ -7,6 +7,10 @@
     <div class="info_right col text-right">
       <div class="h5">定休日: <%= @shop.dayoff %></div>
       <div class="h5"><%= link_to "<レビュー#{@shop.reviews.count}件>", reviews_shop_path %></div>
+      
+    <%= render 'shops/show/favorite' %>
+
+
     </div>
   </div>
 
