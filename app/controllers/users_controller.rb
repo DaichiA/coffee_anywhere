@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:show, :edit, :update]
   before_action :reject_logged_in, only: [:new, :create]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update]
   before_action :admin_user, only: [:index]
 
   def index
@@ -11,13 +11,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = @user.reviews
-    @favorites = @user.favorites
-  end
-
-  def favorites
-    @user = User.find(params[:id])
     @favorites = @user.favorites.paginate(page: params[:page])
   end
+
+  # これはshowでやっとる
+  # def favorites
+  #   @user = User.find(params[:id])
+  #   @favorites = @user.favorites.paginate(page: params[:page])
+  # end
   
   def new
     @user = User.new
@@ -51,6 +52,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # adminか自分のみ
   def destroy
     User.find(params[:id]).destroy
     if !current_user.nil? && current_user.admin?
@@ -62,6 +64,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # 自分のみ
   def activate
     if @user = User.load_from_activation_token(params[:id])
       @user.activate!

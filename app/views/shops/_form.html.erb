@@ -1,7 +1,7 @@
 <%= form_with(model:@shop, local: true) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, "店名" %> <span class="text-danger">(必須)</span>
+  <%= f.label :name, "店名", class: "mt-5" %> <span class="text-danger">(必須)</span>
   <%= f.text_field :name, class: 'form-control mb-4' %>
 
   <div class="form-controll mb-4">
@@ -16,7 +16,7 @@
     <%= f.text_field :tag_name, value:@tag_list, class: 'form-control mb-4' %>
     <p>既存のタグ</p>
     <% @every_tags.each do |tag| %>
-      <p class="badge badge-secondary form-control mb-4"><%= tag.tag_name %></p>
+      <p class="badge badge-secondary mb-4"><%= tag.tag_name %></p>
     <% end %>
   <% else %>
     <%= f.text_field :tag_name, class: 'form-control mb-4' %>
@@ -39,5 +39,8 @@
   <%= f.label :description, "説明" %> (600文字以内)
   <%= f.text_area :description, rows:10, class: 'form-control mb-4 text_area' %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary " %>
+
+
+
+  <%= f.submit yield(:button_text), class: "btn btn-dark " %>
 <% end %>

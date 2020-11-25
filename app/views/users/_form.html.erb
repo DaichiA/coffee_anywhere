@@ -1,7 +1,7 @@
  <%= form_with(model:@user, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, "名前" %>
+  <%= f.label :name, "名前", class: "mt-5" %>
   <%= f.text_field :name, class: 'form-control' %>
 
   <%= f.label :image, "アイコン画像" %>
@@ -18,9 +18,5 @@
   <%= f.label :password_confirmation, "パスワード確認" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <% if logged_in? && !current_user.admin? %>
-    <%= link_to "アカウント削除", @user, method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class:"ml-3 text-danger" %>
-  <% end %>
-
-  <%= f.submit yield(:button_text), class: "btn btn-primary " %>
+  <%= f.submit yield(:button_text), class: "btn btn-dark mt-5" %>
 <% end %>

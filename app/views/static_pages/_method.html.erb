@@ -1,0 +1,6 @@
+<div class="col-6 col-md-2">
+  <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: "#{method}"}} )do %>
+    <%= image_tag "#{method_image}.jpg", class:"d-block p-0 col-12"  %>
+    <h5 class="text-center pt-2 font-weight-bold"><%= method %></h5>
+  <% end %>
+</div>

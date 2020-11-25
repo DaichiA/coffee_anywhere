@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :require_login, only: [:index, :create, :destroy]
 
+  # current_userのid使ってるから他人のreviewsは見れないけどURLは行ける
   def index
       @user = User.find(current_user.id)
       @reviews = @user.reviews.paginate(page: params[:page], per_page: 10)
@@ -26,6 +27,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    Review.find(params[:id]).destroy
+    flash[:success] = "レビューを削除しました。"
+    redirect_back(fallback_location: root_path)
   end
 
   private

@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  before_action :require_login
+
   def create
     @shop = Shop.find(params[:shop_id])
     current_user.fav(@shop)

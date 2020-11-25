@@ -1,10 +1,14 @@
 <% provide(:title, 'Edit') %>
 <% provide(:button_text, '決定') %>
 
-<h1>Update your profile</h1>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="mt-5">Update your profile</h1>
     <%= render 'form' %>
+
+    <% if logged_in? && !current_user.admin? %>
+      <%= link_to "アカウント削除", @user, method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class:"btn btn-danger text-white w-100 mt-4" %>
+    <% end %>
   </div>
 </div>
 

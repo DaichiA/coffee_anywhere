@@ -4,7 +4,7 @@
     <div class="container">
     <% unless current_page?(root_path) %>
       <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <div class="flash alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
     <% end %>
     <%= yield %>

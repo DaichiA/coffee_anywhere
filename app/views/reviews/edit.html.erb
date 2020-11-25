@@ -1,0 +1,21 @@
+<% provide(:button_text, '登録') %>
+
+<h1>レビュー 編集</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <%= form_with(model: @review, local: true) do |f| %>
+
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :content, "本文" %> (300文字以内でお書きください)
+      <%= f.text_area :content, rows:10, class: 'form-control text_area' %>
+
+      <%= hidden_field_tag :shop_id, @shop.id %>
+      <br>
+
+    <%= f.submit '登録', class: "btn btn-dark " %>
+  <% end %>
+  </div>
+</div>

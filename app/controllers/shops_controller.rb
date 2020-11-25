@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :admin_user, only: [:new, :create, :edit, :update]
+  before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
   
   def index
     # @shops = Shop.paginate(page: params[:page])
@@ -11,8 +11,6 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @shop_tags = @shop.tags #タグ一覧
-    @review_first = @shop.reviews.first 
-    @review_second = @shop.reviews.second
     @review = @shop.reviews.build #フォーム 
     #reviewが降順になるのは保存されたタイミングなので、この時点では@review_firstには影響しない
   end
@@ -55,6 +53,12 @@ class ShopsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    Shop.find(params[:id]).destroy
+    flash[:success] = "店舗情報を削除しました。"
+    redirect_to shops_path
   end
 
   private

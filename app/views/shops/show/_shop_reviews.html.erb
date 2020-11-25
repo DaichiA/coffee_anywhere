@@ -7,19 +7,18 @@
     <% end %>
   </div>
 
-  <!-- lengthはformのためにbuildした1つもカウントされる -->
-  <% if @shop.reviews.length == 1  %> 
+  <% if @shop.reviews.count == 0  %> 
     <!-- レビューがない -->
     <p class="h5 mt-4">レビューはまだありません。</p>
-  <% elsif @shop.reviews.length >= 2 %>
+  <% elsif @shop.reviews.count >= 1 %>
     <!-- レビューが1件以上ある -->
-    <%= render 'shops/show/shop_review_first' %>
+    <%= render partial: 'shared/review', locals: { user: @shop.reviews.first.user, review: @shop.reviews.first }  %>
 
-    <% if @shop.reviews.length >= 3 %>
+    <% if @shop.reviews.count >= 2 %>
       <!-- レビューが2件以上ある -->
-      <%= render 'shops/show/shop_review_second' %>
+      <%= render partial: 'shared/review', locals: { user: @shop.reviews.second.user, review: @shop.reviews.second }  %>
 
-      <% if @shop.reviews.length >= 4 %>
+      <% if @shop.reviews.count >= 3 %>
         <!-- レビューが3件以上ある -->
         <div class="reviews_bottom pt-4 row">
           <span class="col text-right"><%= link_to '<レビューをもっと見る>', reviews_shop_path %></span>
