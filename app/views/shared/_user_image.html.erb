@@ -1,4 +1,6 @@
-<!--renderする時 locals: user, size -->
+<!--renderする時 locals: user, size 
+   render partial: 'shared/user_image', locals: { user: , size: } 
+-->
 
 <% if user.image.attached? %>
   <%= image_tag user.display_image, :size => size, class:"user_image" %>

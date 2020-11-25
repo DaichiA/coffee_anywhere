@@ -15,10 +15,10 @@
           <!-- フォーム -->
             <%= form_with(model: @review, url: user_reviews_path(current_user), local: true) do |f| %>
 
-                <%= f.label :title, "タイトル" %>
+                <%= f.label :title, "タイトル" %><span class="text-danger">(必須)</span>
                 <%= f.text_field :title, class: 'form-control' %>
 
-                <%= f.label :content, "本文" %> (300文字以内でお書きください)
+                <%= f.label :content, "本文", class:"mt-3" %> <span class="text-danger">(必須)</span>(300文字以内でお書きください)
                 <%= f.text_area :content, rows:10, class: 'form-control text_area' %>
 
                 <%= hidden_field_tag :shop_id, @shop.id %>

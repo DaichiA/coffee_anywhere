@@ -1,7 +1,7 @@
 <!--renderする時 locals: size, shop -->
 
 <% if shop.image.attached? %>
-  <%= image_tag shop.display_image, :size => size %>
+  <%= image_tag shop.display_image, :size => size, class:"shop_image" %>
 <% else %>
-  <%= image_tag("default_shop.jpg", :size => size ) %>
+  <%= image_tag "default_shop.jpg", :size => size, class:"shop_image" %>
 <% end %>

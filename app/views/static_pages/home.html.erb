@@ -1,7 +1,7 @@
 <div class="home">
   <div class="home-header">
       <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <div class="flash alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
     <h2 class="d-md-block d-none display-3">好みの店で<br>好みの一杯を</h2>
     <h2 class="d-block d-md-none">好みの店で<br>好みの一杯を</h2>
@@ -11,103 +11,28 @@
   <div class="area">
     <h2 class="font-weight-bold">エリアで探す</h2>
     <div class="row justify-content-between flex">
-
-      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '東京'}}, {class: "area-item col-3 p-0" })do %>
-        <div class="flex w-100">
-          <%= image_tag "tokyo.jpg", class:"d-block area-left col-5 p-0" %>
-          <div class="area-right col-7">東京</div>
-        </div>
-      <% end %>
-
-      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '大阪'}}, {class: "area-item col-3 p-0" })do %>
-        <div class="flex w-100">
-          <%= image_tag "osaka.jpg", class:"d-block area-left col-5 p-0" %>
-          <div class="area-right col-7">大阪</div>
-        </div>
-      <% end %>
-
-      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '名古屋'}}, {class: "area-item col-3 p-0" })do %>
-        <div class="flex w-100">
-          <%= image_tag "nagoya.jpg", class:"d-block area-left col-5 p-0" %>
-          <div class="area-right col-7 p-0">名古屋</div>
-        </div>
-      <% end %>
-
+      <%= render partial: 'area', locals: {keyword: '東京', area: 'tokyo'} %>
+      <%= render partial: 'area', locals: {keyword: '大阪', area: 'osaka'} %>
+      <%= render partial: 'area', locals: {keyword: '名古屋', area: 'nagoya'} %>
     </div>
 
     <div class="row justify-content-between flex">
-    
-      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '仙台'}}, {class: "area-item col-3 p-0" })do %>
-        <div class="flex w-100">
-          <%= image_tag "sendai.jpg", class:"d-block area-left col-5 p-0" %>
-          <div class="area-right col-7">仙台</div>
-        </div>
-      <% end %>
-
-      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '札幌'}}, {class: "area-item col-3 p-0" })do %>
-        <div class="flex w-100">
-          <%= image_tag "sapporo.jpg", class:"d-block area-left col-5 p-0" %>
-          <div class="area-right col-7">札幌</div>
-        </div>
-      <% end %>
-
-      <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '福岡'}}, {class: "area-item col-3 p-0" })do %>
-        <div class="flex w-100">
-          <%= image_tag "fukuoka.jpg", class:"d-block area-left col-5 p-0" %>
-          <div class="area-right col-7">福岡</div>
-        </div>
-      <% end %>
-      
+      <%= render partial: 'area', locals: {keyword: '仙台', area: 'sendai'} %>
+      <%= render partial: 'area', locals: {keyword: '札幌', area: 'sapporo'} %>
+      <%= render partial: 'area', locals: {keyword: '福岡', area: 'fukuoka'} %>
     </div>
   </div>
 
-  <div class="method mt-5">
-    <h2 class="font-weight-bold">淹れ方で探す</h2>
+  <div class="method">
+    <h2 class="font-weight-bold my-5">淹れ方で探す</h2>
 
     <div class="row justify-content-between flex">
-  
-        <div class="col-6 col-md-2">
-          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'ネルドリップ'}}, {class: "" })do %>
-            <%= image_tag "neldrip.jpg", class:"d-block p-0 col-12"  %>
-            <h5 class="text-center pt-2 font-weight-bold">ネルドリップ</h5>
-          <% end %>
-        </div>
-
-        <div class="col-6 col-md-2">
-          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'エスプレッソ'}}, {class: "" })do %>
-            <%= image_tag "espresso.jpg", class:"d-block p-0 col-12"  %>
-            <h5 class="text-center pt-2 font-weight-bold">エスプレッソ</h5>
-          <% end %>
-        </div>
-
-        <div class="col-6 col-md-2">
-          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'フレンチプレス'}}, {class: "" })do %>
-            <%= image_tag "frenchpress.jpg", class:"d-block p-0 col-12"  %>
-            <h5 class="text-center pt-2 font-weight-bold">フレンチプレス</h5>
-          <% end %>
-        </div>
-
-        <div class="col-6 col-md-2">
-          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'エアロプレス'}}, {class: "" })do %>
-            <%= image_tag "aeropress.jpg", class:"d-block p-0 col-12"  %>
-            <h5 class="text-center pt-2 font-weight-bold">エアロプレス</h5>
-          <% end %>
-        </div>
-
-        <div class="col-6 col-md-2">
-          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: '水出し'}}, {class: "" })do %>
-            <%= image_tag "coldbrew.jpg", class:"d-block p-0 col-12"  %>
-            <h5 class="text-center pt-2 font-weight-bold">水出し</h5>
-          <% end %>
-        </div>
-
-        <div class="col-6 col-md-2">
-          <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: 'サイフォン'}}, {class: "" })do %>
-            <%= image_tag "syphon.jpg", class:"d-block p-0 col-12"  %>
-            <h5 class="text-center pt-2 font-weight-bold">サイフォン</h5>
-          <% end %>
-        </div>
-
+        <%= render partial: 'method', locals: { method: 'ネルドリップ', method_image: 'neldrip'} %>
+        <%= render partial: 'method', locals: { method: 'エスプレッソ', method_image: 'espresso'} %>
+        <%= render partial: 'method', locals: { method: 'フレンチプレス', method_image: 'frenchpress'} %>
+        <%= render partial: 'method', locals: { method: 'エアロプレス', method_image: 'aeropress'} %>
+        <%= render partial: 'method', locals: { method: '水出しコーヒー', method_image: 'coldbrew'} %>
+        <%= render partial: 'method', locals: { method: 'サイフォン', method_image: 'syphon'} %>
     </div>
 
       <!--

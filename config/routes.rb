@@ -8,18 +8,16 @@ Rails.application.routes.draw do
   post '/logout', to:'sessions#destroy'
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :users do
-    resources :reviews, only: [:index, :edit, :create]
+    resources :reviews, only: [:index, :create]
     member do
       get :activate
-      get :favorites
     end
   end
   resources :shops do
-    resources :reviews, only: [:edit]
     member do
       get :reviews
     end
   end
-  resources :reviews, only: [:update, :destroy, :create]
+  resources :reviews, only: [:destroy]
   resources :favorites, only: [:create, :destroy]
 end

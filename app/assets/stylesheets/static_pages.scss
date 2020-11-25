@@ -62,7 +62,9 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 20;
+  opacity: 0.8;
 }
+
 
 .clearfix::after {
   content: '';
@@ -70,10 +72,14 @@ a:hover {
   clear: both;
 }
 
-// ===========
-// search_form
-// ===========
-
+.my_review {
+  position: relative;
+  .user_command {
+    position: absolute;  
+    top: 80px;
+    right: 5px;
+  }
+}
 
 
 // ============
@@ -209,12 +215,8 @@ header {
         // padding: 5px;
         // background-color: orange;
         // position: relative;
-        .area-left {
-          height: 80px;
-          // border: 1px solid black;
-          background-color: pink;
-          // position: absolute;
-          // left: 0;
+        .area_image {
+          // object-fit: cover;
         }
         .area-right {
           font-size: 20px;

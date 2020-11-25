@@ -1,18 +1,22 @@
 <!--renderする時 locals: shop -->
 
 <li>
-  <%= render partial: 'shared/shop_image', locals: { size: '200x200', shop: shop } %>
+  <%= render partial: 'shared/shop_image', locals: { size: '200x185', shop: shop } %>
   <div class="list_text">
-    <%= link_to shop.name, shop, class: "shop_name" %>
-    <% if !current_user.nil? && current_user.admin? %>
-      <div class="btn btn-warning font-weight-bold px-4 mb-3"><%= link_to "編集", edit_shop_path(shop) %></div>
-    <% end %>
-    <div class="">
+    <div class="d-flex justify-content-between">
+      <span><%= link_to shop.name, shop, class: "shop_name" %></span>
+      <!--
+      <% if !current_user.nil? && current_user.admin? %>
+        <span class="btn btn-warning font-weight-bold px-4 mb-3"><%= link_to "編集", edit_shop_path(shop) %></span>
+      <% end %>
+      -->
+      <span class="mt-2">定休日: <%= shop.dayoff %></span>
+    </div>
+    <div class="mt-3">
       <% shop.tags.each do |tag| %>
-        <div class="badge badge-dark p-2"><%= tag.tag_name %></div>
+        <div class="badge badge-dark p-2 mb-1"><%= tag.tag_name %></div>
       <% end %>
     </div>
-    <p>定休日: <%= shop.dayoff %></p>
-    <%= link_to truncate(shop.description, length: 100, omission:"..."), shop, class: "shop_desc" %>
+    <%= link_to truncate(shop.description, length: 100, omission:"..."), shop, class: "shop_desc " %>
   </div>
 </li>
