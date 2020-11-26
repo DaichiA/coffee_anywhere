@@ -1,13 +1,18 @@
+<% provide(:title, 'マイページ') %>
 
 <div class="row">
   <%= render "user_header" %>
 
   <ul class="shops">
-  <% @favorites.each do |favorite| %>
-    <% @shop = favorite.shop %>
-     <%= render partial: 'shared/shop_index', locals: { shop: @shop } %>
-  <% end %>
-</ul>
+    <% if @favorites.empty? %>
+      <p class="m-2 ml-5 h5">まだ店をブックマークしていません</p>
+    <% end %>
+
+    <% @favorites.each do |favorite| %>
+      <% @shop = favorite.shop %>
+      <%= render partial: 'shared/shop_index', locals: { shop: @shop } %>
+    <% end %>
+  </ul>
 
     <!-- 
     <div class="my_review border flex w-100 my-5 mx-4 rounded-lg">

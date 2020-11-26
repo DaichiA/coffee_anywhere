@@ -1,12 +1,10 @@
-      <footer class="footer">
-        <nav>
-          <ul>
-            <li><%= link_to "Privacy Policy", "#" %></li>
-            <li><%= link_to "Terms & Conditions", "#" %></li>
+      <footer class="footer text-center">
+          <ul class="nav nav-expand list-unstyled flex justify-content-center">
+            <li class="mr-3"><%= link_to "利用規約", terms_path %></li>
+            <li><%= link_to "プライバシーポリシー", privacy_path %></li>
           </ul>
-        </nav>
+        <div class="text-muted mt-1">Copyright COFFEE ANYWHERE All Rights Reserved.</div>
       </footer>
       <!--<%= debug(params) if Rails.env.development? %>-->
-    </div>
   </body>
 </html>

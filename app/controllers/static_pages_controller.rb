@@ -11,6 +11,12 @@ class StaticPagesController < ApplicationController
       @q = Shop.ransack(params[:q])
       @shops = @q.result(distinct: true).paginate(page: params[:page])
     end
-
   end
+
+  def terms
+  end
+
+  def privacy
+  end
+
 end

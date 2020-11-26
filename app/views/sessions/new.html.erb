@@ -1,20 +1,39 @@
-<% provide(title: "ログイン") %>
+<% provide(:title, "ログイン") %>
 
-<div class="row">
-  <div class="col-md-6 offset-md-3">
-    <h1 class="mt-5">Log in</h1>
-    <%= form_with(url:login_path, local: true) do |f| %>
-      
-      <%= f.label :email, "メールアドレス", class: "mt-5" %>
-      <%= f.email_field :email, class:'form-control' %>
+<div class="row mt-5">
+  <div class="col-lg-7 offset-lg-1">
+    <div class="login_left border rounded p-4 mt-5">
+      <h1>ログイン</h1>
+      <%= form_with(url:login_path, local: true) do |f| %>
+        
+        <%= f.label :email, "メールアドレス", class: "mt-5" %>
+        <%= f.email_field :email, class:'form-control mb-4' %>
 
-      <%= f.label :password, "パスワード", class: "mt-4" %>
-      <%= f.password_field :password, class: 'form-control' %>
-      <p class="mt-2"><%= link_to 'パスワードをお忘れですか？', new_password_reset_path, class:"text-info font-weight-bold" %></p>
-      
-      <%= f.submit "ログイン", class: "btn btn-dark mt-4" %>
-    <% end %>
-
-    <%= link_to "新規登録はこちらから", signup_path %>
+        <%= f.label :password, "パスワード", class: "mt-4" %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <p class="mt-2"><%= link_to 'パスワードをお忘れですか？', new_password_reset_path, class:"text-info font-weight-bold" %></p>
+        
+        <%= f.submit "ログイン", class: "btn btn-dark mt-4" %>
+      <% end %>
+    </div>
   </div>
+
+    <div class="login_right d-none col-lg-3 d-lg-block p-0 mt-5">
+      <div class="register border rounded ml-3 p-3 mb-5">
+        <p>アカウント登録で<br>・店舗ブックマーク<BR>・レビューの投稿<br>ができるようになります。</p>
+        <div class="text-center">
+          <%= link_to '会員登録',  signup_path, class: "btn btn-secondary mx-auto text-white w-100"  %>
+        </div>
+      </div>
+      <div class="register border rounded ml-3 p-3">
+        <p>登録せずに試すにはこちら</p>
+        <div class="text-center">
+          <%= form_with(url:login_path, local: true) do |f| %>
+            <%= f.hidden_field :email, value: 'testuser@example.com' %>
+            <%= f.hidden_field :password, value: 'password' %>
+            <%= f.submit 'お試しログイン', class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   root 'static_pages#home'
+  get '/terms', to: 'static_pages#terms'
+  get '/privacy', to: 'static_pages#privacy'
   get '/signup', to:'users#new'
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
