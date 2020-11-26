@@ -56,7 +56,7 @@ a:hover {
 }
 
 .alert {
-  margin-top: 10px;
+  // margin-top: 10px;
   // position: absolute; //headerにposition:relative
   // top: 50px;
   left: 0;
@@ -143,11 +143,11 @@ header {
     position: relative;
     padding-top: calc(250 / 640 * 100%);  /* calc(画像高さ ÷ 画像横幅 × 100%) */
     .alert {
-      margin-top: 10px;
+      // margin-top: 10px;
       position: absolute;
       top: 0;
-      left: 10%;
-      right: 10%;
+      left: 0;
+      right: 0;
       z-index: 20;
     }
     h2 {
@@ -203,6 +203,14 @@ header {
   .area {
     // background-color: orange;
     margin-top: 80px;
+    h2 {
+      margin-bottom: 20px;
+    }
+    .area_space {
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      padding-bottom: 20px;
+      margin-top: 10px;
+    }
     .row {
       margin: 0;
       height: 120px;
@@ -229,5 +237,43 @@ header {
     }
   }
 
+  .method {
+    h2 {
+      margin-bottom: 20px;
+    }
+    .method_space {
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      padding-bottom: 20px;
+      margin-top: 10px;
+    }
+  }
+
+  .home_right {
+    margin-top: 118px;
+    .register {
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      padding-bottom: 20px;
+      margin-top: 10px;
+      // margin-bottom: 30px;
+    }
+  }
+
+}
+
+// ============
+// footer
+// ============
+
+body {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 100px;
+  .footer {
+    background-color: #F1F1F1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+  }
 
 }

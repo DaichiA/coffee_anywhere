@@ -1,3 +1,5 @@
+<% provide(:title, 'COFFEE ANYWHERE') %>
+
 <div class="home">
   <div class="home-header">
       <% flash.each do |message_type, message| %>
@@ -8,42 +10,80 @@
     <%= render 'shops/search_form' %>
   </div>
 
-  <div class="area">
-    <h2 class="font-weight-bold">エリアで探す</h2>
-    <div class="row justify-content-between flex">
-      <%= render partial: 'area', locals: {keyword: '東京', area: 'tokyo'} %>
-      <%= render partial: 'area', locals: {keyword: '大阪', area: 'osaka'} %>
-      <%= render partial: 'area', locals: {keyword: '名古屋', area: 'nagoya'} %>
+  <div class="row mx-lg-n5">
+  <% if logged_in? %>
+    <div class="col">
+  <% else %>
+    <div class="col col-lg-10">
+  <% end %>
+      <div class="area">
+        <h2 class="font-weight-bold">エリアで探す</h2>
+        <div class="area_space border rounded px-3">
+          <div class="row justify-content-between flex">
+            <%= render partial: 'area', locals: {keyword: '東京', area: 'tokyo'} %>
+            <%= render partial: 'area', locals: {keyword: '大阪', area: 'osaka'} %>
+            <%= render partial: 'area', locals: {keyword: '名古屋', area: 'nagoya'} %>
+          </div>
+
+          <div class="row justify-content-between flex">
+            <%= render partial: 'area', locals: {keyword: '仙台', area: 'sendai'} %>
+            <%= render partial: 'area', locals: {keyword: '札幌', area: 'sapporo'} %>
+            <%= render partial: 'area', locals: {keyword: '福岡', area: 'fukuoka'} %>
+          </div>
+        </div>
+      </div>
+
+      <div class="method">
+        <h2 class="font-weight-bold mt-5">淹れ方で探す</h2>
+        <div class="method_space border rounded p-3">
+          <div class="row justify-content-between flex">
+            <%= render partial: 'method', locals: { method: 'ネルドリップ', method_image: 'neldrip'} %>
+            <%= render partial: 'method', locals: { method: 'エスプレッソ', method_image: 'espresso'} %>
+            <%= render partial: 'method', locals: { method: 'フレンチプレス', method_image: 'frenchpress'} %>
+            <%= render partial: 'method', locals: { method: 'エアロプレス', method_image: 'aeropress'} %>
+            <%= render partial: 'method', locals: { method: '水出しコーヒー', method_image: 'coldbrew'} %>
+            <%= render partial: 'method', locals: { method: 'サイフォン', method_image: 'syphon'} %>
+          </div>
+         </div>
+
+          <!--
+              <% @tags.each do |tag| %>
+                <div class="badge badge-light border"><%= tag.tag_name %></div>
+              <% end %>
+          -->
+
+      </div>
     </div>
 
-    <div class="row justify-content-between flex">
-      <%= render partial: 'area', locals: {keyword: '仙台', area: 'sendai'} %>
-      <%= render partial: 'area', locals: {keyword: '札幌', area: 'sapporo'} %>
-      <%= render partial: 'area', locals: {keyword: '福岡', area: 'fukuoka'} %>
-    </div>
-  </div>
-
-  <div class="method">
-    <h2 class="font-weight-bold my-5">淹れ方で探す</h2>
-
-    <div class="row justify-content-between flex">
-        <%= render partial: 'method', locals: { method: 'ネルドリップ', method_image: 'neldrip'} %>
-        <%= render partial: 'method', locals: { method: 'エスプレッソ', method_image: 'espresso'} %>
-        <%= render partial: 'method', locals: { method: 'フレンチプレス', method_image: 'frenchpress'} %>
-        <%= render partial: 'method', locals: { method: 'エアロプレス', method_image: 'aeropress'} %>
-        <%= render partial: 'method', locals: { method: '水出しコーヒー', method_image: 'coldbrew'} %>
-        <%= render partial: 'method', locals: { method: 'サイフォン', method_image: 'syphon'} %>
-    </div>
-
-      <!--
-          <% @tags.each do |tag| %>
-            <div class="badge badge-light border"><%= tag.tag_name %></div>
+  <% unless logged_in? %>
+    <div class="home_right d-none col-lg-2 d-lg-block p-0">
+      <div class="register border rounded ml-3 p-3 mb-5">
+        <p>アカウント登録で<br>・店舗ブックマーク<BR>・レビューの投稿<br>ができるようになります。</p>
+        <div class="text-center">
+          <%= link_to '会員登録',  signup_path, class: "btn btn-secondary mx-auto text-white w-100"  %>
+        </div>
+      </div>
+      <div class="register border rounded ml-3 p-3">
+        <p class="font-weight">登録せずに試すにはこちら</p>
+        <div class="text-center">
+          <%= form_with(url:login_path, local: true) do |f| %>
+            <%= f.hidden_field :email, value: 'testuser@example.com' %>
+            <%= f.hidden_field :password, value: 'password' %>
+            <%= f.submit 'お試しログイン', class: "btn btn-secondary" %>
           <% end %>
-      -->
-
+        </div>
+      </div>
+    </div>
+    <% end %>
+  
   </div>
 
-  <!--<div class="show_right col-md-3 hidden-sm hidden-xs">reccomend</div>
-    -->
   
 </div>
+
+<!-- flashをフェードアウトさせる -->
+<script>
+  $(function() {
+    setTimeout("$('.flash').fadeOut('slow')", 2000);
+  });
+</script>

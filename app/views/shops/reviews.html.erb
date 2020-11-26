@@ -1,4 +1,8 @@
-<h2><%= @shop.name %>のレビュー  (<%= @shop.reviews.count %>件のレビュー)</h2>
+<% provide(:title, 'レビュー一覧') %>
+
+<div class="my-5">
+  <h2><%= @shop.name %>のレビュー  (<%= @shop.reviews.count %>件のレビュー)</h2>
+</div>
 
 
 <% @reviews.each do |review| %>

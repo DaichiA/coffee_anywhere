@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>coffee anywhere</title>
+    <title><%= yield(:title) %></title>
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
 
@@ -17,20 +17,20 @@
   <body>
 
   <header class="navbar navbar-dark bg-dark navbar-fixed-top navbar-expand">
-  <div class="container">
-    <h1 class="pl-3"><%= link_to "coffee anywhere", root_path %></h1>
-    <nav>
-      <ul class="navbar navbar-nav navbar-right navbar-expand">
-        <li><%= link_to "Home", root_path %></li>
-        <% if !current_user.nil? && current_user.admin? %>
-          <li><%= render 'layouts/admin_nav' %></li>
-        <% elsif current_user %>
-          <li><%= render 'layouts/login_nav' %></li>
-        <% else %>
-          <li><%= link_to "ログイン", login_path %></li>
-          <li><%= link_to "登録", signup_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <div class="container">
+      <h1 class="pl-3"><%= link_to "coffee anywhere", root_path %></h1>
+      <nav>
+        <ul class="navbar navbar-nav navbar-right navbar-expand">
+          <li><%= link_to "Home", root_path %></li>
+          <% if !current_user.nil? && current_user.admin? %>
+            <li><%= render 'layouts/admin_nav' %></li>
+          <% elsif current_user %>
+            <li><%= render 'layouts/login_nav' %></li>
+          <% else %>
+            <li><%= link_to "ログイン", login_path %></li>
+            <li><%= link_to "登録", signup_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
