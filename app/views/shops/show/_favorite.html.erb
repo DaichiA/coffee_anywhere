@@ -3,13 +3,9 @@
   
     <div id="show_fav">
       <% if current_user.fav?(@shop) %>
-
         <%= render 'unfav' %>
-
       <% else %>
-
         <%= render 'fav' %>
-
       <% end %>
     </div>
 

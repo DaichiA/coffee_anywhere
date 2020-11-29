@@ -9,7 +9,11 @@
     <li>
       <%= render partial: 'shared/user_image', locals: { user: user, size: '50x50' } %>
       <%= link_to user.name, user, class: "user_name" %>
-      <%= link_to " <削除>", user, method: :delete, data: { confirm: "本当に削除しますか？" }, class:"ml-3 text-danger" %>
+      <% if user.admin == true %>
+        <span class="badge badge-info ml-3 h-50">admin</span>
+      <% else %>
+        <%= link_to " <削除>", user, method: :delete, data: { confirm: "本当に削除しますか？" }, class:"ml-3 text-danger" %>
+      <% end %>
     </li>
   <% end %>
 </ul>

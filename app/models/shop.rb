@@ -3,14 +3,19 @@ class Shop < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :shop_tag_relations, foreign_key: :shop_id, dependent: :destroy
   has_many :tags, through: :shop_tag_relations
-  validates :name, presence: true, length: { maximum: 30 }
+  validates :name, presence: true, length: { maximum: 20 }
   has_one_attached :image
-  #ハイフンなし,0から始まる10桁か11桁 拾いきれないからゆるめに
+  #ハイフンなし,0から始まる10桁か11桁 拾いきれないからゆるめに、空欄も可
   VALID_PHONE_NUMBER_REGEX = /\A0\d{9,10}\z/
-  validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
-  validates :address, presence: true, length: { maximum: 255 }
+  validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }, allow_blank: true
+  validates :address, presence: true, length: { maximum: 100 }
   validates :description, length: { maximum: 600 }
+  validates :business_hours, length: { maximum: 30 }
   validates :dayoff, presence: true, length: { maximum: 20 }
+  validates :image,   content_type: { in: %w[image/jpeg image/gif image/png],
+                                      message: "はjpg, gif, png形式のみ利用できます。" },
+                      size:         { less_than: 5.megabytes,
+                                      message: "に5MB以上のファイルは利用できません。" }
 
 
 

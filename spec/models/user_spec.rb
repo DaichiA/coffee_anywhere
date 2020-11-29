@@ -69,4 +69,23 @@ RSpec.describe User, type: :model do
     expect(duplicate_user).to_not be_valid
   end
 
+
+  context "method" do
+    let!(:shop){ FactoryBot.create(:shop) }
+    let!(:second_shop){ FactoryBot.create(:second_shop) }
+    let(:user){ FactoryBot.create(:user) }
+
+    it "fav" do
+      expect(@user.shops << shop).to eq @user.fav(shop)
+    end
+
+    it "unfav" do
+      # user = FactoryBot.create(:user)
+      user.fav(shop)
+      favorite = user.favorites.find_by(shop_id: shop.id)
+      expect(user.unfav(shop)).to eq favorite.destroy
+    end
+
+  end
+
 end

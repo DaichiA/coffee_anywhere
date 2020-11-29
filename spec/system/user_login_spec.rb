@@ -8,32 +8,44 @@ RSpec.describe "User login", type: :system do
       login(user) #モジュールに切り分けた
     end
 
+    it "has a valid factory" do
+      expect(FactoryBot.build(:user)).to be_valid
+    end
+
+    it "has an admin user factory" do
+      admin_user = FactoryBot.build(:user, :admin)
+      expect(admin_user.admin).to eq true
+    end
+
     subject { page }
     it "log in" do
-      expect(current_path).to eq user_path(user)
+      expect(current_path).to eq root_path
       is_expected.to have_selector('.alert-success', text: 'ログインしました。') 
-      within ".nav" do
-        is_expected.to_not have_content "登録"
-        is_expected.to_not have_content "ログイン"
-        is_expected.to have_content "ログアウト"
-        is_expected.to have_content "マイページ"
-      end
+      is_expected.to have_link "Home"
+      is_expected.to_not have_link "登録"
+      is_expected.to_not have_link "ログイン"
+      is_expected.to have_selector('.dropdown-toggle')
+      is_expected.to have_link "マイページ"
+      is_expected.to have_link "設定"
+      is_expected.to have_link "ログアウト"
+      # adminメニューも表示されていない
+      is_expected.to_not have_link "店舗 新規登録"
+      is_expected.to_not have_link "店舗 一覧"
+      is_expected.to_not have_link "ユーザー一覧"
     end
 
     it "log out" do
       find('.dropdown-toggle').click
       click_link "ログアウト"
       is_expected.to have_selector('.alert-success', text: 'ログアウトしました。') 
-      within ".nav" do
-        is_expected.to have_content "登録"
-        is_expected.to have_content "ログイン"
-        is_expected.to_not have_selector('.dropdown-toggle')
-      end
+      is_expected.to have_link "Home"
+      is_expected.to have_link "登録"
+      is_expected.to have_link "ログイン"
+      is_expected.to_not have_selector('.dropdown-toggle')
     end
+
+    
   end
-
-  #フレンドリーフォワーディングのテストも書く
-
 
   describe  "with invalid information" do
     
@@ -44,11 +56,10 @@ RSpec.describe "User login", type: :system do
       fill_in "パスワード", with: "password"
       click_button "ログイン"
       expect(page).to have_selector('.alert-danger', text: 'ログインに失敗しました。') 
-      within ".nav" do
-        is_expected.to have_content "登録"
-        is_expected.to have_content "ログイン"
-        is_expected.to_not have_selector('.dropdown-toggle')
-      end
+      is_expected.to have_link "Home"
+      is_expected.to have_link "登録"
+      is_expected.to have_link "ログイン"
+      is_expected.to_not have_selector('.dropdown-toggle')
     end
 
     it " invalid password" do
@@ -57,12 +68,11 @@ RSpec.describe "User login", type: :system do
       fill_in "パスワード", with: "invalid_password"
       click_button "ログイン"
       expect(page).to have_selector('.alert-danger', text: 'ログインに失敗しました。') 
-      within ".nav" do
-        is_expected.to have_content "登録"
-        is_expected.to have_content "ログイン"
-        is_expected.to_not have_selector('.dropdown-toggle')
-      end
+      is_expected.to have_link "Home"
+      is_expected.to have_link "登録"
+      is_expected.to have_link "ログイン"
+      is_expected.to_not have_selector('.dropdown-toggle')
     end
   end
-
+    
 end

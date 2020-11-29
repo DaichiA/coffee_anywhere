@@ -6,8 +6,12 @@
   </div>
 
   <ul class="shops">
-    <% @shops.each do |shop| %>
-      <%= render partial: 'shared/shop_index', locals: { shop: shop } %>
+    <% if @shops.blank? %>
+      <p class="h5 ml-4">キーワードに合致するお店はありませんでした。</p>
+    <% else %>
+      <% @shops.each do |shop| %>
+          <%= render partial: 'shared/shop_index', locals: { shop: shop } %>
+      <% end %>
     <% end %>
   </ul>
 

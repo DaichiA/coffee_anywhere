@@ -11,7 +11,7 @@
       <%= image_tag "default_user.jpg", :size => '45x45', class:"user_image" %>
     <% end %>
 
-    <p class="d-inline-block ml-4 mr-auto my-auto h5"><%= user.name %> さんのレビュー</p>
+    <p class="d-inline-block ml-4 mr-auto my-auto h5"><%= user.name %>さんのレビュー</p>
 
       <% if logged_in? && current_page?(user_reviews_path(current_user)) %>
         <p class="d-inline-block ml-4 mr-4 my-auto h5">行ったお店: <span class="font-weight-bold"><%= link_to review.shop.name, shop_path(review.shop_id) %></span></p>

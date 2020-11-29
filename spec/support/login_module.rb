@@ -1,7 +1,6 @@
 module LoginModule
   def login(user)
-  #公式のヘルパー使えないっぽいから自分で作る
-  #登録からアクティベートまでやっちゃう
+  #登録からアクティベートまで
   #手順
     # 1.userをcreateする(テスト側でFactoryBotでやってる)
     # 2.update_attributes!でactiveにする(パスワードも求められるから一緒に)

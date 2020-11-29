@@ -3,13 +3,21 @@ FactoryBot.define do
   factory :user do
     name { "factory" }
     sequence(:email) { |n| "factory#{n}@example.com" }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/factories/images/user_image.jpg')) }
     password { "password" }
     password_confirmation { "password" }
-    # activation_state { "active" }  #←いる? 
 
-    # trait :skip_validate do
-    #   to_create {|instance| instance.save(validate: false)}
-    # end
+    trait :admin do
+      admin { true }
+    end
+
+    trait :with_favs do
+      after(:create) { |user| create_list(:favorite, 5, user_id: user.id) }
+    end
+
+    trait :with_reviews do
+      after(:create) { |user| create_list(:review, 5, user_id: user.id) }
+    end
   end
 
   #adminユーザー

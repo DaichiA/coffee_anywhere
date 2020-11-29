@@ -38,8 +38,9 @@ RSpec.describe "Password reset", type: :system do
       expect(page).to have_selector('.alert-success', text: 'パスワードを更新しました。')
 
       #同時にログインされているか
-      expect(page).to have_content "マイページ"
-      expect(page).to have_content "ログアウト"
+      expect(page).to have_link "マイページ"
+      expect(page).to have_link "設定"
+      expect(page).to have_link "ログアウト"
       expect(page).to_not have_content "ログイン"
       expect(page).to_not have_content "登録"
     end

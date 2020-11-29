@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def unfav(shop)
-    favorites.find_by(shop_id: shop.id).destroy #合ってるかリスト14.10参考
+    favorites.find_by(shop_id: shop.id).destroy
   end
 
   def fav?(shop)

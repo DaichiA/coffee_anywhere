@@ -46,7 +46,6 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:success] = "プロフィールを更新しました。"
       redirect_to @user
-      #余裕があればアドレスやパスワード毎にフォームを分けて個別に編集できるようにする
     else
       render 'edit'
     end

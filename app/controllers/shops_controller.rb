@@ -3,9 +3,12 @@ class ShopsController < ApplicationController
   
   def index
     # @shops = Shop.paginate(page: params[:page])
+    
     @q = Shop.ransack(params[:q])
     @shops = @q.result(distinct: true).paginate(page: params[:page])
     #static_pages_controllerのhomeでも同定義(検索窓を置いてるから)
+
+    
   end
 
   def show
@@ -26,7 +29,30 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
-    tag_list = params[:shop][:tag_name].split #タグ実装 入力されたタグ
+    tag_list = params[:shop][:tag_name].split # 入力されたタグ
+
+    # タグのバリデーションがかかるのがsave_tagのタイミングつまり@shopが
+    # 保存された後だから、ここで15文字以上でひっかけ、それをパスしたら次の処理に移る
+    # unless tag_list.nil?
+    #   tag_list.each do |tag|
+    #     if tag.length >= 15
+    #       flash.now[:danger] = "1つのタグは15文字以内で入力してください。"
+    #       render 'new'
+    #       break
+    #     end
+    #     @shop.image.attach(params[:shop][:image])
+    #     if @shop.save
+    #       @shop.save_tag(tag_list) #タグ実装
+    #       flash[:success] = "店情報を登録しました。"
+    #       redirect_to shops_path
+    #     else
+    #       render 'new'
+    #     end
+
+    #   end
+    # end
+       
+
     @shop.image.attach(params[:shop][:image])
     if @shop.save
       @shop.save_tag(tag_list) #タグ実装
@@ -66,5 +92,7 @@ class ShopsController < ApplicationController
     def shop_params
       params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :dayoff, :description, { :tag_name => [], :tag_ids => [] })
     end
+
+
 
 end
