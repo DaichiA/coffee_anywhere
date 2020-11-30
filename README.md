@@ -1,26 +1,44 @@
-# README
+# COFFEE ANYWHERE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
+地域や淹れ方でコーヒー屋さんを探せるサービスです。
+未だ見ぬコーヒー屋を探す際、エスプレッソが飲みたいのに行ってみるとドリップコーヒーしか置いていない店だったり、美味しいコーヒーが飲みたいのにスイーツがメインでコーヒーはおまけ程度という店だったりということも少なくありません。
+コーヒー好きのために、自分の好みに合った店を探せるようにこのサービスを作りました。
+キーワードでの検索窓や、ホーム画面のリンクから、希望の条件でコーヒー店を探すことができます。
+またログインすると店をブックマークしたり、行った店へのレビューを投稿したり、またそれらをマイページで一覧ですることができます。
 
-Things you may want to cover:
+# 作る上で意識したこと
+できるだけシンプルに、説明しなくとも見ただけでどのようなサービスかがわかるように作成しました。搭載した機能は今後自分の手で改良していけるようにという点を念頭に置いての制作を心がけました。逆にいうとまだまだ改良の余地はありますが、ユーザーが不自由なく使うのに必要な機能は盛り込んだつもりです。
 
-* Ruby version
+また開発の際はGithubの機能をできるだけ活用し、
+issueを確認、branchを切る、開発、push, pull request, merge
+というチームでの開発の流れを辿ることを意識しました。
 
-* System dependencies
+# 開発環境
+・Ruby 2.7.1
+・Rails 6.0.3.4
 
-* Configuration
+# 各種機能、導入技術
+・プラットフォーム（heroku）
+・データベース（MySQL）
+・テスト（RSpec, Capybara, factory_bot）
+・CSSフレームワーク（Bootstrap4）
+・ユーザー登録、ログイン（Sorcery）
+・画像アップロード（Active Storage, mini_magic, AWS S3）
+・ブックマーク（Ajax)
+・ページネーション（will_paginate）
+・検索（ransack）
+・メールアクティベーション、パスワードリセット （ActionMailer, gmail）
+・管理者機能
+・レビュー
+・ブックマーク
 
-* Database creation
+# URL
+https://coffee-anywhere.herokuapp.com/
 
-* Database initialization
+ホーム画面とログイン画面にワンクリックでログインできる機能がありますのでそちらをぜひご利用ください。
+テストユーザーアカウント
+メール：
+パスワード：
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-hello
+# スクリーンショット
