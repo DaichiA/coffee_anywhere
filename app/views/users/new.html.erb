@@ -15,7 +15,7 @@
       <div class="text-center">
         <%= form_with(url:login_path, local: true) do |f| %>
           <%= f.hidden_field :email, value: 'testuser@example.com' %>
-          <%= f.hidden_field :password, value: 'password' %>
+          <%= f.hidden_field :password, value: 'goodcoffee' %>
           <%= f.submit 'お試しログイン', class: "btn btn-secondary" %>
         <% end %>
       </div>

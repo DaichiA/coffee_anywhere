@@ -37,8 +37,26 @@ issueを確認、branchを切る、開発、push, pull request, merge
 https://coffee-anywhere.herokuapp.com/
 
 ホーム画面とログイン画面にワンクリックでログインできる機能がありますのでそちらをぜひご利用ください。
+
+フォームからログインするにはこちらをお使いください。
+
 テストユーザーアカウント
-メール：
-パスワード：
+メール：testuser@example.com
+パスワード：goodcoffee
 
 # スクリーンショット
+
+## トップページ
+https://user-images.githubusercontent.com/70304933/100599532-801ad680-3343-11eb-944b-375959200d87.png
+
+## ログインページ
+https://user-images.githubusercontent.com/70304933/100599890-ee5f9900-3343-11eb-99a9-cff9c5ffc3e5.png
+
+## マイページ(レビュー)
+https://user-images.githubusercontent.com/70304933/100600242-61690f80-3344-11eb-9584-2cbeddd2d504.png
+
+## マイページ（ブックマーク）
+https://user-images.githubusercontent.com/70304933/100600162-3ed6f680-3344-11eb-975e-a2af1d8ea3ac.png
+
+## 検索結果
+https://user-images.githubusercontent.com/70304933/100599929-fe777880-3343-11eb-9c12-147f83338036.png
