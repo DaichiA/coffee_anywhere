@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
     # @shops = Shop.paginate(page: params[:page])
     
     @q = Shop.ransack(params[:q])
-    @shops = @q.result(distinct: true).paginate(page: params[:page])
+    @shops = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     #static_pages_controllerのhomeでも同定義(検索窓を置いてるから)
 
     
