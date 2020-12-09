@@ -58,10 +58,10 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['DB_NAME'] %> 
-  username: <%= ENV['DB_USERNAME'] %>
-
-  password: <%= ENV['DB_PASSWORD'] %>
+  database: coffee_anywhere_production
+  username: root
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:hostname] %>
 
   # database: coffee_anywhere_production
   # username: coffee_anywhere
