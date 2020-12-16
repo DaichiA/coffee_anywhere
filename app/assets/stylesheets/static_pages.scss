@@ -136,7 +136,8 @@ header {
 .home {
   padding: 0 30px;
   .home-header {
-    background: url('home-image.jpg') center center;
+    background-image: image-url('home-image.jpg');
+    background-position: center center;
     background-size: cover;
     margin: 0 calc(50% - 50vw);
     width: 100vw;
