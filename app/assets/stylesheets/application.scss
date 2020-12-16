@@ -12,17 +12,10 @@
  *
 
  *= require_tree .
- *= require jquery.tagit
- *= require tagit.ui-zendesk
  *= require_self
  
  */
 
- /* ↑tag-it 使うためにjquery.tagitとtagit.ui-zendesk追記 */
 
 /* font-awesome導入に手間取った。rails6からはgemではなくyarnでインストールするはずが、まずgemをインストールしてしまった。そこらへんから少し混乱し、下記importがあるとherokuデプロイに失敗したのでコメント化（ Precompiling assets failed.） */
  /* @import '~@fortawesome/fontawesome-free/scss/fontawesome'; */
-
- /* AdminLTEのために追記 余力があれば管理ページに使う */
- /* @import 'admin-lte/plugins/fontawesome-free/css/all.min';
- @import 'admin-lte/dist/css/adminlte.min'; */
