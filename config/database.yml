@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  socket: /tmp/mysql.sock
 
 # development:
 #   <<: *default
@@ -62,6 +62,7 @@ production:
   username: root
   password: <%= Rails.application.credentials.db[:password] %>
   host: <%= Rails.application.credentials.db[:hostname] %>
+  socket: /var/lib/mysql/mysql.sock
 
   # database: coffee_anywhere_production
   # username: coffee_anywhere
