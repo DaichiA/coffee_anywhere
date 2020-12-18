@@ -19,8 +19,8 @@ issueを確認、branchを切る、開発、push, pull request, merge
 ・Rails 6.0.3.4  
   
 # 各種機能、導入技術
-・プラットフォーム（heroku）  
-・データベース（MySQL）  
+・プラットフォーム（AWS EC2）
+・データベース（AWS RDS, MySQL）  
 ・テスト（RSpec, Capybara, factory_bot）  
 ・CSSフレームワーク（Bootstrap4）  
 ・ユーザー登録、ログイン（Sorcery）  
@@ -32,9 +32,23 @@ issueを確認、branchを切る、開発、push, pull request, merge
 ・管理者機能  
 ・レビュー  
 ・ブックマーク  
+
+・Webサーバー (Nginx)
+・アプリケーションサーバー (Puma)
+
+使用したAWSのサービス
+・VPC
+・RDS
+・EC2
+・Route 53
+・ACM
+・ALB
+・S3
+・IAM
+
   
 # URL
-https://coffee-anywhere.herokuapp.com/  
+https://coffee-anywhere.com/
   
 ホーム画面とログイン画面にワンクリックでログインできる機能がありますのでそちらをぜひご利用ください。  
   
