@@ -2,7 +2,8 @@
   <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">admin</a>
 
   <div class="dropdown-menu">
-    <%= link_to "店舗 新規登録", new_shop_path, class:"dropdown-item text-dark" %>
+    <!-- リロードしないとJavaScriptが動かない問題解決のため、turbolinks無効 -->
+    <%= link_to "店舗 新規登録", new_shop_path, class:"dropdown-item text-dark", data: {"turbolinks" => false} %>
     <%= link_to "店舗 一覧", shops_path, class:"dropdown-item text-dark" %>
     <%= link_to "ユーザー一覧", users_path, class:"dropdown-item text-dark" %>
     <%= link_to "マイページ", current_user, class:"dropdown-item text-dark" %>

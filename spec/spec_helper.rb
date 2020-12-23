@@ -93,8 +93,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-
-#追記 login_user(user)とlogout_userヘルパーを使えるようになる?
-  # config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
-  # config.include Sorcery::TestHelpers::Rails::Integration, type: :system
 end

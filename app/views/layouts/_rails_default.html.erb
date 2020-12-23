@@ -3,11 +3,21 @@
 
 <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
 <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+<!--
+ <%= stylesheet_link_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/le-frog/jquery-ui.min.css' %>
+-->
+
+<!-- gonでRailsの値をjavascriptに渡せるようにする -->
+<%= Gon::Base.render_data %>
 
 <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-eval': false %>
 
 <%= favicon_link_tag('favicon.png') %>
 
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+-->
 
 <!-- 
 ↑['data-turbolinks-eval': false]...ヘッダーのドロップダウンが画面遷移後動かなくなるのでそれを解消するために追記、正直その論理を理解しきれていないが問題は解決した。

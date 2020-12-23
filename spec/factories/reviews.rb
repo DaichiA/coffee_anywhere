@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :review do
-    title { "first review" }
-    content { "first content" }
+    title { 'first review' }
+    content { 'first content' }
     # user { nil }
     # shop { nil }
     association :user
@@ -10,14 +10,14 @@ FactoryBot.define do
   end
 
   factory :old_review, class: Review do
-    title { "second review" }
-    content { "second content" }
+    title { 'second review' }
+    content { 'second content' }
     created_at { 1.year.ago }
   end
 
   factory :new_review, class: Review do
-    title { "third review" }
-    content { "third content" }
+    title { 'third review' }
+    content { 'third content' }
     created_at { 1.day.ago }
   end
 end

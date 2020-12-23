@@ -1,9 +1,9 @@
-server "54.95.122.33", user: "daichi", roles: %w{app db web}
+server '54.95.122.33', user: 'daichi', roles: %w[app db web]
 
 set :ssh_options, {
-  keys: %w(~/.ssh/coffee_anywhere.pem),
+  keys: %w[~/.ssh/coffee_anywhere.pem],
   forward_agent: true,
-  auth_methods: %w(publickey),
+  auth_methods: %w[publickey]
 }
 
 # server-based syntax

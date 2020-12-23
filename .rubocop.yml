@@ -1,0 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+# ハッシュの記法はロケット記法ではなくruby1.9のハッシュ記法を使う
+HashSyntax:
+  EnforcedStyle: ruby19
+
+# missing top-level class documentation commentというアラートをオフ
+Documentation:
+  Enabled: false
+
+
+LineLength:
+  Max: 150

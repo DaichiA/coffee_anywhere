@@ -1,11 +1,11 @@
 FactoryBot.define do
-  #値が適切なユーザーuse
+  # 値が適切なユーザーuse
   factory :user do
-    name { "factory" }
+    name { 'factory' }
     sequence(:email) { |n| "factory#{n}@example.com" }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/factories/images/user_image.jpg')) }
-    password { "password" }
-    password_confirmation { "password" }
+    password { 'password' }
+    password_confirmation { 'password' }
 
     trait :admin do
       admin { true }
@@ -20,29 +20,28 @@ FactoryBot.define do
     end
   end
 
-  #adminユーザー
+  # adminユーザー
   factory :admin_user, class: User do
-    name { "admin_user" }
+    name { 'admin_user' }
     sequence(:email) { |n| "admin#{n}@example.com" }
-    password { "password" }
-    password_confirmation { "password" }
+    password { 'password' }
+    password_confirmation { 'password' }
     admin { true }
   end
 
-  #値が不適切なユーザー
+  # 値が不適切なユーザー
   factory :user_invalid, class: User do
-    name { " " }
-    email { "a@example" }
-    password { "wrong" }
-    password_confirmation { "invalid" }
+    name { ' ' }
+    email { 'a@example' }
+    password { 'wrong' }
+    password_confirmation { 'invalid' }
   end
 
-  #他のユーザー
-  factory :other_user, class: User do 
-    name { "other_user" }
+  # 他のユーザー
+  factory :other_user, class: User do
+    name { 'other_user' }
     sequence(:email) { |n| "otheruser#{n}@example.com" }
-    password { "password" }
-    password_confirmation { "password" }
+    password { 'password' }
+    password_confirmation { 'password' }
   end
-
 end
