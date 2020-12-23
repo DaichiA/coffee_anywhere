@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :require_login, only: [:index, :create, :destroy]
+  before_action :require_login, only: %i[index create destroy]
 
   # current_userのid使ってるから他人のreviewsは見れないけどURLは行ける
   def index
@@ -18,17 +18,16 @@ class ReviewsController < ApplicationController
     @review = shop.reviews.build(review_params)
     @review.user_id = current_user.id
     if @review.save
-      flash[:success] = "レビューを投稿しました"
-      redirect_to shop_path(shop)
+      flash[:success] = 'レビューを投稿しました'
     else
-      flash[:danger] = "レビューを投稿できませんでした"
-      redirect_to shop_path(shop)
+      flash[:danger] = 'レビューを投稿できませんでした'
     end
+    redirect_to shop_path(shop)
   end
 
   def destroy
     Review.find(params[:id]).destroy
-    flash[:success] = "レビューを削除しました。"
+    flash[:success] = 'レビューを削除しました。'
     redirect_back(fallback_location: root_path)
   end
 
@@ -37,5 +36,4 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:title, :content)
     end
-
 end

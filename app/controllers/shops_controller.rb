@@ -1,21 +1,19 @@
 class ShopsController < ApplicationController
-  before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
-  
+  before_action :admin_user, only: %i[new create edit update destroy]
+  before_action :set_tags_to_gon, only:  %i[new edit]
+
   def index
     # @shops = Shop.paginate(page: params[:page])
-    
     @q = Shop.ransack(params[:q])
     @shops = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
-    #static_pages_controllerのhomeでも同定義(検索窓を置いてるから)
-
-    
+    # static_pages_controllerのhomeでも同定義(検索窓を置いてるから)
   end
 
   def show
     @shop = Shop.find(params[:id])
-    @shop_tags = @shop.tags #タグ一覧
-    @review = @shop.reviews.build #フォーム 
-    #reviewが降順になるのは保存されたタイミングなので、この時点では@review_firstには影響しない
+    @shop_tags = @shop.tags # タグ一覧
+    @review = @shop.reviews.build # フォーム
+    # reviewが降順になるのは保存されたタイミングなので、この時点では@review_firstには影響しない
   end
 
   def reviews
@@ -29,7 +27,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
-    tag_list = params[:shop][:tag_name].split # 入力されたタグ
+    tag_list = params[:shop][:tag_name].split(',') # 入力されたタグ
 
     # タグのバリデーションがかかるのがsave_tagのタイミングつまり@shopが
     # 保存された後だから、ここで15文字以上でひっかけ、それをパスしたら次の処理に移る
@@ -51,12 +49,11 @@ class ShopsController < ApplicationController
 
     #   end
     # end
-       
 
     @shop.image.attach(params[:shop][:image])
     if @shop.save
-      @shop.save_tag(tag_list) #タグ実装
-      flash[:success] = "店情報を登録しました。"
+      @shop.save_tag(tag_list) # タグ実装
+      flash[:success] = '店情報を登録しました。'
       redirect_to shops_path
     else
       render 'new'
@@ -65,16 +62,16 @@ class ShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
-    @tag_list = @shop.tags.pluck(:tag_name).join(" ") #タグ実装
+    @tag_list = @shop.tags.pluck(:tag_name).join(',') # タグ実装
     @every_tags = @shop.tags
   end
 
   def update
     @shop = Shop.find(params[:id])
-    tag_list = params[:shop][:tag_name].split(" ") #タグ実装
+    tag_list = params[:shop][:tag_name].split(',') # タグ実装
     if @shop.update(shop_params)
-      @shop.save_tag(tag_list) #タグ実装
-      flash[:success] = "店情報を更新しました。"
+      @shop.save_tag(tag_list) # タグ実装
+      flash[:success] = '店情報を更新しました。'
       redirect_to @shop
     else
       render 'edit'
@@ -83,16 +80,21 @@ class ShopsController < ApplicationController
 
   def destroy
     Shop.find(params[:id]).destroy
-    flash[:success] = "店舗情報を削除しました。"
+    flash[:success] = '店舗情報を削除しました。'
     redirect_to shops_path
   end
 
   private
-    
+
     def shop_params
-      params.require(:shop).permit(:name, :image, :address, :phone_number, :business_hours, :dayoff, :description, { :tag_name => [], :tag_ids => [] })
+      params.require(:shop).permit(
+        :name, :image, :address, :phone_number, :business_hours,
+        :dayoff, :description, { tag_name: [], tag_ids: [] }
+      )
     end
 
-
+    def set_tags_to_gon
+      gon.existing_tags =  Tag.all.pluck(:tag_name)
+    end
 
 end

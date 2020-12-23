@@ -7,10 +7,15 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery-ui")
 // require("jquery")
+require("./tag-it")
+require("./tags")
+require("./flash_fadeout")
 import "bootstrap";
 import '../stylesheets/application';
 import '@fortawesome/fontawesome-free/js/all';
+
 
 // favoriteをajaxにする際、jQueryがうまく読み込めていなかったようだが、下記を追記したら解消した。
 window.$ = jQuery;

@@ -44,8 +44,8 @@ Rails.application.configure do
     authentication:       :plain
   }
 
-  #追記
-  host = 'localhost:3000' 
+  # 追記
+  host = 'localhost:3000'
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
   config.action_mailer.perform_caching = false

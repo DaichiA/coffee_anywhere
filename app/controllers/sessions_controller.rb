@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :require_login, only: [:destroy]
-  before_action :reject_logged_in, only: [:new, :create]
+  before_action :reject_logged_in, only: %i[new create]
 
   def new
     @user = User.new

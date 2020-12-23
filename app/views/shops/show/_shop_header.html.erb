@@ -1,6 +1,7 @@
 <div class="shop_header my-5 mx-3">
   <% if !current_user.nil? && current_user.admin? %>
-    <div class="btn btn-warning font-weight-bold px-4 mb-3"><%= link_to "編集", edit_shop_path(@shop) %></div>
+    <!-- リロードしないとJavaScriptが動かない問題解決のため、turbolinks無効 -->
+    <div class="btn btn-warning font-weight-bold px-4 mb-3"><%= link_to "編集", edit_shop_path(@shop), data: {"turbolinks" => false} %></div>
   <% end %>
   <div class="shop_title border-bottom row mb-5">
     <h1 class="font-weight-bold d-inline-block col"><%= @shop.name %></h1>

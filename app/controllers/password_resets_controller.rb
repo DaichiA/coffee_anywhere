@@ -1,8 +1,7 @@
 class PasswordResetsController < ApplicationController
   # skip_before_action :require_login
 
-  def new
-  end
+  def new; end
 
   def create
     @user = User.find_by(email: params[:email])
@@ -21,8 +20,7 @@ class PasswordResetsController < ApplicationController
     @user = User.load_from_reset_password_token(params[:id])
     if @user.blank?
       redirect_to login_path
-      flash[:danger] = "URLが不正です。"
-      return
+      flash[:danger] = 'URLが不正です。'
     end
   end
 
@@ -31,8 +29,7 @@ class PasswordResetsController < ApplicationController
     @user = User.load_from_reset_password_token(params[:id])
     if @user.blank?
       redirect_to login_path
-      flash[:danger] = "URLが不正です。"
-      return
+      flash[:danger] = 'URLが不正です。'
     end
     # the next line makes the password confirmation validation work
     @user.password_confirmation = params[:user][:password_confirmation]
@@ -42,8 +39,7 @@ class PasswordResetsController < ApplicationController
       auto_login(@user)
       flash[:success] = 'パスワードを更新しました。'
     else
-      render :action => "edit"
+      render action: 'edit'
     end
   end
-
 end

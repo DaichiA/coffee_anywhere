@@ -8,6 +8,6 @@ class CreateReviews < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :reviews, [:user_id, :shop_id, :created_at]
+    add_index :reviews, %i[user_id shop_id created_at]
   end
 end

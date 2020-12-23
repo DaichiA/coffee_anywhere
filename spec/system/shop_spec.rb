@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Shop", type: :system do
+RSpec.describe 'Shop', type: :system do
   let(:user) { FactoryBot.create(:admin_user) }
 
   before do
-    login(user) #モジュールに切り分けた
+    login(user) # モジュールに切り分けた
   end
 
   # UIができてから書く
@@ -15,5 +15,4 @@ RSpec.describe "Shop", type: :system do
 
   # describe "edit to update" do
   # end
-
 end
