@@ -11,49 +11,56 @@
   </div>
 
   <div class="row mx-lg-n5">
-  <% if logged_in? %>
-    <div class="col">
-  <% else %>
-    <div class="col col-lg-10">
-  <% end %>
-      <div class="area">
-        <h2 class="font-weight-bold">エリアで探す</h2>
-        <div class="area_space border rounded px-3">
-          <div class="row justify-content-between flex">
-            <%= render partial: 'area', locals: {keyword: '東京', area: 'tokyo'} %>
-            <%= render partial: 'area', locals: {keyword: '大阪', area: 'osaka'} %>
-            <%= render partial: 'area', locals: {keyword: '名古屋', area: 'nagoya'} %>
-          </div>
+    <% if logged_in? %>
+      <div class="col">
+    <% else %>
+      <div class="col col-lg-10">
+    <% end %>
+    <div class="area">
+      <h2 class="font-weight-bold">エリアで探す</h2>
+      <div class="area_space border rounded px-3">
+        <div class="row justify-content-between flex">
+          <%= render partial: 'area', locals: {keyword: '東京', area: 'tokyo'} %>
+          <%= render partial: 'area', locals: {keyword: '大阪', area: 'osaka'} %>
+          <%= render partial: 'area', locals: {keyword: '名古屋', area: 'nagoya'} %>
+        </div>
 
-          <div class="row justify-content-between flex">
-            <%= render partial: 'area', locals: {keyword: '仙台', area: 'sendai'} %>
-            <%= render partial: 'area', locals: {keyword: '札幌', area: 'sapporo'} %>
-            <%= render partial: 'area', locals: {keyword: '福岡', area: 'fukuoka'} %>
-          </div>
+        <div class="row justify-content-between flex">
+          <%= render partial: 'area', locals: {keyword: '仙台', area: 'sendai'} %>
+          <%= render partial: 'area', locals: {keyword: '札幌', area: 'sapporo'} %>
+          <%= render partial: 'area', locals: {keyword: '福岡', area: 'fukuoka'} %>
         </div>
       </div>
+    </div>
 
-      <div class="method">
-        <h2 class="font-weight-bold mt-5">淹れ方で探す</h2>
-        <div class="method_space border rounded p-3">
-          <div class="row justify-content-between flex">
-            <%= render partial: 'method', locals: { method: 'ドリップ', method_image: 'neldrip'} %>
-            <%= render partial: 'method', locals: { method: 'エスプレッソ', method_image: 'espresso'} %>
-            <%= render partial: 'method', locals: { method: 'フレンチプレス', method_image: 'frenchpress'} %>
-            <%= render partial: 'method', locals: { method: 'エアロプレス', method_image: 'aeropress'} %>
-            <%= render partial: 'method', locals: { method: '水出し', method_image: 'coldbrew'} %>
-            <%= render partial: 'method', locals: { method: 'サイフォン', method_image: 'syphon'} %>
-          </div>
-         </div>
-
-          <!--
-              <% @tags.each do |tag| %>
-                <div class="badge badge-light border"><%= tag.tag_name %></div>
-              <% end %>
-          -->
-
+    <div class="method">
+      <h2 class="font-weight-bold mt-5">淹れ方で探す</h2>
+      <div class="method_space border rounded p-3">
+        <div class="row justify-content-between flex">
+          <%= render partial: 'method', locals: { method: 'ドリップ', method_image: 'neldrip'} %>
+          <%= render partial: 'method', locals: { method: 'エスプレッソ', method_image: 'espresso'} %>
+          <%= render partial: 'method', locals: { method: 'フレンチプレス', method_image: 'frenchpress'} %>
+          <%= render partial: 'method', locals: { method: 'エアロプレス', method_image: 'aeropress'} %>
+          <%= render partial: 'method', locals: { method: '水出し', method_image: 'coldbrew'} %>
+          <%= render partial: 'method', locals: { method: 'サイフォン', method_image: 'syphon'} %>
+        </div>
       </div>
     </div>
+
+    <div class="situation">
+      <h2 class="font-weight-bold mt-5">こだわり条件で探す</h2>
+      <div class="method_space border rounded p-3 px-4">
+        <div class="row justify-content-between flex">
+          <% @tags_for_search.each do |tag| %>
+             <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: tag } })do %>
+              <div class="badge badge-light p-2 border m-1"><%= tag %></div>
+             <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
   <% unless logged_in? %>
     <div class="home_right d-none col-lg-2 d-lg-block p-0">
