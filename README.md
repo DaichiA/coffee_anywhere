@@ -23,15 +23,16 @@ issueを確認、branchを切る、開発、push, pull request, merge
 ・データベース（AWS RDS, MySQL）  
 ・テスト（RSpec, Capybara, factory_bot）  
 ・CSSフレームワーク（Bootstrap4）  
+・コードチェック（rubocop）  
 ・ユーザー登録、ログイン（Sorcery）  
 ・画像アップロード（Active Storage, mini_magic, AWS S3） 
 ・ブックマーク（Ajax)  
 ・ページネーション（will_paginate）  
 ・検索（ransack）  
-・メールアクティベーション、パスワードリセット （ActionMailer, gmail）  
+・メールアクティベーション、パスワードリセット （ActionMailer）  
+・タグ付機能（Tag-it）  
 ・管理者機能  
-・レビュー  
-・ブックマーク  
+・レビュー（jquery）   
 
 ・Webサーバー (Nginx)
 ・アプリケーションサーバー (Puma)
