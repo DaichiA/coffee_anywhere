@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     # @shops = @q.result(distinct: true).paginate(page: params[:page])
     @tags = Tag.all
     tag_names = @tags.pluck(:tag_name)
-    brew_methods = ['ネルドリップ', 'エスプレッソ', 'フレンチプレス', 'エアロプレス', '水出し', 'サイフォン']
+    brew_methods = ['ドリップ', 'エスプレッソ', 'フレンチプレス', 'エアロプレス', '水出し', 'サイフォン']
     @tags_for_search = tag_names - brew_methods
 
     if params[:q] != nil
