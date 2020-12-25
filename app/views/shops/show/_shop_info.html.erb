@@ -18,6 +18,9 @@
         <th scope="row" class="active">住所</th>
         <td>
           <%= @shop.address %><br>
+          <br>
+          <%= render 'shops/show/map' %>
+          <div id="map"></div>
         </td>
       </tr>
       <tr>

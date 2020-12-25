@@ -14,6 +14,8 @@ class ShopsController < ApplicationController
     @shop_tags = @shop.tags # タグ一覧
     @review = @shop.reviews.build # フォーム
     # reviewが降順になるのは保存されたタイミングなので、この時点では@review_firstには影響しない
+    gon.latitude = @shop.latitude
+    gon.longitude = @shop.longitude
   end
 
   def reviews
