@@ -1,0 +1,36 @@
+
+<script>
+  function initMap() {
+    // latitude,longitudeから位置を特定
+    // var test = { lat: <%= @shop.latitude %>, lng: <%= @shop.longitude %>};
+    var place = { lat: gon.latitude, lng: gon.longitude};
+    map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 13, 
+              center: place
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '<%= @shop.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    // Map上の指定した位置にピンを挿して表示する
+    var marker = new google.maps.Marker({
+                  position:place,
+                  map: map,
+                  title: contentString
+                });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+
+
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map[:api_key] %>&callback=initMap">
+</script>

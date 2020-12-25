@@ -17,6 +17,8 @@ class Shop < ApplicationRecord
                                       message: 'はjpg, gif, png形式のみ利用できます。' },
                       size:         { less_than: 5.megabytes,
                                       message: 'に5MB以上のファイルは利用できません。' }
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def save_tag(sent_tags)
     current_tags = tags.pluck(:tag_name) unless tags.nil?
