@@ -12,17 +12,6 @@
   </div>
 
   <%= f.label :tag_name, "タグ" %>
-  <!--
-  <% if @tag_list %>
-    <%= f.text_field :tag_name, value:@tag_list, class: 'form-control mb-4' %>
-    <p>既存のタグ</p>
-    <% @every_tags.each do |tag| %>
-      <p class="badge badge-secondary mb-4"><%= tag.tag_name %></p>
-    <% end %>
-  <% else %>
-   <%= f.text_field :tag_name, class: 'form-control mb-4', id: "tags" %>
-  <% end %>
-  -->
 <%= f.text_field :tag_name, value:@tag_list, class: 'form-control mb-4', id: "tags" %>
 
   <br>
