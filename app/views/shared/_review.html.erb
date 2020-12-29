@@ -30,6 +30,11 @@
     <h4 class="review_title h3 border-bottom pl-3 d-inline-block font-weight-bold">
       <%= review.title %>
     </h4>
+
+    <div class='ml-3'>
+      <%= render partial: 'shared/show_rate', locals: { review: review } %>
+    </div>
+
     <div class="review_cotent p-3">
       <%= safe_join(review.content.split("\n"), tag(:br)) %>
     </div>

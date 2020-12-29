@@ -1,15 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Review, type: :model do
-  let(:user) { FactoryBot.create(:user) }
-  let(:shop) { FactoryBot.create(:shop) }
-  let(:review) { FactoryBot.create(:review, user_id: user.id, shop_id: shop.id) }
-  # let(:old_review){ FactoryBot.create(:second_review) }
-  # let(:new_review){ FactoryBot.create(:third_review) }
-
+  let(:review) { FactoryBot.create(:review) }
+  
   describe 'validation' do
     it 'has valid factory' do
-      expect(review).to be_valid
+      expect(FactoryBot.create(:review)).to be_valid
     end
 
     context 'title' do
@@ -43,10 +39,10 @@ RSpec.describe Review, type: :model do
 
   describe 'order' do
     it 'comes most recent review first' do
-      review1 = FactoryBot.create(:review, user_id: user.id, shop_id: shop.id)
-      review2 = FactoryBot.create(:new_review, user_id: user.id, shop_id: shop.id)
-      review3 = FactoryBot.create(:old_review, user_id: user.id, shop_id: shop.id)
-      expect(review2).to eq user.reviews.first
+      review1 = FactoryBot.create(:review)
+      review2 = FactoryBot.create(:review, user: review1.user)
+      review3 = FactoryBot.create(:review, user: review1.user)
+      expect(review3).to eq Review.first
     end
   end
 end

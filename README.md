@@ -31,8 +31,10 @@ issueを確認、branchを切る、開発、push, pull request, merge
 ・検索（ransack）  
 ・メールアクティベーション、パスワードリセット （ActionMailer）  
 ・タグ付機能（Tag-it）  
-・管理者機能  
+・マップ（geocoder）
 ・レビュー（jquery）   
+・レビューの星評価（jquery.raty）  
+・管理者機能  
 
 ・Webサーバー (Nginx)
 ・アプリケーションサーバー (Puma)

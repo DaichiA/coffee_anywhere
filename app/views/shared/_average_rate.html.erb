@@ -1,0 +1,16 @@
+<div class='rate row justify-content-end align-items-center mr-1'>
+  <div id="average_rate"></div>
+  <div class="ave_rate pl-2"><%= rate_ave %></div>
+</div>
+
+<script>
+  $('#average_rate').raty({
+    // size: 20,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: '<%= rate_ave %>',
+  });
+</script>
