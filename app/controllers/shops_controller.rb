@@ -12,8 +12,13 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @shop_tags = @shop.tags # タグ一覧
+    if @shop.reviews.length == 0
+      @rate_ave =  0
+    else
+      rate_sum = @shop.reviews.pluck(:rate).sum
+      @rate_ave = (rate_sum / @shop.reviews.length).floor(2)
+    end
     @review = @shop.reviews.build # フォーム
-    # reviewが降順になるのは保存されたタイミングなので、この時点では@review_firstには影響しない
     gon.latitude = @shop.latitude
     gon.longitude = @shop.longitude
   end

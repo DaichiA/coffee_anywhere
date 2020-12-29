@@ -50,4 +50,9 @@ Rails.application.configure do
   # 追記 これ記載しないとmailerのtestできなかった
   host = 'localhost:3000'
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+
+  # 下記エラーを回避するため
+  #  ActiveRecord::StatementInvalid:
+  #      Mysql2::Error: MySQL client is not connected
+  config.active_job.queue_adapter = :inline
 end

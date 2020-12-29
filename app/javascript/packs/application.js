@@ -11,6 +11,7 @@ require("jquery-ui")
 // require("jquery")
 require("./tag-it")
 require("./tags")
+require("./jquery.raty")
 require("./flash_fadeout")
 import "bootstrap";
 import '../stylesheets/application';

@@ -1,0 +1,15 @@
+<!--renderする時 locals: review -->
+
+<div id="star-rate-<%= review.id %>"></div>
+
+<script>
+  $('#star-rate-<%= review.id %>').raty({
+    // size: 20,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: '<%= review.rate %>',
+  });
+</script>

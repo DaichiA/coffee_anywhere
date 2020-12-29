@@ -1,12 +1,13 @@
 FactoryBot.define do
   factory :review do
     title { 'first review' }
+    rate { 3 }
     content { 'first content' }
-    # user { nil }
-    # shop { nil }
+    # user { user }
+    # shop { shop }
     association :user
     association :shop
-    created_at { 1.month.ago }
+    # created_at { 1.month.ago }
   end
 
   factory :old_review, class: Review do
