@@ -26,7 +26,7 @@ RSpec.describe 'admin', type: :system do
         click_link '店舗 新規登録'
         fill_in '店名', with: 'test shop'
         attach_file 'shop_image', "#{Rails.root}/spec/factories/images/shop_image.jpg"
-        fill_in 'tags', with: 'test tag'
+        fill_in 'tags', with: 'tag'
         fill_in 'shop[address]', with: 'test address' # なぜか「住所」では通らない
         fill_in '電話番号', with: '01234567890'
         fill_in '営業時間', with: 'test hours'
@@ -71,7 +71,11 @@ RSpec.describe 'admin', type: :system do
         is_expected.to have_field '説明', with: shop.description
         fill_in '店名', with: 'テストショップ'
         attach_file '画像', "#{Rails.root}/spec/factories/images/alt_shop_image.jpg"
+<<<<<<< HEAD
         fill_in 'tags', with: '新しいタグ'
+=======
+        fill_in 'tags', with: 'new'
+>>>>>>> master
         fill_in 'shop[address]', with: '新しい住所' # なぜか「住所」では通らない
         fill_in '電話番号', with: '0987654321'
         fill_in '営業時間', with: '新しい営業時間'
@@ -82,7 +86,11 @@ RSpec.describe 'admin', type: :system do
         is_expected.to have_selector('.alert-success', text: '店情報を更新しました。')
         is_expected.to have_selector 'h1', text: 'テストショップ'
         is_expected.to have_selector("img[src$='alt_shop_image.jpg']")
+<<<<<<< HEAD
         is_expected.to have_content '新しいタグ'
+=======
+        is_expected.to have_content 'new'
+>>>>>>> master
         is_expected.to have_content '0987654321'
         is_expected.to have_content '新しい営業時間'
         is_expected.to have_content('月曜日', count: 2)
