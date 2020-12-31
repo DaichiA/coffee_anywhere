@@ -128,4 +128,9 @@ Rails.application.configure do
     password:             Rails.application.credentials.gmail[:password],
     authentication:       :plain
   }
+
+
+  # ログローテーション
+  config.logger = Logger.new("log/production.log", 'weekly')
+  
 end

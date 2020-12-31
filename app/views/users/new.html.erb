@@ -6,6 +6,8 @@
     <div class="login_left border rounded p-4 mt-5">
       <h1>ユーザー登録</h1>
       <%= render 'form' %>
+      <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %>
+      <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
     </div>
   </div>
 
