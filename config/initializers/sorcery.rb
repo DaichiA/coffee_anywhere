@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = %i[user_activation reset_password]
+Rails.application.config.sorcery.submodules = %i[user_activation reset_password external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -80,7 +80,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  # config.external_providers =
+  config.external_providers = %i[twitter facebook]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -115,20 +115,24 @@ Rails.application.config.sorcery.configure do |config|
   # Twitter will not accept any requests nor redirect uri containing localhost,
   # Make sure you use 0.0.0.0:3000 to access your app in development
   #
-  # config.twitter.key = ""
-  # config.twitter.secret = ""
+  config.twitter.key = Rails.application.credentials.dig(:sorcery, :twitter, :key)
+  config.twitter.secret = Rails.application.credentials.dig(:sorcery, :twitter, :secret)
   # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
-  # config.twitter.user_info_mapping = {:email => "screen_name"}
-  #
-  # config.facebook.key = ""
-  # config.facebook.secret = ""
-  # config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
-  # config.facebook.user_info_path = "me?fields=email"
-  # config.facebook.user_info_mapping = {:email => "email"}
-  # config.facebook.access_permissions = ["email"]
-  # config.facebook.display = "page"
-  # config.facebook.api_version = "v2.3"
-  # config.facebook.parse = :json
+  config.twitter.callback_url = "https://coffee_anywhere/oauth/callback?provider=twitter"
+  config.twitter.user_info_path = "/1.1/account/verify_credentials.json?include_email=true"
+  config.twitter.user_info_mapping = {:email => "email", :name => "screen_name"}
+  
+
+  config.facebook.key = Rails.application.credentials.dig(:sorcery, :facebook, :key)
+  config.facebook.secret = Rails.application.credentials.dig(:sorcery, :facebook, :secret)
+  # config.facebook.callback_url = "https://localhost:9292/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "https://coffee_anywhere/oauth/callback?provider=facebook"
+  config.facebook.user_info_path = "me?fields=email,name,picture"
+  config.facebook.user_info_mapping = {:email => "email", :name => "name", :image => "picture/data/url"}
+  config.facebook.access_permissions = ["email"]
+  config.facebook.display = "page"
+  config.facebook.api_version = "v9.0"
+  config.facebook.parse = :json
   #
   # config.instagram.key = ""
   # config.instagram.secret = ""
@@ -521,7 +525,7 @@ Rails.application.config.sorcery.configure do |config|
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
-    # user.authentications_class =
+    user.authentications_class = Authentication
 
     # User's identifier in the `authentications` class.
     # Default: `:user_id`
