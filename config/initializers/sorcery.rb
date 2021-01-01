@@ -119,7 +119,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.secret = Rails.application.credentials.dig(:sorcery, :twitter, :secret)
   case Rails.env
     when "production"
-      config.twitter.callback_url = "https://coffee-anywhere/oauth/callback?provider=twitter"
+      config.twitter.callback_url = "https://coffee-anywhere.com/oauth/callback?provider=twitter"
     when "development"
       config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
   end
@@ -131,7 +131,7 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.secret = Rails.application.credentials.dig(:sorcery, :facebook, :secret)
   case Rails.env
     when "production"
-      config.facebook.callback_url = "https://coffee-anywhere/oauth/callback?provider=facebook"
+      config.facebook.callback_url = "https://coffee-anywhere.com/oauth/callback?provider=facebook"
     when "development"
       config.facebook.callback_url = "https://localhost:9292/oauth/callback?provider=facebook"
   end
