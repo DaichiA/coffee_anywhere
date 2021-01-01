@@ -117,18 +117,26 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.twitter.key = Rails.application.credentials.dig(:sorcery, :twitter, :key)
   config.twitter.secret = Rails.application.credentials.dig(:sorcery, :twitter, :secret)
-  # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
-  config.twitter.callback_url = "https://coffee_anywhere/oauth/callback?provider=twitter"
+  case Rails.env
+    when "production"
+      config.twitter.callback_url = "https://coffee-anywhere/oauth/callback?provider=twitter"
+    when "development"
+      config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
+  end
   config.twitter.user_info_path = "/1.1/account/verify_credentials.json?include_email=true"
   config.twitter.user_info_mapping = {:email => "email", :name => "screen_name"}
   
 
   config.facebook.key = Rails.application.credentials.dig(:sorcery, :facebook, :key)
   config.facebook.secret = Rails.application.credentials.dig(:sorcery, :facebook, :secret)
-  # config.facebook.callback_url = "https://localhost:9292/oauth/callback?provider=facebook"
-  config.facebook.callback_url = "https://coffee_anywhere/oauth/callback?provider=facebook"
-  config.facebook.user_info_path = "me?fields=email,name,picture"
-  config.facebook.user_info_mapping = {:email => "email", :name => "name", :image => "picture/data/url"}
+  case Rails.env
+    when "production"
+      config.facebook.callback_url = "https://coffee-anywhere/oauth/callback?provider=facebook"
+    when "development"
+      config.facebook.callback_url = "https://localhost:9292/oauth/callback?provider=facebook"
+  end
+  config.facebook.user_info_path = "me?fields=email,name"
+  config.facebook.user_info_mapping = {:email => "email", :name => "name"}
   config.facebook.access_permissions = ["email"]
   config.facebook.display = "page"
   config.facebook.api_version = "v9.0"
