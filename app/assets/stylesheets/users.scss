@@ -21,12 +21,23 @@ input, textarea, select, .uneditable-input {
   }
 }
 
-// .field_with_errors {
-//   @extend .has-error;
-//   .form-control {
-//     color: $state-danger-text;
-//   }
-// }
+.facebook {
+  color: white;
+  font-size: 1.4rem;
+  display: inline-block;
+  padding: 5px 45px;
+  border-radius: 3px;
+  background-color: #1877F2;
+}
+
+.twitter {
+  color: white;
+  font-size: 1.4rem;
+  display: inline-block;
+  padding: 5px 45px;
+  border-radius: 3px;
+  background-color: #1DA1F2;
+}
 
 
 // ===========
