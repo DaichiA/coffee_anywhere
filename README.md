@@ -25,8 +25,8 @@ issueを確認、branchを切る、開発、push, pull request, merge
 ・CSSフレームワーク（Bootstrap4）  
 ・コードチェック（rubocop）  
 ・ユーザー登録、ログイン（Sorcery）  
-・SNSログイン（Facebook, Twitter） 
-・画像アップロード（Active Storage, mini_magic, AWS S3） 
+・SNSログイン（Facebook, Twitter）  
+・画像アップロード（Active Storage, mini_magic, AWS S3）  
 ・ブックマーク（Ajax)  
 ・ページネーション（will_paginate）  
 ・検索（ransack）  
