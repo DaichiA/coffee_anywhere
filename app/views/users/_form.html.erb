@@ -1,22 +1,17 @@
  <%= form_with(model:@user, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, "名前", class: "mt-5" %>
-  <%= f.text_field :name, class: 'form-control mb-4' %>
+  <%= f.text_field :name, placeholder: '名前', class: 'form-control mb-2' %>
+  <%= f.email_field :email, placeholder: 'メールアドレス', class: 'form-control mb-2' %>
+  <%= f.password_field :password, placeholder: 'パスワード', class: 'form-control mb-2' %>
+  <%= f.password_field :password_confirmation, placeholder: 'パスワード確認', class: 'form-control mb-2' %>
 
-  <%= f.label :image, "アイコン画像" %>
-  <span class="image">
-    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-  </span>
+  <% unless @user.id == nil %>
+    <%= f.label :image, "アイコン画像" %>
+    <span class="image">
+      <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "mb-5" %>
+    </span>
+  <% end %>
 
-  <%= f.label :email, "メールアドレス", class:"mt-4" %>
-  <%= f.email_field :email, class: 'form-control mb-4' %>
-
-  <%= f.label :password, "パスワード" %>
-  <%= f.password_field :password, class: 'form-control mb-4' %>
-
-  <%= f.label :password_confirmation, "パスワード確認" %>
-  <%= f.password_field :password_confirmation, class: 'form-control mb-4' %>
-
-  <%= f.submit yield(:button_text), class: "btn btn-dark mt-5" %>
+  <%= f.submit yield(:button_text), class: "btn btn-dark mt-2" %>
 <% end %>

@@ -2,28 +2,23 @@
 <% provide(:button_text, '登録') %>
 
 <div class="row mt-5">
-  <div class="col-lg-7 offset-lg-1">
+  <div class="col-lg-10 offset-lg-1">
     <div class="login_left border rounded p-4 mt-5">
-      <h1>ユーザー登録</h1>
-      <%= render 'form' %>
-      <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %>
-      <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
-    </div>
-  </div>
-
-  <div class="signup_right d-none col-lg-3 d-lg-block p-0 mt-5">
-    <div class="register border rounded ml-3 p-5">
-      <p>登録せずに試すにはこちら</p>
-      <div class="text-center">
-        <%= form_with(url:login_path, local: true) do |f| %>
-          <%= f.hidden_field :email, value: 'testuser@example.com' %>
-          <%= f.hidden_field :password, value: 'goodcoffee' %>
-          <%= f.submit 'お試しログイン', class: "btn btn-secondary" %>
-        <% end %>
+      <h1>COFFEE ANYWHEREへようこそ！</h1>
+      <p class="h4 my-4">新規登録(無料)して利用を開始しましょう。</p>
+      <div class="row border-top">
+        <div class="sns col-10 offset-1 col-lg-6 offset-lg-0 mt-4 pb-4 ">
+          <%= render partial: 'shared/sns', locals: { phrase: '登録' } %>
+          <p class="pt-3 text-black-50">COFFEE ANYWHEREが許可なくFacebook, Twitterに投稿することはありません。</p>
+          <p class="border-top pt-4">登録せずに試すにはこちら</p>
+          <div class="text-center pb-4 border-bottom">
+            <%= render 'shared/easy_login' %>
+          </div>
+        </div>
+        <div class="col-10 offset-1 col-lg-6 offset-lg-0 mt-4"><%= render 'form' %></div>
       </div>
     </div>
   </div>
-
 </div>
 
 <% if @user.errors.any? %>

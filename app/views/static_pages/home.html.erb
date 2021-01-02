@@ -70,7 +70,13 @@
           <%= link_to '会員登録',  signup_path, class: "btn btn-secondary mx-auto text-white w-100"  %>
         </div>
       </div>
-      <%= render 'shared/easy_login' %>
+      <div class="register border rounded ml-3 p-3">
+        <p>登録せずに試すにはこちら</p>
+        <div class="text-center">
+          <%= render 'shared/easy_login' %>
+        </div>
+      </div>
+      
     </div>
     <% end %>
   
