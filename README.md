@@ -25,6 +25,7 @@ issueを確認、branchを切る、開発、push, pull request, merge
 ・CSSフレームワーク（Bootstrap4）  
 ・コードチェック（rubocop）  
 ・ユーザー登録、ログイン（Sorcery）  
+・SNSログイン（Facebook, Twitter） 
 ・画像アップロード（Active Storage, mini_magic, AWS S3） 
 ・ブックマーク（Ajax)  
 ・ページネーション（will_paginate）  
@@ -40,18 +41,18 @@ issueを確認、branchを切る、開発、push, pull request, merge
 ・アプリケーションサーバー (Puma)
 
 使用したAWSのサービス
-・VPC
-・RDS
-・EC2
-・Route 53
-・ACM
-・ALB
-・S3
-・IAM
+・VPC  
+・RDS  
+・EC2  
+・Route 53  
+・ACM  
+・ALB  
+・S3  
+・IAM  
 
   
 # URL
-https://coffee-anywhere.com/
+https://coffee-anywhere.com/  
   
 ホーム画面とログイン画面にワンクリックでログインできる機能がありますのでそちらをぜひご利用ください。  
   
