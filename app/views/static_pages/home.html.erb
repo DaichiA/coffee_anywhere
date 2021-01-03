@@ -16,25 +16,9 @@
     <% else %>
       <div class="col col-lg-10">
     <% end %>
-    <div class="area">
-      <h2 class="font-weight-bold">エリアで探す</h2>
-      <div class="area_space border rounded px-3">
-        <div class="row justify-content-between flex">
-          <%= render partial: 'area', locals: {keyword: '東京', area: 'tokyo'} %>
-          <%= render partial: 'area', locals: {keyword: '大阪', area: 'osaka'} %>
-          <%= render partial: 'area', locals: {keyword: '名古屋', area: 'nagoya'} %>
-        </div>
-
-        <div class="row justify-content-between flex">
-          <%= render partial: 'area', locals: {keyword: '仙台', area: 'sendai'} %>
-          <%= render partial: 'area', locals: {keyword: '札幌', area: 'sapporo'} %>
-          <%= render partial: 'area', locals: {keyword: '福岡', area: 'fukuoka'} %>
-        </div>
-      </div>
-    </div>
 
     <div class="method">
-      <h2 class="font-weight-bold mt-5">淹れ方で探す</h2>
+      <h2 class="font-weight-bold">淹れ方で探す</h2>
       <div class="method_space border rounded p-3">
         <div class="row justify-content-between flex">
           <%= render partial: 'method', locals: { method: 'ドリップ', method_image: 'neldrip'} %>
@@ -50,15 +34,36 @@
     <div class="situation">
       <h2 class="font-weight-bold mt-5">こだわり条件で探す</h2>
       <div class="border rounded p-3 px-4">
-        <div class="row flex h4">
+        <div class="row flex">
           <% @tags_for_search.each do |tag| %>
              <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: tag } })do %>
-              <div class="badge badge-light p-2 border border-secondary m-1"><%= tag %></div>
+              <div class="badge badge-light p-2 border m-1"><%= tag %></div>
              <% end %>
           <% end %>
         </div>
       </div>
     </div>
+
+    <div class="area">
+      <h2 class="font-weight-bold mt-5">エリアで探す</h2>
+      <div class="area_space border rounded px-3">
+        <div class="row justify-content-between flex">
+          <%= render partial: 'area', locals: {keyword: '東京', area: 'tokyo'} %>
+          <%= render partial: 'area', locals: {keyword: '大阪', area: 'osaka'} %>
+          <%= render partial: 'area', locals: {keyword: '名古屋', area: 'nagoya'} %>
+        </div>
+
+        <div class="row justify-content-between flex">
+          <%= render partial: 'area', locals: {keyword: '仙台', area: 'sendai'} %>
+          <%= render partial: 'area', locals: {keyword: '札幌', area: 'sapporo'} %>
+          <%= render partial: 'area', locals: {keyword: '福岡', area: 'fukuoka'} %>
+        </div>
+      </div>
+    </div>
+
+
+
+
 
   </div>
 

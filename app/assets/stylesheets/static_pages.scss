@@ -202,8 +202,8 @@ header {
 
 
   .area {
-    // background-color: orange;
-    margin-top: 80px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     h2 {
       margin-bottom: 20px;
     }
@@ -239,6 +239,7 @@ header {
   }
 
   .method {
+    margin-top: 80px;
     h2 {
       margin-bottom: 20px;
     }
@@ -259,7 +260,13 @@ header {
     }
   }
 
+  .situation {
+    margin-top: 60px;
+  }
+
 }
+
+
 
 // ============
 // footer
