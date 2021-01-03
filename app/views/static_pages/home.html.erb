@@ -34,10 +34,10 @@
     <div class="situation">
       <h2 class="font-weight-bold mt-5">こだわり条件で探す</h2>
       <div class="border rounded p-3 px-4">
-        <div class="row flex">
+        <div class="row flex h4">
           <% @tags_for_search.each do |tag| %>
              <%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: tag } })do %>
-              <div class="badge badge-light p-2 border m-1"><%= tag %></div>
+              <div class="badge badge-light p-2 border border-secondary m-1"><%= tag %></div>
              <% end %>
           <% end %>
         </div>
