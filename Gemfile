@@ -70,6 +70,9 @@ group :development do
   gem 'capistrano3-puma', '< 5'
   gem 'capistrano-rbenv', '~> 2.2'
   gem 'capistrano-rbenv-vars', '~> 0.1'
+  gem 'capistrano-rails-console', require: false
+
+  gem 'rails-erd'
 end
 
 group :test do

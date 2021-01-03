@@ -23,7 +23,7 @@ RSpec.describe 'User signup and account activation', type: :system do
     visit root_path
     click_link '登録'
     fill_in '名前', with: 'Example User'
-    attach_file 'アイコン画像', "#{Rails.root}/spec/factories/images/user_image.jpg"
+    # attach_file 'アイコン画像', "#{Rails.root}/spec/factories/images/user_image.jpg"
     fill_in 'メールアドレス', with: 'test@example.com'
     fill_in 'パスワード', with: 'password'
     fill_in 'パスワード確認', with: 'password'
@@ -55,7 +55,7 @@ RSpec.describe 'User signup and account activation', type: :system do
     expect(page).to have_link 'Home'
     expect(page).to_not have_link '登録'
     expect(page).to_not have_link 'ログイン'
-    expect(page).to have_selector("img[src$='user_image.jpg']")
+    expect(page).to have_selector("img[src*='default_user']")
     expect(page).to have_selector('.dropdown-toggle')
     expect(page).to have_link 'マイページ'
     expect(page).to have_link '設定'
