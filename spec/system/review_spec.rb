@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'review', type: :system do
+RSpec.describe 'review', type: :system, js: true do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:other_user) }
   let!(:shop) { FactoryBot.create(:shop) }
@@ -29,7 +29,8 @@ RSpec.describe 'review', type: :system do
     context 'no reviews exist' do
       it 'post a new review' do
         visit root_path
-        click_link 'マイページ'
+        find(".dropdown-toggle").click
+        click_on 'マイページ'
         click_link 'レビュー'
         is_expected.to have_content 'まだレビューを投稿していません'
         visit root_path
@@ -40,6 +41,7 @@ RSpec.describe 'review', type: :system do
         is_expected.to have_content 'お店のレビュー(0件)'
         click_button '投稿する'
         fill_in 'タイトル', with: 'test review'
+        find('#star').find("img[alt='4']").click #rate
         fill_in '本文', with: 'review sentence'
         expect {
           click_button '投稿'
@@ -51,10 +53,12 @@ RSpec.describe 'review', type: :system do
           is_expected.to have_content "#{user.name}さんのレビュー"
           is_expected.to have_content Review.first.created_at.strftime('%Y年%m月%d日')
           is_expected.to have_content 'test review'
+          is_expected.to have_selector("img[src*='star-on']")
           is_expected.to have_content 'review sentence'
           is_expected.to have_link '[削除]'
         end
         # マイページで自分のレビューが見れる
+        find(".dropdown-toggle").click
         click_link 'マイページ'
         click_link 'レビュー'
         is_expected.to have_content "#{user.name}さんのレビュー"
@@ -95,6 +99,7 @@ RSpec.describe 'review', type: :system do
         end
         click_button '投稿する'
         fill_in 'タイトル', with: 'the third review'
+        find('#star').find("img[alt='4']").click #rate
         fill_in '本文', with: 'the third review sentence'
         expect {
           click_button '投稿'
@@ -126,6 +131,7 @@ RSpec.describe 'review', type: :system do
         is_expected.to have_content other_review.title
 
         # マイページで自分のレビューが反映されてる
+        find(".dropdown-toggle").click
         click_link 'マイページ'
         click_link 'レビュー'
         within all('.my_review')[0] do
@@ -136,6 +142,13 @@ RSpec.describe 'review', type: :system do
           is_expected.to have_link '[削除]'
         end
         within all('.my_review')[1] do
+          is_expected.to have_content "#{user.name}さんのレビュー"
+          is_expected.to have_content review.created_at.strftime('%Y年%m月%d日')
+          is_expected.to have_content review.title
+          is_expected.to have_content review.content
+          is_expected.to have_link '[削除]'
+        end
+        within all('.my_review')[2] do
           is_expected.to have_content "#{user.name}さんのレビュー"
           is_expected.to have_content second_shop_review.created_at.strftime('%Y年%m月%d日')
           is_expected.to have_content second_shop_review.title

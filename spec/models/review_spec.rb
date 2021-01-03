@@ -39,22 +39,15 @@ RSpec.describe Review, type: :model do
 
   describe 'order' do
     it 'comes most recent review first' do
-<<<<<<< HEAD
-      review1 = FactoryBot.create(:review)
-      review2 = FactoryBot.create(:review, user: review1.user)
-      review3 = FactoryBot.create(:review, user: review1.user)
-      expect(review3).to eq Review.first
-=======
       user = FactoryBot.create(:user)
       shop1 = FactoryBot.create(:shop)
       shop2 = FactoryBot.create(:shop, :second)
       shop3 = FactoryBot.create(:shop, :third)
 
-      review1 = user.reviews.create(shop: shop1, title: 'title', content: 'content')
-      review2 = user.reviews.create(shop: shop2, title: 'title', content: 'content')
-      review3 = user.reviews.create(shop: shop3, title: 'title', content: 'content')
+      review1 = user.reviews.create(shop: shop1, title: 'title', content: 'content', rate: 3)
+      review2 = user.reviews.create(shop: shop2, title: 'title', content: 'content', rate: 3)
+      review3 = user.reviews.create(shop: shop3, title: 'title', content: 'content', rate: 3)
       expect(user.reviews.first).to eq review3
->>>>>>> master
     end
   end
 end
