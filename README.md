@@ -64,11 +64,11 @@ issueを確認、branchを切る、開発、push, pull request, merge
 # スクリーンショット
   
 ## トップページ
-![coffee-anywhere herokuapp com_](https://user-images.githubusercontent.com/70304933/100679625-3cf84c00-33b3-11eb-95c7-0e9d53dd1f90.png)
+![coffee-anywhere com_](https://user-images.githubusercontent.com/70304933/103495113-f946a580-4e7c-11eb-975f-8daf7132c012.png)
   
 
 ## ログインページ
-![coffee-anywhere herokuapp com_ (1)](https://user-images.githubusercontent.com/70304933/100679657-4bdefe80-33b3-11eb-848f-3075165caee0.png)
+![coffee-anywhere com_ (3)](https://user-images.githubusercontent.com/70304933/103495185-3e6ad780-4e7d-11eb-8ef8-83dc378ab098.png)
   
 
 ## マイページ(レビュー)
