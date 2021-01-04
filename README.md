@@ -72,14 +72,15 @@ issueを確認、branchを切る、開発、push, pull request, merge
   
 
 ## マイページ(レビュー)
-![coffee-anywhere herokuapp com_ (4)](https://user-images.githubusercontent.com/70304933/100679689-6022fb80-33b3-11eb-84d3-a4da4e6c8b2e.png)
-  
+![coffee-anywhere com_shops_q%5Bname_or_address_or_phone_number_or_description_or_tags_tag_name_cont%5D= button= (2)](https://user-images.githubusercontent.com/70304933/103505845-9bc35080-4e9e-11eb-82a9-07f4a608e337.png)
+    
 
 ## マイページ（ブックマーク）
-![coffee-anywhere herokuapp com_ (3)](https://user-images.githubusercontent.com/70304933/100679710-6b762700-33b3-11eb-981c-8ca27e6429e7.png)
+![coffee-anywhere com_shops_q%5Bname_or_address_or_phone_number_or_description_or_tags_tag_name_cont%5D= button= (1)](https://user-images.githubusercontent.com/70304933/103505826-8cdc9e00-4e9e-11eb-843f-1c091d90731a.png)
   
 
 ## 検索結果
-![coffee-anywhere herokuapp com_shops_q%5Bname_or_address_or_phone_number_or_description_or_tags_tag_name_cont%5D= button=](https://user-images.githubusercontent.com/70304933/100679729-7466f880-33b3-11eb-8bbf-0c6469e995ec.png)
+![coffee-anywhere com_shops_q%5Bname_or_address_or_phone_number_or_description_or_tags_tag_name_cont%5D= button=](https://user-images.githubusercontent.com/70304933/103505793-76cedd80-4e9e-11eb-9af9-477a376ce063.png)
+  
   
   
