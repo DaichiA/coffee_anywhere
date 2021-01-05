@@ -64,7 +64,7 @@ issueを確認、branchを切る、開発、push, pull request, merge
 # スクリーンショット
   
 ## トップページ
-![coffee-anywhere com_](https://user-images.githubusercontent.com/70304933/103495113-f946a580-4e7c-11eb-975f-8daf7132c012.png)
+![coffee-anywhere com_ (4)](https://user-images.githubusercontent.com/70304933/103609746-e063f000-4f61-11eb-98bb-e3d82e5b7a79.png)
   
 
 ## ログインページ
