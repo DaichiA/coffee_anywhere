@@ -1,6 +1,6 @@
 <!-- renderする時 locals: { keyword: , area: } -->
 
-<%= link_to({controller: "shops", action: "index", q: { name_or_address_or_phone_number_or_description_or_tags_tag_name_cont: "#{keyword}"}}, {class: "area-item col-3 p-0" })do %>
+<%= link_to({controller: "shops", action: "index", q: { address_cont: "#{keyword}"}}, {class: "area-item col-3 p-0" })do %>
   <div class="flex w-100">
     <%= image_tag "#{area}.jpg", class:"d-block area-left col-5 p-0 area_image" %>
     <div class="area-right col-7 p-0"><%= keyword %></div>
