@@ -10,6 +10,7 @@
       <% if user.admin == true %>
         <span class="badge badge-info ml-3 h-50">admin</span>
       <% else %>
+        <span class="<%= 'text-primary' if user.activation_state == 'active' %> pl-4"><%= user.activation_state %></span>
         <%= link_to " <削除>", user, method: :delete, data: { confirm: "本当に削除しますか？" }, class:"ml-3 text-danger" %>
       <% end %>
     </li>
