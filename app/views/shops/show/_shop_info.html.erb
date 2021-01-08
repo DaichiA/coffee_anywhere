@@ -15,6 +15,9 @@
         <td><%= @shop.phone_number %></td>
       </tr>
       <tr>
+          <%= link_to 'Twitter', "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button"%>
+      </tr>
+      <tr>
         <th scope="row" class="active">住所</th>
         <td>
           <%= @shop.address %><br>
@@ -34,3 +37,5 @@
     </tbody>
   </table>
 </div>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
