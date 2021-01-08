@@ -1,5 +1,12 @@
 <div class="shop_info pt-5">
   <h3 class="pb-3">店舗情報</h3>
+  <div>
+    <!-- twitterシェア -->
+    <%= link_to 'Twitter', "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button", data: { lang:"ja" }%>
+
+    <!-- fbシェア -->
+    <div class="fb-share-button" data-href="<%= shop_url(@shop) %>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F0.0.0.0%3A3000%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+  </div>
   <table class="table">
     <!-- <thead>
       <th scope="col">店舗情報</th>
@@ -13,9 +20,6 @@
       <tr>
         <th scope="row" class="active">お問い合わせ電話番号</th>
         <td><%= @shop.phone_number %></td>
-      </tr>
-      <tr>
-          <%= link_to 'Twitter', "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button"%>
       </tr>
       <tr>
         <th scope="row" class="active">住所</th>
@@ -39,3 +43,6 @@
 </div>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0&appId=428189291872191&autoLogAppEvents=1" nonce="Z4Eg1rOo"></script>
