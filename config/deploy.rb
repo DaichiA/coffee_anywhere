@@ -1,7 +1,12 @@
 # config valid for current version and patch releases of Capistrano
+# capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
+# Gem.lockファイル内にcapstranoのバージョンの記載あり
 lock '~> 3.14.1'
 
+# Capistranoのログの表示に利用する
 set :application, 'coffee_anywhere'
+
+# どのリポジトリからアプリをpullするかを指定する
 set :repo_url, 'git@github.com:DaichiA/coffee_anywhere.git'
 set :rbenv_ruby, File.read('.ruby-version').strip
 
