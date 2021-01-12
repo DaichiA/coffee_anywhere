@@ -129,8 +129,6 @@ Rails.application.configure do
     authentication:       :plain
   }
 
-
   # ログローテーション
-  config.logger = Logger.new("log/production.log", 'weekly')
-  
+  config.logger = Logger.new('log/production.log', 'weekly')
 end

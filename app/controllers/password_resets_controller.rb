@@ -18,10 +18,10 @@ class PasswordResetsController < ApplicationController
   def edit
     @token = params[:id]
     @user = User.load_from_reset_password_token(params[:id])
-    if @user.blank?
-      redirect_to login_path
-      flash[:danger] = 'URLが不正です。'
-    end
+    return unless @user.blank?
+
+    redirect_to login_path
+    flash[:danger] = 'URLが不正です。'
   end
 
   def update

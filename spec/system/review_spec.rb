@@ -29,7 +29,7 @@ RSpec.describe 'review', type: :system, js: true do
     context 'no reviews exist' do
       it 'post a new review' do
         visit root_path
-        find(".dropdown-toggle").click
+        find('.dropdown-toggle').click
         click_on 'マイページ'
         click_link 'レビュー'
         is_expected.to have_content 'まだレビューを投稿していません'
@@ -41,7 +41,7 @@ RSpec.describe 'review', type: :system, js: true do
         is_expected.to have_content 'お店のレビュー(0件)'
         click_button '投稿する'
         fill_in 'タイトル', with: 'test review'
-        find('#star').find("img[alt='4']").click #rate
+        find('#star').find("img[alt='4']").click # rate
         fill_in '本文', with: 'review sentence'
         expect {
           click_button '投稿'
@@ -58,7 +58,7 @@ RSpec.describe 'review', type: :system, js: true do
           is_expected.to have_link '[削除]'
         end
         # マイページで自分のレビューが見れる
-        find(".dropdown-toggle").click
+        find('.dropdown-toggle').click
         click_link 'マイページ'
         click_link 'レビュー'
         is_expected.to have_content "#{user.name}さんのレビュー"
@@ -99,7 +99,7 @@ RSpec.describe 'review', type: :system, js: true do
         end
         click_button '投稿する'
         fill_in 'タイトル', with: 'the third review'
-        find('#star').find("img[alt='4']").click #rate
+        find('#star').find("img[alt='4']").click # rate
         fill_in '本文', with: 'the third review sentence'
         expect {
           click_button '投稿'
@@ -131,7 +131,7 @@ RSpec.describe 'review', type: :system, js: true do
         is_expected.to have_content other_review.title
 
         # マイページで自分のレビューが反映されてる
-        find(".dropdown-toggle").click
+        find('.dropdown-toggle').click
         click_link 'マイページ'
         click_link 'レビュー'
         within all('.my_review')[0] do

@@ -18,7 +18,7 @@ class OauthsController < ApplicationController
         auto_login(@user)
         redirect_to root_path
         flash[:success] = "#{provider.titleize}でログインしました"
-      rescue
+      rescue StandardError
         redirect_to root_path
         flash[:danger] = "#{provider.titleize}でのログインに失敗しました"
       end

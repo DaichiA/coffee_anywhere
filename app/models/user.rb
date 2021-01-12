@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :shops, through: :favorites  # fav一覧でshopsを取り出せるように
-  has_many :authentications, :dependent => :destroy
+  has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
   authenticates_with_sorcery!
   has_one_attached :image

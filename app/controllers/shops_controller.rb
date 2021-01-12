@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   before_action :admin_user, only: %i[new create edit update destroy]
-  before_action :set_tags_to_gon, only:  %i[new edit]
+  before_action :set_tags_to_gon, only: %i[new edit]
 
   def index
     @q = Shop.ransack(params[:q])
@@ -10,8 +10,8 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @shop_tags = @shop.tags # タグ一覧
-    if @shop.reviews.length == 0
-      @rate_ave =  0
+    if @shop.reviews.empty?
+      @rate_ave = 0
     else
       rate_sum = @shop.reviews.pluck(:rate).sum
       @rate_ave = (rate_sum / @shop.reviews.length).floor(2)
@@ -78,7 +78,6 @@ class ShopsController < ApplicationController
     end
 
     def set_tags_to_gon
-      gon.existing_tags =  Tag.all.pluck(:tag_name)
+      gon.existing_tags = Tag.all.pluck(:tag_name)
     end
-
 end
