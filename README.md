@@ -21,7 +21,7 @@ https://coffee-anywhere.com/
 メール：testuser@example.com  
 パスワード：goodcoffee
 
-作成した背景や想いなど詳細は以下をご覧ください。
+作成した背景や想いなど詳細は以下をご覧ください。  
 [ポートフォリオ（COFFEE ANYWHERE）解説](https://qiita.com/DaichiA/private/a6ca90dfbe6ad5be382d)
   
   
