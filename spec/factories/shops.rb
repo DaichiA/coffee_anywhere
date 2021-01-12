@@ -3,7 +3,7 @@ FactoryBot.define do
     name { 'test_shop' }
     # 1桁目が0,全部で10-11桁の数列を生成
     # phone_number { "0#{rand(000_000_001..9_999_999_999)}" }
-    phone_number { '0' + format("%0#{9}d", SecureRandom.random_number(10**9)) }
+    phone_number { "0#{format('%09d', SecureRandom.random_number(10**9))}" }
     address { '東京都中央区1丁目１番地' }
     business_hours { '午前9時から午後6時' }
     description { 'お店の説明' }
@@ -33,7 +33,7 @@ FactoryBot.define do
     name { 'second_shop' }
     # 1桁目が0,全部で10-11桁の数列を生成
     # phone_number { "0#{rand(000_000_001..9_999_999_999)}" }
-    phone_number { '0' + format("%0#{9}d", SecureRandom.random_number(10**9)) }
+    phone_number { "0#{format('%09d', SecureRandom.random_number(10**9))}" }
     address { '東京都中央区2丁目2番地' }
     business_hours { '午前9時から午後6時' }
     description { '2軒目の説明' }
@@ -52,7 +52,7 @@ FactoryBot.define do
     name { 'third_shop' }
     # 1桁目が0,全部で10-11桁の数列を生成
     # phone_number { "0#{rand(000_000_001..9_999_999_999)}" }
-    phone_number { '0' + format("%0#{9}d", SecureRandom.random_number(10**9)) }
+    phone_number { "0#{format('%09d', SecureRandom.random_number(10**9))}" }
     address { '大阪府中央区3丁目3番地' }
     business_hours { '午前9時から午後6時' }
     description { '3軒目の説明' }
@@ -72,7 +72,7 @@ FactoryBot.define do
     name { 'fourth_shop' }
     # 1桁目が0,全部で10-11桁の数列を生成
     # phone_number { "0#{rand(000_000_001..9_999_999_999)}" }
-    phone_number { '0' + format("%0#{9}d", SecureRandom.random_number(10**9)) }
+    phone_number { "0#{format('%09d', SecureRandom.random_number(10**9))}" }
     address { '大阪府中央区4丁目4番地' }
     business_hours { '午前10時から午後7時' }
     description { '4軒目の説明' }
@@ -84,7 +84,7 @@ FactoryBot.define do
     name { 'fifth_shop' }
     # 1桁目が0,全部で10-11桁の数列を生成
     # phone_number { "0#{rand(000_000_001..9_999_999_999)}" }
-    phone_number { '0' + format("%0#{9}d", SecureRandom.random_number(10**9)) }
+    phone_number { "0#{format('%09d', SecureRandom.random_number(10**9))}" }
     address { '大阪府中央区5丁目5番地' }
     business_hours { '午前8時から午後11時' }
     description { '5軒目の説明' }

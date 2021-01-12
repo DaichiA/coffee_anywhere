@@ -1,15 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
-  let(:user) { User.new(
+  let(:user) do
+    User.new(
       name: 'Example User',
       email: 'user@example.com',
       password: 'password',
       password_confirmation: 'password'
-    ) }
+    )
+  end
 
-  it "is a valid factory" do
+  it 'is a valid factory' do
     expect(FactoryBot.build(:user)).to be_valid
   end
 
@@ -72,12 +73,10 @@ RSpec.describe User, type: :model do
       user.save
       user.fav(shop)
       expect(user.shops).to include shop
-      expect(user.fav?(shop)).to eq true 
+      expect(user.fav?(shop)).to eq true
       user.unfav(shop)
       expect(user.fav?(shop)).to eq false
       # expect(user.shops).to_not include shop ←どこが間違ってるかわからないがうまくいかない
     end
-
   end
 end
-   

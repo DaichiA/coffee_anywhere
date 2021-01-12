@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :tag do
-    sequence(:tag_name) { |n| "tag-#{n}"}
+    sequence(:tag_name) { |n| "tag-#{n}" }
     # tag_name { 'first_tag' }
   end
 

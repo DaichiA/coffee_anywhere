@@ -97,6 +97,7 @@ Layout/SpaceBeforeFirstArg:
 Lint/AssignmentInCondition:
   Exclude:
     - 'app/controllers/users_controller.rb'
+    - 'app/controllers/oauths_controller.rb'
 
 
 # Offense count: 4
@@ -114,7 +115,7 @@ Metrics/AbcSize:
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 # IgnoredMethods: refine
 Metrics/BlockLength:
-  Max: 159
+  Max: 180
 
 # Offense count: 2
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.

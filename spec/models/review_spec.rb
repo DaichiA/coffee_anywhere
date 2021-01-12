@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Review, type: :model do
   let(:review) { FactoryBot.create(:review) }
-  
+
   describe 'validation' do
     it 'has valid factory' do
       expect(FactoryBot.create(:review)).to be_valid
