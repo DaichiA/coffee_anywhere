@@ -28,6 +28,7 @@ jobs:
       - image: circleci/mysql:8.0.22
         environment:
           - DATABASE_PASSWORD: ''
+          - DATABASE_DEV_USER: 'root'
 
     # working_directory: 実行ディレクトリを設定する。デフォルトは ~/project
     working_directory: ~/repo
