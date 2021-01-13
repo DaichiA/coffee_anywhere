@@ -38,7 +38,7 @@ test:
   <<: *default
   database: coffee_anywhere_test
   host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
-  username: <%= ENV['DB_USER'] %>
+  username: <%= ENV.fetch("DB_USER"){ localuser } %>
   password: 'coffeeanywhere'
 
 # As with config/credentials.yml, you never want to store sensitive information,
