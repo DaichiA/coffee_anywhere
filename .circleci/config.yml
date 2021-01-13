@@ -53,6 +53,10 @@ jobs:
             - v1-dependencies-
 
       - run:
+          name: yarn install
+          command: yarn install --check-files
+
+      - run:
           name: bundle installを実行
           command: bundle install --jobs=4 --retry=3 --path vendor/bundle
 
