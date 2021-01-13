@@ -10,11 +10,11 @@ jobs:
   build: # our first job, named "build"
     docker:
       # - image: cimg/ruby:2.7-node # use a tailored CircleCI docker image.
-      - image: cimg/ruby:2.7.1-node # use a tailored CircleCI docker image.
+      - image: circleci/ruby:2.7.1-node 
         # auth:
         #   username: mydockerhub-user
         #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-        - environment: # 環境変数の設定
+        environment: # 環境変数の設定
           - RAILS_ENV: 'test'
     # steps:
     #   - checkout # pull down our git code.
@@ -59,6 +59,6 @@ jobs:
           name: Rubocop
           command: bundle exec rubocop
 
-       - run:
+      - run:
           name: Rspec
           command: bundle exec rspec
