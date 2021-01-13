@@ -33,7 +33,7 @@ jobs:
     # working_directory: 実行ディレクトリを設定する。デフォルトは ~/project
     working_directory: ~/repo
 
-      # checkout: CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
+    # checkout: CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
     steps:
       - checkout
 
