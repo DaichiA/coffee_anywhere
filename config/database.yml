@@ -64,7 +64,8 @@ production:
   <<: *default
   database: coffee_anywhere_production
   username: root
-  password: <%= Rails.application.credentials.db[:password] %>
+  # password: <%= Rails.application.credentials.db[:password] %>
+  password: <%= ENV['PROD_DB_PASS'] %>
   host: <%= Rails.application.credentials.db[:hostname] %>
   socket: /var/lib/mysql/mysql.sock
 
