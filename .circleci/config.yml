@@ -16,6 +16,9 @@ jobs:
         #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         environment: # 環境変数の設定
           - RAILS_ENV: 'test'
+          - DB_PASSWORD: ''
+          - DB_USER: 'root'
+          - DB_HOST: 127.0.0.1
     # steps:
     #   - checkout # pull down our git code.
     #   - ruby/install-deps # use the ruby orb to install dependencies
