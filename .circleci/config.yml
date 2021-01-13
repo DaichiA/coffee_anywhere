@@ -27,8 +27,9 @@ jobs:
       #     cache-key: "yarn.lock"
       - image: circleci/mysql:8.0.22
         environment:
-          - DATABASE_PASSWORD: ''
-          - DATABASE_DEV_USER: 'root'
+          - DB_PASSWORD: ''
+          - DB_USER: 'root'
+          - DB_HOST: 127.0.0.1
 
     # working_directory: 実行ディレクトリを設定する。デフォルトは ~/project
     working_directory: ~/repo
