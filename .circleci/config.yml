@@ -16,7 +16,7 @@ jobs:
         #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         environment: # 環境変数の設定
           - RAILS_ENV: 'test'
-          - DB_PASSWORD: ''
+          - DB_PASSWORD: 'coffeeanywhere'
           - DB_USER: 'root'
           - DB_HOST: 127.0.0.1
     # steps:
