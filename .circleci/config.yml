@@ -30,8 +30,7 @@ jobs:
       #     pkg-manager: yarn
       #     cache-key: "yarn.lock"
       - image: circleci/mysql:8.0.22
-        # caching_sha2_password がないというエラー対策
-        command: mysqld --default-authentication-plugin=mysql_native_password
+        
         environment:
           - RAILS_ENV: test
           - DB_PASSWORD: 'coffeeanywhere'
@@ -76,6 +75,8 @@ jobs:
 
       # Database setup
       - run: mv config/database.ci.yml config/database.yml
+        # caching_sha2_password がないというエラー対策
+        command: mysqld --default-authentication-plugin=mysql_native_password
 
       # Database setup
       - run: bundle exec rails db:create
