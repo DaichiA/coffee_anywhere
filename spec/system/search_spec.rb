@@ -34,7 +34,7 @@ RSpec.describe 'search', type: :system do
 
   it 'searchs with address column' do
     visit root_path
-    fill_in 'キーワードでお店を検索', with: '東京'
+    fill_in '地域でお店を検索', with: '東京'
     find('.btn-warning').click
     expect(current_path).to eq shops_path
     is_expected.to have_link shop.name
