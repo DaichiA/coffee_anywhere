@@ -22,7 +22,7 @@ jobs:
           RAILS_ENV: 'test'
           MYSQL_HOST: 127.0.0.1
           MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: ''
+          MYSQL_PASSWORD: 'coffeeanywhere'
           MYSQL_PORT: 3306
         #   - DB_PASSWORD: 'coffeeanywhere'
         #   - DB_USER: 'root'
