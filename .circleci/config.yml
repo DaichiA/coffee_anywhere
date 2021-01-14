@@ -15,7 +15,10 @@ jobs:
         #   username: mydockerhub-user
         #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         environment: # 環境変数の設定
-          - RAILS_ENV: test
+          RAILS_ENV: test
+          MYSQL_DATABASE: test
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ROOT_HOST: '%'
         #   - DB_PASSWORD: 'coffeeanywhere'
         #   - DB_USER: 'root'
         #   - DB_HOST: 127.0.0.1
@@ -33,13 +36,11 @@ jobs:
         # caching_sha2_password がないというエラー対策
         command: mysqld --default-authentication-plugin=mysql_native_password
         environment:
-          - RAILS_ENV: test
+          RAILS_ENV: test
           # - DB_PASSWORD: 'coffeeanywhere'
           # - DB_USER: 'coffee-user'
           # - DB_HOST: 127.0.0.1
-          MYSQL_DATABASE: test
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_ROOT_HOST: '%'
+          
 
     # working_directory: 実行ディレクトリを設定する。デフォルトは ~/project
     working_directory: ~/repo
