@@ -18,7 +18,7 @@ jobs:
           RAILS_ENV: test
           MYSQL_DATABASE: test
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_ROOT_HOST: '%'
+          MYSQL_ROOT_HOST: 127.0.0.1
         #   - DB_PASSWORD: 'coffeeanywhere'
         #   - DB_USER: 'root'
         #   - DB_HOST: 127.0.0.1
