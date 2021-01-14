@@ -74,22 +74,12 @@ jobs:
       #     name: Wait for DB
       #     command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
-      - run:
-          name: setup database
-          command: |
-            cp -v config/database.ci.yml config/database.yml
+      # Database setup
+      # - run: mv config/database.ci.yml config/database.yml
 
-      - run: mysql_config --socket
+      # Database setup
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
-
-      # # Database setup
-      # - run: mv config/database.ci.yml config/database.yml
-      # - run: yum  -y remove mariadb-libs
-
-      # # Database setup
-      # - run: bundle exec rails db:create
-      # - run: bundle exec rails db:schema:load
 
       - run:
           name: Rubocop
