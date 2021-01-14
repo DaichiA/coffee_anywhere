@@ -76,7 +76,7 @@ jobs:
 
       # Database setup
       - run: mv config/database.ci.yml config/database.yml
-      - run: mysqld --default-authentication-plugin=mysql_native_password
+      - run: yum  -y remove mariadb-libs
 
       # Database setup
       - run: bundle exec rails db:create
