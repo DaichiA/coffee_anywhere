@@ -15,10 +15,15 @@ jobs:
         #   username: mydockerhub-user
         #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         environment: # 環境変数の設定
-          - RAILS_ENV: test
-          - DB_PASSWORD: 'coffeeanywhere'
-          - DB_USER: 'coffee-user'
-          - DB_HOST: 127.0.0.1
+          # - RAILS_ENV: test
+          # - DB_PASSWORD: 'coffeeanywhere'
+          # - DB_USER: 'coffee-user'
+          # - DB_HOST: 127.0.0.1
+          RAILS_ENV: 'test'
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: ''
+          MYSQL_PORT: 3306
         #   - DB_PASSWORD: 'coffeeanywhere'
         #   - DB_USER: 'root'
         #   - DB_HOST: 127.0.0.1
@@ -80,9 +85,9 @@ jobs:
       # Database setup
       - run: mv config/database.ci.yml config/database.yml
 
-      - run:
-          name: DB の待機
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      # - run:
+      #     name: DB の待機
+      #     command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # Database setup
       - run: bundle exec rails db:create
