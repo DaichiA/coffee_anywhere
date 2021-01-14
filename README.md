@@ -47,7 +47,7 @@ https://coffee-anywhere.com/
 ・管理者機能  
 
 
-使用したAWSのサービス
+使用したAWSのサービス　　
 ・VPC  
 ・RDS  
 ・EC2  
