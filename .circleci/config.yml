@@ -22,7 +22,7 @@ jobs:
           RAILS_ENV: 'test'
           MYSQL_HOST: 127.0.0.1
           MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: 'DdDdDdA1!'
+          MYSQL_PASSWORD: ''
           MYSQL_PORT: 3306
         #   - DB_PASSWORD: 'coffeeanywhere'
         #   - DB_USER: 'root'
@@ -46,7 +46,7 @@ jobs:
           # - DB_USER: 'coffee-user'
           # - DB_HOST: 127.0.0.1
           # MYSQL_DATABASE: test
-          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           MYSQL_ROOT_HOST: '%'
 
     # working_directory: 実行ディレクトリを設定する。デフォルトは ~/project
