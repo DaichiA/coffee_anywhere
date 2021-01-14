@@ -29,6 +29,7 @@ https://coffee-anywhere.com/
 ・プラットフォーム（AWS EC2）
 ・データベース（AWS RDS, MySQL）  
 ・テスト（RSpec, Capybara, factory_bot）  
+・自動テスト（circleCI）  
 ・CSSフレームワーク（Bootstrap4）  
 ・コードチェック（rubocop）  
 ・ユーザー登録、ログイン（Sorcery）  
