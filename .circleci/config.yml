@@ -16,6 +16,7 @@ jobs:
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: ''
           MYSQL_PORT: 3306
+          MYSQL_DATABASE: 'coffee_anywhere_test'
 
       - image: circleci/mysql:8.0.22
         # caching_sha2_password がないというエラー対策
@@ -55,7 +56,7 @@ jobs:
 
 
       # Database setup
-      - run: mv config/database.ci.yml config/database.yml
+      # - run: mv config/database.ci.yml config/database.yml
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
 
