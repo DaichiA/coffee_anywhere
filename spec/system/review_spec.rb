@@ -58,6 +58,7 @@ RSpec.describe 'review', type: :system, js: true do
           is_expected.to have_link '[削除]'
         end
         # マイページで自分のレビューが見れる
+        visit current_path # 上の削除のflashを消すため
         find('.dropdown-toggle').click
         click_link 'マイページ'
         click_link 'レビュー'
