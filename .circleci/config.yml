@@ -16,6 +16,9 @@ jobs:
         #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         environment: # 環境変数の設定
           - RAILS_ENV: test
+          - DB_PASSWORD: 'coffeeanywhere'
+          - DB_USER: 'coffee-user'
+          - DB_HOST: 127.0.0.1
         #   - DB_PASSWORD: 'coffeeanywhere'
         #   - DB_USER: 'root'
         #   - DB_HOST: 127.0.0.1
@@ -33,13 +36,13 @@ jobs:
         # caching_sha2_password がないというエラー対策
         command: mysqld --default-authentication-plugin=mysql_native_password
         environment:
-          - RAILS_ENV: test
-          - DB_PASSWORD: 'coffeeanywhere'
-          - DB_USER: 'coffee-user'
-          - DB_HOST: 127.0.0.1
+          # - RAILS_ENV: test
+          # - DB_PASSWORD: 'coffeeanywhere'
+          # - DB_USER: 'coffee-user'
+          # - DB_HOST: 127.0.0.1
           # MYSQL_DATABASE: test
-          # MYSQL_ROOT_PASSWORD: root
-          # MYSQL_ROOT_HOST: '%'
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ROOT_HOST: '%'
 
     # working_directory: 実行ディレクトリを設定する。デフォルトは ~/project
     working_directory: ~/repo
@@ -75,7 +78,11 @@ jobs:
       #     command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
       # Database setup
-      # - run: mv config/database.ci.yml config/database.yml
+      - run: mv config/database.ci.yml config/database.yml
+
+      - run:
+          name: DB の待機
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # Database setup
       - run: bundle exec rails db:create
