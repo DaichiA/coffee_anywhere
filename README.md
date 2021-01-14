@@ -30,6 +30,7 @@ https://coffee-anywhere.com/
 ・データベース（AWS RDS, MySQL）  
 ・テスト（RSpec, Capybara, factory_bot）  
 ・自動テスト（circleCI）  
+・自動デプロイ（Capistrano）  
 ・CSSフレームワーク（Bootstrap4）  
 ・コードチェック（rubocop）  
 ・ユーザー登録、ログイン（Sorcery）  
