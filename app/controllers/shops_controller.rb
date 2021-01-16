@@ -8,7 +8,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.includes(reviews: {user: :image_attachment}).find(params[:id])
+    @shop = Shop.includes(reviews: { user: :image_attachment }).find(params[:id])
     @shop_tags = @shop.tags # タグ一覧
     if @shop.reviews.empty?
       @rate_ave = 0
