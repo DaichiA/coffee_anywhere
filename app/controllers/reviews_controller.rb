@@ -1,10 +1,9 @@
 class ReviewsController < ApplicationController
   before_action :require_login, only: %i[index create destroy]
 
-  # current_userのid使ってるから他人のreviewsは見れないけどURLは行ける
   def index
       @user = User.find(current_user.id)
-      @reviews = @user.reviews.paginate(page: params[:page], per_page: 10)
+      @reviews = @user.reviews.includes(:shop).paginate(page: params[:page], per_page: 10)
   end
 
   # def new

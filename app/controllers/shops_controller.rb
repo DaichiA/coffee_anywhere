@@ -3,12 +3,12 @@ class ShopsController < ApplicationController
   before_action :set_tags_to_gon, only: %i[new edit]
 
   def index
-    @q = Shop.ransack(params[:q])
+    @q = Shop.includes(:image_attachment, :reviews).ransack(params[:q])
     @shops = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
   end
 
   def show
-    @shop = Shop.find(params[:id])
+    @shop = Shop.includes(reviews: { user: :image_attachment }).find(params[:id])
     @shop_tags = @shop.tags # タグ一覧
     if @shop.reviews.empty?
       @rate_ave = 0
@@ -23,7 +23,7 @@ class ShopsController < ApplicationController
 
   def reviews
     @shop = Shop.find(params[:id])
-    @reviews = @shop.reviews.paginate(page: params[:page], per_page: 10)
+    @reviews = @shop.reviews.includes(:user).paginate(page: params[:page], per_page: 10)
   end
 
   def new
