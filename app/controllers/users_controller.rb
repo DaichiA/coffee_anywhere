@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   before_action :admin_user, only: [:index]
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 10)
+    @users = User.includes(:image_attachment).paginate(page: params[:page], per_page: 10)
   end
 
   def show
     @user = User.find(params[:id])
     @reviews = @user.reviews
-    @favorites = @user.favorites.paginate(page: params[:page])
+    @favorites = @user.favorites.includes({shop: :image_attachment}, {shop: :reviews}).paginate(page: params[:page])
   end
 
   # これはshowでやっとる
