@@ -31,6 +31,7 @@ https://coffee-anywhere.com/
 ・テスト（RSpec, Capybara, factory_bot）  
 ・自動テスト（circleCI）  
 ・自動デプロイ（Capistrano）  
+・コンテナ仮想化（Docker）  
 ・CSSフレームワーク（Bootstrap4）  
 ・コードチェック（rubocop）  
 ・ユーザー登録、ログイン（Sorcery）  
