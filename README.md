@@ -21,10 +21,6 @@ https://coffee-anywhere.com/
 メール：testuser@example.com  
 パスワード：goodcoffee
 
-作成した背景や想いなど詳細は以下をご覧ください。  
-[ポートフォリオ（COFFEE ANYWHERE）解説](https://qiita.com/DaichiA/private/a6ca90dfbe6ad5be382d)
-  
-  
 # 各種機能、導入技術
 ・プラットフォーム（AWS EC2）
 ・データベース（AWS RDS, MySQL）  
@@ -57,11 +53,6 @@ https://coffee-anywhere.com/
 ・ALB  
 ・S3  
 ・IAM  
-  
-開発の際はGithubの機能をできるだけ活用し、  
-issueを確認、branchを切る、開発、push, pull request, merge  
-というチームでの開発の流れを辿ることを意識しました。  
-  
 
 # ER図
 <img width="1209" alt="ER図" src="https://user-images.githubusercontent.com/70304933/103478814-9d443880-4e0c-11eb-9261-0a050d67f88a.png">
