@@ -27,14 +27,14 @@ User.create!(name: 'Example User',
                password_confirmation: password)
 end
 
-# 35.times do |n|
-#   name = Faker::Restaurant.name
-#   address = Faker::Address.full_address
-#   phone_number = "000000000#{n}"
-#   Shop.create!(name: name,
-#                 address: address,
-#                 phone_number: phone_number,
-#                 business_hours: "9:00 ~ 18:00",
-#                 dayoff: "月曜日、木曜日",
-#                 description: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。")
-# end
+35.times do |n|
+  name = Faker::Restaurant.name
+  address = Faker::Address.full_address
+  phone_number = "0#{format('%09d', SecureRandom.random_number(10**9))}"
+  Shop.create!(name: name,
+                address: address,
+                phone_number: phone_number,
+                business_hours: "9:00 ~ 18:00",
+                dayoff: "月曜日、木曜日",
+                description: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。")
+end
