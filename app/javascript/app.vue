@@ -8,6 +8,7 @@
   </router-link>
   <hr>
   <router-view></router-view>
+  <p>{{ test }}</p>
 </div>
 </template>
 
@@ -17,6 +18,9 @@
 
   export default {
     name: 'App',
+    props: {
+      test: String
+    },
     created() {
       console.log('------ App created!! -------')
     },

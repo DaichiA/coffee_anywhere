@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from '../app.vue'
-import test from '../components/test.vue'
+import Login from '../components/Login.vue'
 import { router } from './router'
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   app.use(router)
   app.mount("#vue-app")
 
-  const app2 = createApp(test)
+  const app2 = createApp(Login)
+  app2.use(router)
   app2.mount("#vue-app2")
 });
 

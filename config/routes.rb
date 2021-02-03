@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   # get 'oauths/oauth'
   # get 'oauths/callback'
-  get '/hi', to: 'static_pages#home'
+  get '/hi', to: 'static_pages#home' # Vueテスト
+  # APIコントローラへのルーティング
+  namespace :api, {format: 'json'} do
+    namespace :v1 do
+      resources :sessions, only: [:create]
+      resources :shops, only: [:index] # テスト Shop.allをjsonで取得できた
+    end
+  end
   post 'oauth/callback' => 'oauths#callback'
   get 'oauth/callback' => 'oauths#callback' # for use with Github, Facebook
   get 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
