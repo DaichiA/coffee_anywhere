@@ -36,8 +36,8 @@ export default {
         //   this.$router.push({ path: '/Hi' })
         // })
         .then(response => {
-          window.location.href = 'http://localhost:3000/shops';  
-          // window.location.reload();
+          // window.location.href = 'http://localhost:3000/shops';  
+          window.location.reload();
         })
         .catch(error => {
           console.error(error);
