@@ -1,5 +1,5 @@
 current directory: /Users/asatsumadaichi/environment/coffee_anywhere/vendor/bundle/ruby/2.7.0/gems/msgpack-1.3.3/ext/msgpack
-/Users/asatsumadaichi/.rbenv/versions/2.7.1/bin/ruby -I /Users/asatsumadaichi/.rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20201105-62534-kx02m2.rb extconf.rb
+/Users/asatsumadaichi/.rbenv/versions/2.7.1/bin/ruby -I /Users/asatsumadaichi/.rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20210204-24653-wiv6bv.rb extconf.rb
 checking for ruby/st.h... yes
 checking for st.h... yes
 checking for rb_str_replace() in ruby.h... yes
@@ -52,4 +52,4 @@ linking shared-object msgpack/msgpack.bundle
 
 current directory: /Users/asatsumadaichi/environment/coffee_anywhere/vendor/bundle/ruby/2.7.0/gems/msgpack-1.3.3/ext/msgpack
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20201105-62534-jyx0zm/msgpack
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20210204-24653-lrmym5/msgpack
