@@ -14,12 +14,6 @@ class UsersController < ApplicationController
     @favorites = @user.favorites.includes({ shop: :image_attachment }, { shop: :reviews }).paginate(page: params[:page])
   end
 
-  # これはshowでやっとる
-  # def favorites
-  #   @user = User.find(params[:id])
-  #   @favorites = @user.favorites.paginate(page: params[:page])
-  # end
-
   def new
     @user = User.new
   end
