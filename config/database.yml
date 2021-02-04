@@ -17,12 +17,13 @@ default: &default
   username: 'coffee-user'
   password: 'coffeeanywhere'
   # socket: /tmp/mysql.sock
-  host: db 
+  # host: db 
 
 development:
   <<: *default
   database: coffee_anywhere_development
-  host: <%= ENV.fetch("MYSQL_HOST") { 'localhost' } %>
+  # host: <%= ENV.fetch("MYSQL_HOST") { 'localhost' } %> # ローカルでrails sするならこちら
+  host: db  # dockerで使うにはこちら
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

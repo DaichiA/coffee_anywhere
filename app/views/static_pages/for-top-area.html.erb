@@ -1,0 +1,16 @@
+<div class="area">
+  <h2 class="font-weight-bold mt-5">エリアで探す</h2>
+  <div class="area_space border rounded px-3">
+    <div class="row justify-content-between flex">
+      <%= render partial: 'area', locals: {keyword: '東京', area: 'tokyo'} %>
+      <%= render partial: 'area', locals: {keyword: '大阪', area: 'osaka'} %>
+      <%= render partial: 'area', locals: {keyword: '名古屋', area: 'nagoya'} %>
+    </div>
+
+    <div class="row justify-content-between flex">
+      <%= render partial: 'area', locals: {keyword: '仙台', area: 'sendai'} %>
+      <%= render partial: 'area', locals: {keyword: '札幌', area: 'sapporo'} %>
+      <%= render partial: 'area', locals: {keyword: '福岡', area: 'fukuoka'} %>
+    </div>
+  </div>
+</div>

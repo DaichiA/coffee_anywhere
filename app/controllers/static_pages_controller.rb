@@ -6,8 +6,8 @@ class StaticPagesController < ApplicationController
     brew_methods = %w[ドリップ エスプレッソ フレンチプレス エアロプレス 水出し サイフォン]
     @tags_for_search = tag_names - brew_methods
 
-    # rand = Shop.pluck(:id).sample(3)
-    # @shops = Shop.find(rand)
+    rand = Shop.pluck(:id).sample(3)
+    @shops = Shop.find(rand)
     # @shops.each do |@shop| end
   end
 
