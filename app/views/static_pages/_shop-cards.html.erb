@@ -1,0 +1,37 @@
+<div class="shop-cards row justify-content-center mt-5">
+    <% @shops.each do |shop| %>
+      <div class="shop-card col-10 col-lg-4 p-4 ">
+        <div class="card-inner border rounded p-2">
+          <div class="image-space text-center">
+            <%= render partial: 'shared/shop_image', locals: { size: '250x185', shop: shop } %>
+          </div>
+          <div class="text-space text-center">
+            <p class="mt-2 font-weight-bold h4"><%= shop.name %></p>
+            <div id="average_shop_<%= shop.id %>"></div>
+            <!--<div class="ave_rate pl-2"><%= if @shops.first.reviews.length == 0
+                                              rate_ave =  0
+                                            else
+                                              rate_sum = @shops.first.reviews.pluck(:rate).sum
+                                              rate_ave = (rate_sum / @shops.first.reviews.length).floor(2)
+                                            end %>
+            </div>-->
+          </div>
+          <script>
+            $('#average_shop_<%= shop.id %>').raty({
+              // size: 20,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true,
+              score: '<%= if shop.reviews.length == 0
+                            0
+                          else
+                            shop.reviews.pluck(:rate).sum / shop.reviews.length.floor(2)
+                          end %>',
+              });
+          </script>
+        </div>
+      </div>
+    <% end %>
+</div>
