@@ -4,7 +4,7 @@
         <h2>{{ title }}</h2>
         <p>{{ message }}</p>
         <LoginForm :errors="errors" :session="session" @submit="loginUser" />
-        <a href="http://localhost:3000/signup">登録</a>
+        <!-- <a href="http://localhost:3000/signup">登録</a> -->
     </div>
   </div>
 </template>
