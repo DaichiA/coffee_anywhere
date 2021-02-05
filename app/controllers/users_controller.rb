@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @reviews = @user.reviews
     @favorites = @user.favorites.includes({ shop: :image_attachment }, { shop: :reviews }).paginate(page: params[:page])
+    
+    gon.shops = @user.shops
   end
 
   def new
