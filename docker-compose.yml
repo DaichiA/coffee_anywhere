@@ -23,21 +23,21 @@ services:
       - .:/coffee_anywhere # アプリケーションファイルの同期
     depends_on:
       - db
-      - test
+      # - test
     stdin_open: true
     tty: true
 
-  test:
-    image: mysql:8.0.22
-    # ports:
-    #   - '3307:3306' # ローカルPCから接続するために設定
-    command: --default-authentication-plugin=mysql_native_password # 認証方式を8系以前のものにする。
-    environment:
-      MYSQL_ROOT_PASSWORD: 'coffeeanywhere'
-      MYSQL_DATABASE: 'coffee_anywhere_test'
-      # MYSQL_USER: 'coffee-user'
-      # MYSQL_HOST: test
-      MYSQL_PASSWORD: 'coffeeanywhere'
+  # test:
+  #   image: mysql:8.0.22
+  #   # ports:
+  #   #   - '3307:3306' # ローカルPCから接続するために設定
+  #   command: --default-authentication-plugin=mysql_native_password # 認証方式を8系以前のものにする。
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 'coffeeanywhere'
+  #     MYSQL_DATABASE: 'coffee_anywhere_test'
+  #     # MYSQL_USER: 'coffee-user'
+  #     # MYSQL_HOST: test
+  #     MYSQL_PASSWORD: 'coffeeanywhere'
 
 volumes:
   mysql_data:
