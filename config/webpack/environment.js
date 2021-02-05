@@ -30,4 +30,5 @@ environment.loaders.prepend('vue', {
         loader: 'vue-loader'
       }]
 })
+
 module.exports = environment
