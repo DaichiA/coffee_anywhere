@@ -3,7 +3,8 @@ class ShopsController < ApplicationController
   before_action :set_tags_to_gon, only: %i[new edit]
 
   def index
-    @q = Shop.includes(:image_attachment, :reviews).ransack(params[:q])
+    # @q = Shop.includes(:image_attachment, :reviews).ransack(params[:q])
+    @q = Shop.includes(:reviews).with_attached_image.ransack(params[:q])
     @shops = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
   end
 

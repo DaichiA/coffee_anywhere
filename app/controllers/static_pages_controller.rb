@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
     @tags_for_search = tag_names - brew_methods
 
     rand = Shop.pluck(:id).sample(3)
-    @shops = Shop.find(rand)
+    @shops = Shop.includes(:image_attachment, :reviews).find(rand)
     # @shops.each do |@shop| end
   end
 

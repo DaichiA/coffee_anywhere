@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = @user.reviews
-    @favorites = @user.favorites.includes({ shop: :image_attachment }, { shop: :reviews }).paginate(page: params[:page])
+    @favorites = @user.shops.includes(:reviews).with_attached_image.paginate(page: params[:page])
     
     gon.shops = @user.shops
   end

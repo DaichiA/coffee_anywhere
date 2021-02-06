@@ -73,9 +73,8 @@
 
 
 
-    <% @favorites.each do |favorite| %>
-      <% @shop = favorite.shop %>
-      <%= render partial: 'shared/shop_index', locals: { shop: @shop } %>
+    <% @favorites.each do |shop| %>
+      <%= render partial: 'shared/shop_index', locals: { shop: shop } %>
     <% end %>
   </ul>
 
