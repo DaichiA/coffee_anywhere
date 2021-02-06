@@ -3,13 +3,14 @@
 <div class="row">
   <%= render "user_header" %>
 
-  <ul class="shops">
+  <ul class="shops col">
     <% if @favorites.empty? %>
       <p class="m-2 ml-5 h5">まだ店をブックマークしていません</p>
     <% else %>
       <div class="map mb-4">
         <p class="h5 font-weight-bold mb-4">ブックマーク一覧</p>
         <div id="user-map"></div>
+
         <script>
           let marker = []
           let infoWindow = []
@@ -25,7 +26,7 @@
                       center: place
                       });
             var transitLayer = new google.maps.TransitLayer();
-            transitLayer.setMap(map);  // 謎
+            transitLayer.setMap(map); 
 
             // 繰り返し処理でマーカーと吹き出しを複数表示させる
             for (var i = 0; i < markerData.length; i++) {
@@ -47,6 +48,7 @@
                 marker[i] = new google.maps.Marker({
                   position: markerLatLng,
                   map: map
+                  // icon: '<%= asset_path('star-off.png') %>',
                 });
 
                 // マーカーにクリックイベントを追加
