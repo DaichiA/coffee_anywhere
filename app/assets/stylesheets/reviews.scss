@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+.review {
+    padding: 5px;
+    word-wrap: break-word;
+    height: auto;
+  }
+
 .comment {
   font-size: 0;
   .comment-form {
