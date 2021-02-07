@@ -25,7 +25,7 @@
       <% end %>
 
   </div>
-  <div class="review flex-column">
+  <div class="review flex-column w-100">
     <p class="py-3 pl-3 mb-0"><%= review.created_at.strftime('%Y年%m月%d日') %></p>
     <h4 class="review_title h3 border-bottom pl-3 d-inline-block font-weight-bold">
       <%= review.title %>
@@ -35,8 +35,31 @@
       <%= render partial: 'shared/show_rate', locals: { review: review } %>
     </div>
 
+    <!--text areaでの改行を反映-->
     <div class="review_cotent p-3">
       <%= safe_join(review.content.split("\n"), tag(:br)) %>
     </div>
+
+    <!--コメント投稿-->
+    <div class="comment">
+      <%= form_with(model: review.comments.build, url: comments_path, local: true ) do |f| %>
+        <%= f.text_area :content, row:2, placeholder: "コメントする", class: 'comment-form col-11' %>
+        <%= f.submit '送信', class: 'comment-btn col-1 btn py-3' %>
+        <%= hidden_field_tag :review_id, review.id %>
+      <% end %>
+    </div>
+
+      <% review.comments.each do |c| %>
+        <p class="py-3 mb-0 border-bottom">
+          <span class="font-weight-bold mr-3"><%= c %></span> <!--ユーザーネームを出したい-->
+          <%= c.content %>
+          <% if logged_in? && c.user_id == current_user.id || logged_in? && current_user.admin? %>
+            <span class="text-right"><%= link_to "[削除]", c, method: :delete, data: { confirm: "本当に削除しますか？" }, class:"mx-3 pt-4 text-danger" %></span>
+          <% end %>
+        </p>
+      <% end %>
+
+
+
   </div>
 </div>

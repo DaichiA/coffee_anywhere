@@ -10,6 +10,8 @@
   <% @reviews.each do |review| %>
     <%= render partial: 'shared/review', locals: { user: @user, review: review }  %>
   <% end %>
+    <p class="font-weight-bold h2 text-info"><%= @reviews.first.comments.first.user.name %></p>
+    <p class="font-weight-bold h2 text-info"><%= @reviews.first.comments.first.content %></p>
 
 </div>
 

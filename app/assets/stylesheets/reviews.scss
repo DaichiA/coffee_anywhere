@@ -1,3 +1,22 @@
 // Place all the styles related to the Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.comment {
+  font-size: 0;
+  .comment-form {
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+  }
+  ::placeholder {
+    color: #bbb;
+    line-height: 42px;
+  }
+  .comment-btn {
+    border: none;
+    font-size: 1rem;
+    background-color: #ddd;
+  }
+}

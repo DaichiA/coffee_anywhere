@@ -6,12 +6,6 @@ class ReviewsController < ApplicationController
       @reviews = @user.reviews.includes(:shop).paginate(page: params[:page], per_page: 10)
   end
 
-  # def new
-  #   @shop = Shop.find(params[:shop_id])
-  #   shop_id = @shop.id
-  #   @review = @shop.review.build(shop_id: shop_id)
-  # end
-
   def create
     shop = Shop.find(params[:shop_id])
     @review = shop.reviews.build(review_params)
