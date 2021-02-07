@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :shops, through: :favorites  # fav一覧でshopsを取り出せるように
   has_many :authentications, dependent: :destroy

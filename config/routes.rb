@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [:destroy]
   resources :favorites, only: %i[create destroy]
+  resources :comments, only: [:create, :destroy]
 end

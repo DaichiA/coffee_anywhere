@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
   belongs_to :shop
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

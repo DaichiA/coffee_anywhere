@@ -11,6 +11,7 @@
     <%= render partial: 'shared/review', locals: { user: @user, review: review }  %>
   <% end %>
 
+
 </div>
 
   <%= will_paginate @reviews, list_classes: %w(pagination justify-content-center h3 mt-5), aria_label:  'Page Navigation' %>
