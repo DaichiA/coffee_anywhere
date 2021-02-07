@@ -36,30 +36,64 @@
     </div>
 
     <!--text areaでの改行を反映-->
-    <div class="review_cotent p-3">
+    <div class="review_cotent px-3 py-5">
       <%= safe_join(review.content.split("\n"), tag(:br)) %>
     </div>
 
     <!--コメント投稿-->
-    <div class="comment">
-      <%= form_with(model: review.comments.build, url: comments_path, local: true ) do |f| %>
-        <%= f.text_area :content, row:2, placeholder: "コメントする", class: 'comment-form col-11' %>
-        <%= f.submit '送信', class: 'comment-btn col-1 btn py-3' %>
-        <%= hidden_field_tag :review_id, review.id %>
+    <% if logged_in? %>
+      <div class="comment mb-3">
+        <%= form_with(model: review.comments.build, url: comments_path, class: '', local: true ) do |f| %>
+          <%= f.text_area :content, row:2, placeholder: "コメントする", class: 'comment-form col-11' %>
+          <%= f.submit '送信', class: 'comment-btn col-1 btn py-3' %>
+          <%= hidden_field_tag :review_id, review.id %>
+          <%= f.hidden_field :username, value: current_user.name %>
+        <% end %>
+      </div>
+    <% end %>
+
+      <!--コメント表示-->
+      <ul >
+        <% review.comments.each do |c| %>
+          <li class="com-list-<%= review.id %>">
+            <p class="py-2 mb-0 ">
+              <span class="font-weight-bold mr-3"><%= c.username %></span> 
+              <%= c.content %>
+              <% if logged_in? && c.user_id == current_user.id || logged_in? && current_user.admin? %>
+                <span class="text-right"><%= link_to "[削除]", c, method: :delete, data: { confirm: "本当に削除しますか？" }, class:"mx-3 pt-4 text-danger" %></span>
+              <% end %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+      <% if review.comments.count > 1 %>
+        <div class="text-center">
+          <p id="btnClick-<%= review.id %>" class="com-btn">もっと見る</p>
+        </div>
       <% end %>
-    </div>
-
-      <% review.comments.each do |c| %>
-        <p class="py-3 mb-0 border-bottom">
-          <span class="font-weight-bold mr-3"><%= c %></span> <!--ユーザーネームを出したい-->
-          <%= c.content %>
-          <% if logged_in? && c.user_id == current_user.id || logged_in? && current_user.admin? %>
-            <span class="text-right"><%= link_to "[削除]", c, method: :delete, data: { confirm: "本当に削除しますか？" }, class:"mx-3 pt-4 text-danger" %></span>
-          <% end %>
-        </p>
-      <% end %>
-
-
 
   </div>
 </div>
+
+<script>
+  //3件ずつ読み込む
+  $(document).ready(function(){
+    //postの総数をカウントする
+    var n = $(".com-list-<%= review.id %>").length;
+    //初期表示2件以上は非表示にする
+    $(".com-list-<%= review.id %>:gt(0)").hide();
+    //初期表示1件
+    var Num = 1;
+
+    //もっと見るボタンをクリックした時
+    $("#btnClick-<%= review.id %>").click(function(){
+      Num += 3;//3件づつ追加する
+      $(".com-list-<%= review.id %>:lt("+Num+")").show();//Num+3つ目以前を表示
+      //残りのcommentの個数が表示件数(Num)より少なくなったら
+      if(n <= Num){
+        $("#btnClick-<%= review.id %>").hide();//もっと見るボタンを非表示にする
+      }
+    });
+
+  });
+</script>
