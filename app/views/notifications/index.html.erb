@@ -1,0 +1,15 @@
+<% provide(:title, 'マイページ') %>
+
+<div class="row">
+  <%= render "users/user_header" %>
+  
+  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+  <% if notifications.exists? %>
+    <ul class='w-100'>
+      <%= render notifications %>
+    </ul>
+  <% else %>
+    <p class="m-5 h5">通知はありません</p>
+  <% end %>
+
+</div>

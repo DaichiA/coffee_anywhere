@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
       @user = User.find(current_user.id)
-      @reviews = @user.reviews.includes(:shop).paginate(page: params[:page], per_page: 10)
+      @reviews = @user.reviews.includes(:shop, :comments).paginate(page: params[:page], per_page: 10)
   end
 
   def create

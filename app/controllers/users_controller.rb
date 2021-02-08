@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: %i[show edit update]
+  before_action :require_login, only: %i[show edit update index]
   before_action :reject_logged_in, only: %i[new create]
   before_action :correct_user, only: %i[show edit update]
   before_action :admin_user, only: [:index]
