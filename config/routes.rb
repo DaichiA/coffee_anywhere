@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   # get 'oauths/callback'
   get '/hi', to: 'static_pages#home' # Vueテスト
   # APIコントローラへのルーティング
-  namespace :api, {format: 'json'} do
-    namespace :v1 do
-      resources :sessions, only: [:create]
-      resources :shops, only: [:index] # テスト Shop.allをjsonで取得できた
-    end
-  end
+  # namespace :api, {format: 'json'} do
+  #   namespace :v1 do
+  #     resources :sessions, only: [:create]
+  #     resources :shops, only: [:index] 
+  #   end
+  # end
   post 'oauth/callback' => 'oauths#callback'
   get 'oauth/callback' => 'oauths#callback' # for use with Github, Facebook
   get 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   resources :users do
     resources :reviews, only: %i[index create]
+    resources :notifications, only: [:index]
     member do
       get :activate
     end
@@ -34,4 +35,5 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]
   resources :favorites, only: %i[create destroy]
   resources :comments, only: [:create, :destroy]
+  
 end

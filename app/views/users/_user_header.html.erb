@@ -23,6 +23,13 @@
               <i class="far fa-comment"></i>
             <% end %>
           </li>
+
+          <li class="border-right d-none d-md-inline-block"><%= link_to '通知', user_notifications_path(current_user) %></li>
+          <li class="border-right d-sm-inlineblock d-md-none">
+            <%= link_to user_notifications_path(current_user) do %>
+              <i class="far fa-bell"></i>
+            <% end %>
+          </li>
         </ul>
     </nav>
   </div>

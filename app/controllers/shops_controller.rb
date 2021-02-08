@@ -9,7 +9,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.includes(reviews: { user: :image_attachment }).find(params[:id])
+    @shop = Shop.includes(reviews: [{ user: :image_attachment }, :comments]).find(params[:id])
     @shop_tags = @shop.tags # タグ一覧
     if @shop.reviews.empty?
       @rate_ave = 0
@@ -24,7 +24,7 @@ class ShopsController < ApplicationController
 
   def reviews
     @shop = Shop.find(params[:id])
-    @reviews = @shop.reviews.includes(:user).paginate(page: params[:page], per_page: 10)
+    @reviews = @shop.reviews.includes(:comments ,{user: :image_attachment}).paginate(page: params[:page], per_page: 10)
   end
 
   def new

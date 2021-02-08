@@ -1,0 +1,25 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<li class='px-2 py-4 border-bottom'>
+  <!--自分のレビューへのコメント-->
+  <% if notification.review.user_id == visited.id %>
+    <p class='mb-0'>
+      <span><%= render partial: 'shared/user_image', locals: { user: visitor, size: '20x20' } %></span>
+      <span class="font-weight-bold"><%= visitor.name %>さん</span>
+      が
+      <%= link_to "#{notification.review.shop.name}", user_reviews_path, class: 'text-info font-weight-bold' %>
+      への<span class='font-weight-bold'>あなた</span>のレビューにコメントしました。
+    </p>
+  <!--自分がコメントしたレビューへのコメント-->
+  <% else %>
+    <p class='mb-0'>
+      <span><%= render partial: 'shared/user_image', locals: { user: visitor, size: '20x20' } %></span>
+      <span class="font-weight-bold"><%= visitor.name %>さん</span>
+      が
+      <%= link_to "#{notification.review.shop.name}", user_reviews_path, class: 'text-info font-weight-bold' %>
+      への<span class='font-weight-bold'><%= notification.review.user.name  %></span>さんのレビューにコメントしました。
+    </p>
+  <% end %>
+    <p class='pt-4 px-3 mb-0 text-secondary'><%= Comment.find_by(id: notification.comment_id)&.content %></p>
+</li>

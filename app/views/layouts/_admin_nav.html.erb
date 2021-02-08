@@ -1,5 +1,6 @@
 <ul class="dropdown">
   <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">admin</a>
+  <span class="<%= 'notice' if unchecked_notifications.any? %>"></span>
 
   <div class="dropdown-menu">
     <!-- リロードしないとJavaScriptが動かない問題解決のため、turbolinks無効 -->
@@ -7,17 +8,7 @@
     <%= link_to "店舗 一覧", shops_path, class:"dropdown-item text-dark" %>
     <%= link_to "ユーザー一覧", users_path, class:"dropdown-item text-dark" %>
     <%= link_to "マイページ", current_user, class:"dropdown-item text-dark" %>
+    <%= link_to "通知", user_notifications_path(current_user), class:"dropdown-item text-dark" %>
     <%= link_to "ログアウト", :logout, method: :post, class:"dropdown-item text-dark" %>
   </ul>
-
-  <!--
-  <ul class="dropdown-menu">
-    <li><%= link_to "店舗 新規登録", new_shop_path, class:"text-dark" %></li>
-    <li><%= link_to "店舗 一覧", shops_path, class:"text-dark" %></li>
-    <li><%= link_to "ユーザー一覧", users_path, class:"text-dark" %></li>
-    <li><%= link_to "マイページ", current_user, class:"text-dark" %></li>
-    <li><%= link_to "ログアウト", :logout, method: :post, class:"text-dark" %></li>
-  </ul>
-</div>
--->
 
