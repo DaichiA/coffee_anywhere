@@ -8,7 +8,7 @@
       <span><%= render partial: 'shared/user_image', locals: { user: visitor, size: '20x20' } %></span>
       <span class="font-weight-bold"><%= visitor.name %>さん</span>
       が
-      <%= link_to "#{notification.review.shop.name}", user_reviews_path, class: 'text-info font-weight-bold' %>
+      <%= link_to "#{notification.review.shop.name}", shop_path(notification.review.shop_id), class: 'text-info font-weight-bold' %>
       への<span class='font-weight-bold'>あなた</span>のレビューにコメントしました。
     </p>
   <!--自分がコメントしたレビューへのコメント-->
@@ -17,7 +17,7 @@
       <span><%= render partial: 'shared/user_image', locals: { user: visitor, size: '20x20' } %></span>
       <span class="font-weight-bold"><%= visitor.name %>さん</span>
       が
-      <%= link_to "#{notification.review.shop.name}", user_reviews_path, class: 'text-info font-weight-bold' %>
+      <%= link_to "#{notification.review.shop.name}", shop_path(notification.review.shop_id), class: 'text-info font-weight-bold' %>
       への<span class='font-weight-bold'><%= notification.review.user.name  %></span>さんのレビューにコメントしました。
     </p>
   <% end %>
