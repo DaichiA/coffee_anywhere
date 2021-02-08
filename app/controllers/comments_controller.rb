@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :require_login
-  before_action :correct_user
 
   def create
     review = Review.find(params[:review_id]) # hidden_tag でreview_id仕込む
