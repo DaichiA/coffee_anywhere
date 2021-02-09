@@ -53,6 +53,8 @@ https://coffee-anywhere.com/
   
 # ER図
 ![CoffeeMap_ER (2)](https://user-images.githubusercontent.com/70304933/107328952-d39f6280-6af2-11eb-9706-71224051ea95.png)
-
-
+  
+  
+# インフラ構成図
+![AWS Design (updated)](https://user-images.githubusercontent.com/70304933/107347620-59c6a380-6b09-11eb-954c-cbfa256570d8.png)
 
