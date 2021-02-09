@@ -8,6 +8,9 @@
     <ul class='w-100'>
       <%= render notifications %>
     </ul>
+    <div class='w-100 text-center'>
+      <%= will_paginate @notifications, list_classes: %w(pagination justify-content-center), aria_label:  'Page Navigation' %>
+    </div>
   <% else %>
     <p class="m-5 h5">通知はありません</p>
   <% end %>

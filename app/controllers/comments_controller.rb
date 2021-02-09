@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = review.comments.build(comment_params)
     @comment.user_id = current_user.id  
     if @comment.save
-      review.create_notification_comment!(current_user, @comment.id)
+      review.create_notification_comment!(current_user, @comment.id, review.user_id)
       redirect_back(fallback_location: root_path)
       flash[:success] = 'コメントを投稿しました'
     else

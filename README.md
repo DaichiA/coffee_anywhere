@@ -5,11 +5,24 @@
 コーヒー好きのために、自分の好みに合った店を探せるようにこのサービスを作りました。  
 ・検索窓からキーワードや店名で検索  
 ・淹れ方やそのお店の特徴をタグの一覧から検索  
+<img width="792" alt="スクリーンショット 2021-02-08 午後7 28 41" src="https://user-images.githubusercontent.com/70304933/107207662-ea3ab080-6a43-11eb-9e7d-4db1890aeac3.png">
+  
+  
 ・SNSアカウント（Facebook・Twitter）での会員登録  
+<img width="974" alt="スクリーンショット 2021-02-08 午後7 29 59" src="https://user-images.githubusercontent.com/70304933/107207777-0fc7ba00-6a44-11eb-816d-a61633513a38.png">
+  
+  
 ・行ったお店や気になるお店をブックマークしマイページで管理  
-・ブックマークしたお店はマイページで地図上に表示
+・ブックマークしたお店はマイページで地図上で一覧に 
+<img width="1435" alt="スクリーンショット 2021-02-08 午後7 20 56" src="https://user-images.githubusercontent.com/70304933/107208016-587f7300-6a44-11eb-9de9-5ebeabf5f80b.png">
+  
+  
 ・お店を点数評価付きでレビューの投稿  
 ・投稿されているレビューに対しコメントの投稿  
+<img width="545" alt="スクリーンショット 2021-02-08 午後7 22 19" src="https://user-images.githubusercontent.com/70304933/107208147-88c71180-6a44-11eb-881e-15d13ccb325f.png">
+   
+・自分に関する投稿の通知をアイコンへのバッジで表示  
+<img width="548" alt="スクリーンショット 2021-02-09 午後4 25 45" src="https://user-images.githubusercontent.com/70304933/107329451-88398400-6af3-11eb-925d-5707f3bad43e.png">
   
    
 # URL
@@ -40,10 +53,12 @@ https://coffee-anywhere.com/
 ・検索（ransack）  
 ・メールアクティベーション、パスワードリセット （ActionMailer）  
 ・タグ付機能（Tag-it）  
-・マップ（geocoder）
+・マップ（geocoder）  
 ・レビュー（jquery）   
 ・レビューの星評価（jquery.raty）  
 ・管理者機能  
+・通知機能  
+・投稿されたレビューへ対するコメント機能  
 
 
 使用したAWSのサービス  
@@ -57,29 +72,7 @@ https://coffee-anywhere.com/
 ・IAM  
 
 # ER図
-<img width="1209" alt="ER図" src="https://user-images.githubusercontent.com/70304933/103478814-9d443880-4e0c-11eb-9261-0a050d67f88a.png">
+![CoffeeMap_ER (2)](https://user-images.githubusercontent.com/70304933/107328952-d39f6280-6af2-11eb-9706-71224051ea95.png)
 
 
-# スクリーンショット
-  
-## トップページ
-![coffee-anywhere com_ (4)](https://user-images.githubusercontent.com/70304933/103609746-e063f000-4f61-11eb-98bb-e3d82e5b7a79.png)
-  
 
-## ログインページ
-![coffee-anywhere com_ (3)](https://user-images.githubusercontent.com/70304933/103495185-3e6ad780-4e7d-11eb-8ef8-83dc378ab098.png)
-  
-
-## マイページ(レビュー)
-![coffee-anywhere com_shops_q%5Bname_or_address_or_phone_number_or_description_or_tags_tag_name_cont%5D= button= (2)](https://user-images.githubusercontent.com/70304933/103505845-9bc35080-4e9e-11eb-82a9-07f4a608e337.png)
-    
-
-## マイページ（ブックマーク）
-![coffee-anywhere com_shops_q%5Bname_or_address_or_phone_number_or_description_or_tags_tag_name_cont%5D= button= (1)](https://user-images.githubusercontent.com/70304933/103505826-8cdc9e00-4e9e-11eb-843f-1c091d90731a.png)
-  
-
-## 検索結果
-![coffee-anywhere com_shops_q%5Bname_or_address_or_phone_number_or_description_or_tags_tag_name_cont%5D= button=](https://user-images.githubusercontent.com/70304933/103505793-76cedd80-4e9e-11eb-9af9-477a376ce063.png)
-  
-  
-  
