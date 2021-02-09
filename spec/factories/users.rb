@@ -1,6 +1,6 @@
 FactoryBot.define do
   # 値が適切なユーザーuse
-  factory :user do
+  factory :user, aliases: [:visitor] do
     name { 'factory' }
     sequence(:email) { |n| "factory#{n}@example.com" }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/factories/images/user_image.jpg')) }
@@ -37,8 +37,8 @@ FactoryBot.define do
     password_confirmation { 'invalid' }
   end
 
-  # 他のユーザー
-  factory :other_user, class: User do
+  # 他のユーザー、visitedユーザー
+  factory :other_user, class: User, aliases: [:visited] do
     name { 'other_user' }
     sequence(:email) { |n| "otheruser#{n}@example.com" }
     password { 'password' }
