@@ -16,13 +16,14 @@
 ・ブックマークしたお店はマイページで地図上で一覧に 
 <img width="1435" alt="スクリーンショット 2021-02-08 午後7 20 56" src="https://user-images.githubusercontent.com/70304933/107208016-587f7300-6a44-11eb-9de9-5ebeabf5f80b.png">
   
-
+  
 ・お店を点数評価付きでレビューの投稿  
 ・投稿されているレビューに対しコメントの投稿  
 <img width="545" alt="スクリーンショット 2021-02-08 午後7 22 19" src="https://user-images.githubusercontent.com/70304933/107208147-88c71180-6a44-11eb-881e-15d13ccb325f.png">
-  
+   
 ・自分に関する投稿の通知をアイコンへのバッジで表示  
-
+<img width="548" alt="スクリーンショット 2021-02-09 午後4 25 45" src="https://user-images.githubusercontent.com/70304933/107329451-88398400-6af3-11eb-925d-5707f3bad43e.png">
+  
    
 # URL
 https://coffee-anywhere.com/  
@@ -71,7 +72,7 @@ https://coffee-anywhere.com/
 ・IAM  
 
 # ER図
-<img width="1209" alt="ER図" src="https://user-images.githubusercontent.com/70304933/103478814-9d443880-4e0c-11eb-9261-0a050d67f88a.png">
+![CoffeeMap_ER (2)](https://user-images.githubusercontent.com/70304933/107328952-d39f6280-6af2-11eb-9706-71224051ea95.png)
 
-# インフラ構成図  
+
 

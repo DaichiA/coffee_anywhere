@@ -31,8 +31,8 @@ development:
 test:
   <<: *default
   database: coffee_anywhere_test
-  # host: <%= ENV.fetch("MYSQL_HOST") { 'localhost' } %>  # ローカルはこちら？
-  host: test  # dockerで動かす
+  host: <%= ENV.fetch("MYSQL_HOST") { 'localhost' } %>  # ローカルはこちら？
+  # host: test  # dockerで動かす
 
 
 # As with config/credentials.yml, you never want to store sensitive information,

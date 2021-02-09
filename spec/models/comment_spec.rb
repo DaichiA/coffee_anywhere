@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validation' do
+    it 'has valid factory' do
+      
+    end
+
+    context 'title' do
+      it 'is invalid without content' do
+        comment.
+        review.valid?
+        expect(review.errors[:title]).to include('を入力してください')
+      end
 end
