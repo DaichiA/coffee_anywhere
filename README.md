@@ -24,14 +24,14 @@ https://coffee-anywhere.com/
 
 
 # 使用技術
-・フロントエンド（HTML/CSS, Sass, Javascript, bootstrap, jQuery）
-・バックエンド（ruby 2.7.1, Rails 6.0.3.4, Nginx, Puma）
-・データベース（mysql 8.0.22）
-・AWS（VPC, RDS, EC2, Route 53, ACM, ALB, S3, IAM)
-・テスト（Rspec, FactoryBot, Capybara）
-・コードチェック（rubocop）
-・CI/CD（CircleCI, Capistrano）
-・開発環境（Git, GitHub, VScode, Docker, Docker-compose）
+・フロントエンド（HTML/CSS, Sass, Javascript, bootstrap, jQuery）  
+・バックエンド（ruby 2.7.1, Rails 6.0.3.4, Nginx, Puma）  
+・データベース（mysql 8.0.22）  
+・AWS（VPC, RDS, EC2, Route 53, ACM, ALB, S3, IAM)  
+・テスト（Rspec, FactoryBot, Capybara）  
+・コードチェック（rubocop）  
+・CI/CD（CircleCI, Capistrano）  
+・開発環境（Git, GitHub, VScode, Docker, Docker-compose）  
   
 
 
