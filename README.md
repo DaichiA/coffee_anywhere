@@ -1,6 +1,6 @@
 # COFFEE ANYWHERE
 
-# 概要 
+# ☕概要 
 <img width="1170" alt="スクリーンショット 2021-02-09 午後4 42 44" src="https://user-images.githubusercontent.com/70304933/107332993-334c3c80-6af8-11eb-8557-f36a06d2e45a.png">
   
   
@@ -10,7 +10,7 @@
   
 
 
-# URL
+# 🌐URL
 https://coffee-anywhere.com/  
   
 ログイン画面にワンクリックでログインできる機能がありますのでそちらをぜひご利用ください。  
@@ -23,19 +23,40 @@ https://coffee-anywhere.com/
   
 
 
-# 使用技術
-・フロントエンド（HTML/CSS, Sass, Javascript, bootstrap, jQuery）  
-・バックエンド（ruby 2.7.1, Rails 6.0.3.4, Nginx, Puma）  
-・データベース（mysql 8.0.22）  
-・AWS（VPC, RDS, EC2, Route 53, ACM, ALB, S3, IAM)  
-・テスト（Rspec, FactoryBot, Capybara）  
-・コードチェック（rubocop）  
-・CI/CD（CircleCI, Capistrano）  
-・開発環境（Git, GitHub, VScode, Docker, Docker-compose）  
+# ⚙️使用技術
+###フロントエンド
+・Sass  
+・Javascript  
+・jQuery  
   
-
-
-# 主要機能一覧
+###バックエンド
+・ruby 2.7.1  
+・Rails 6.0.3.4  
+  
+###データベース
+・mysql 8.0.22  
+  
+###テスト、コードチェック
+・Rspec  
+・FactoryBot  
+・Capybara  
+・Rubocop 
+  
+###開発環境
+・Docker  
+・Docker-compose  
+   
+###本番環境
+・AWS（VPC, RDS, EC2, Route 53, ACM, ALB, S3, IAM)  
+・Nginx
+・Puma  
+  
+###CI/CD
+・CircleCI  
+・Capistrano  
+  
+  
+# 📚主要機能一覧
 | 機能名 | 説明 |
 | ------------- | ------------- |
 | 検索 | 地域やキーワードでお店の検索が可能。検索窓の他に、Topから淹れ方や様々な条件でも検索可能  |
@@ -51,10 +72,10 @@ https://coffee-anywhere.com/
   
   
   
-# ER図
+# 📝ER図
 ![CoffeeMap_ER (2)](https://user-images.githubusercontent.com/70304933/107328952-d39f6280-6af2-11eb-9706-71224051ea95.png)
   
   
-# インフラ構成図
-![AWS Design (updated)](https://user-images.githubusercontent.com/70304933/107347620-59c6a380-6b09-11eb-954c-cbfa256570d8.png)
+# 🔧インフラ構成図
+![AWS Design (updated) (2)](https://user-images.githubusercontent.com/70304933/107467981-82eb4080-6baa-11eb-809e-2c005880475d.png)
 
