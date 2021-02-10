@@ -1,13 +1,12 @@
 FactoryBot.define do
   factory :comment do
-    content { "comment content" }
+    content { 'comment content' }
     association :user
     association :review
-    
-    trait :new_comment do
-      content { "new comment" }
-    end
 
+    trait :new_comment do
+      content { 'new comment' }
+    end
   end
 
   # 新しいコメント
@@ -18,5 +17,4 @@ FactoryBot.define do
   #   password_confirmation { 'password' }
   #   admin { true }
   # end
-
 end

@@ -12,10 +12,9 @@ class Api::V1::SessionsController < ApiController
 
   private
 
-    def session_params
-      params.fetch(:session, {}).permit(:email, :password)
-    end
+  def session_params
+    params.fetch(:session, {}).permit(:email, :password)
+  end
 
-    def form_authenticity_token; end
-
+  def form_authenticity_token; end
 end

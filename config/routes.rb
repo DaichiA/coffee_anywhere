@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # namespace :api, {format: 'json'} do
   #   namespace :v1 do
   #     resources :sessions, only: [:create]
-  #     resources :shops, only: [:index] 
+  #     resources :shops, only: [:index]
   #   end
   # end
   post 'oauth/callback' => 'oauths#callback'
@@ -34,6 +34,5 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [:destroy]
   resources :favorites, only: %i[create destroy]
-  resources :comments, only: [:create, :destroy]
-  
+  resources :comments, only: %i[create destroy]
 end
