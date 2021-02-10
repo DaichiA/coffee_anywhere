@@ -50,9 +50,4 @@ RSpec.describe Review, type: :model do
       expect(user.reviews.first).to eq review3
     end
   end
-
-  describe 'method' do
-    
-  end
-
 end

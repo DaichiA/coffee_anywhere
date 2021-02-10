@@ -19,9 +19,9 @@ RSpec.describe Comment, type: :model do
   end
 
   it 'is invalid too long content' do
-    comment.content = 'a'*101
+    comment.content = 'a' * 101
     expect(comment).to_not be_valid
-    end
+  end
 
   it 'is descending order' do
     comment.content = 'old comment'
@@ -30,5 +30,4 @@ RSpec.describe Comment, type: :model do
     new_comment.save
     expect(Comment.first.content).to eq 'new comment'
   end
-
 end

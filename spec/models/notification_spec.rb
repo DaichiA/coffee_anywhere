@@ -8,5 +8,4 @@ RSpec.describe Notification, type: :model do
       expect(FactoryBot.create(:notification)).to be_valid
     end
   end
-
 end

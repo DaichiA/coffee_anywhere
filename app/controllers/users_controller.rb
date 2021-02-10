@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @reviews = @user.reviews
     @favorites = @user.shops.includes(:reviews).with_attached_image.paginate(page: params[:page])
-    
+
     gon.shops = @user.shops
   end
 

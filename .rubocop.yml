@@ -21,3 +21,4 @@ AllCops:
     - 'db/**/*'
     - 'tmp/**/*'
     - 'node_modules/**/*'
+    - 'app/controllers/api/v1/**/*'

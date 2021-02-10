@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     review = Review.find(params[:review_id]) # hidden_tag でreview_id仕込む
     @comment = review.comments.build(comment_params)
-    @comment.user_id = current_user.id  
+    @comment.user_id = current_user.id
     if @comment.save
       review.create_notification_comment!(current_user, @comment.id, review.user_id)
       redirect_back(fallback_location: root_path)

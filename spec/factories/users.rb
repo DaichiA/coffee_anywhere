@@ -44,4 +44,12 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
   end
+
+  # 第三のユーザー
+  factory :third_user, class: User do
+    name { 'third_user' }
+    sequence(:email) { |n| "thirduser#{n}@example.com" }
+    password { 'password' }
+    password_confirmation { 'password' }
+  end
 end

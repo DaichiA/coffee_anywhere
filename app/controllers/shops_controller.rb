@@ -24,7 +24,7 @@ class ShopsController < ApplicationController
 
   def reviews
     @shop = Shop.find(params[:id])
-    @reviews = @shop.reviews.includes(:comments ,{user: :image_attachment}).paginate(page: params[:page], per_page: 10)
+    @reviews = @shop.reviews.includes(:comments, { user: :image_attachment }).paginate(page: params[:page], per_page: 10)
   end
 
   def new
