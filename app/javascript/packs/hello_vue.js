@@ -1,19 +1,3 @@
-import { createApp } from 'vue'
-import App from '../app.vue'
-import Login from '../components/Login.vue'
-import { router } from './router'
-
-document.addEventListener("DOMContentLoaded", () => {
-  const app = createApp(App)
-  app.use(router)
-  app.mount("#vue-app")
-
-  const app2 = createApp(Login)
-  app2.use(router)
-  app2.mount("#vue-app2")
-});
-
-
 /* eslint no-console: 0 */
 // Run this example by adding <%= javascript_pack_tag 'hello_vue' %> (and
 // <%= stylesheet_pack_tag 'hello_vue' %> if you have styles in your component)
@@ -24,14 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // import Vue from 'vue'
 // import App from '../app.vue'
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const app = new Vue({
-//     render: h => h(App)
-//   }).$mount()
-//   document.body.appendChild(app.$el)
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new Vue({
+    render: h => h(App)
+  }).$mount()
+  document.body.appendChild(app.$el)
 
-//   console.log(app)
-// })
+  console.log(app)
+})
 
 
 // The above code uses Vue without the compiler, which means you cannot
@@ -48,19 +32,19 @@ document.addEventListener("DOMContentLoaded", () => {
 // </div>
 
 
-// import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
+import Vue from 'vue/dist/vue.esm'
+import App from '../app.vue'
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const app = new Vue({
-//     el: '#hello',
-//     data: {
-//       message: "Can you say hello?"
-//     },
-//     components: { App }
-//   })
-// })
-// //
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new Vue({
+    el: '#hello',
+    data: {
+      message: "vue test"
+    },
+    components: { App }
+  })
+})
+//
 //
 //
 // If the project is using turbolinks, install 'vue-turbolinks':
@@ -72,9 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // import TurbolinksAdapter from 'vue-turbolinks'
 // import Vue from 'vue/dist/vue.esm'
 // import App from '../app.vue'
-
+//
 // Vue.use(TurbolinksAdapter)
-
+//
 // document.addEventListener('turbolinks:load', () => {
 //   const app = new Vue({
 //     el: '#hello',

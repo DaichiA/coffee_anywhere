@@ -1,5 +1,6 @@
 const { environment } = require('@rails/webpacker')
 const { VueLoaderPlugin } = require('vue-loader')
+const vue = require('./loaders/vue')
 // const vue = require('./loaders/vue')  # これでデプロイうまくいくか
 
 // jQueryとBootstapのJSを使えるように
@@ -31,4 +32,5 @@ environment.loaders.prepend('vue', {
       }]
 })
 
+environment.loaders.prepend('vue', vue)
 module.exports = environment
