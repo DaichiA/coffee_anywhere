@@ -34,3 +34,11 @@ environment.loaders.prepend('vue', {
 
 environment.loaders.prepend('vue', vue)
 module.exports = environment
+
+environment.config.merge({
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  }
+})
