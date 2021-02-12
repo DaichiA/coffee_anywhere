@@ -1,6 +1,10 @@
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
 
+<!-- vue導入 -->
+<!--ここでVuetifyも読み込んでる。タグを下の方に置くとstylesheetとBootstrapを上書きしてしまうからレイアウトが崩れる-->
+<%= javascript_pack_tag 'home' %>
+
 <!--<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
 <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> -->
 <%= stylesheet_link_tag 'application', media: 'all' %> 
@@ -14,8 +18,6 @@
 
 <%= favicon_link_tag('favicon.png') %>
 
-<!-- vue導入 -->
-<%= javascript_pack_tag 'hello_vue' %>
 
 
 

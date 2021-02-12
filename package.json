@@ -15,9 +15,14 @@
     "turbolinks": "^5.2.0",
     "vue": "^2.6.12",
     "vue-loader": "^15.9.6",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "vuetify": "^2.4.4"
   },
   "devDependencies": {
+    "deepmerge": "^4.2.2",
+    "fibers": "^5.0.0",
+    "sass": "^1.32.7",
+    "sass-loader": "10.1.1",
     "webpack-dev-server": "^3.11.0"
   }
 }
