@@ -17,11 +17,11 @@
             <div class="method">
               <v-tabs color="amber">
                 <v-tab class='headline text-dark '>淹れ方</v-tab>
-                  <v-tab-Item>
+                  <v-tab-item>
                     <%= render 'methods' %>
-                  </v-tab-Item>
+                  </v-tab-item>
                 <v-tab class='headline text-dark'>条件</v-tab>
-                  <v-tab-Item>
+                  <v-tab-item>
                     <div class="border rounded p-3 px-4 mt-3">
                       <div class="row flex h4">
                         <% @tags_for_search.each do |tag| %>
@@ -31,15 +31,19 @@
                         <% end %>
                       </div>
                     </div>
-                  </v-tab-Item>
+                  </v-tab-item>
                 <v-tab class='headline text-dark'>地域</v-tab>
-                  <v-tab-Item>
+                  <v-tab-item>
                     <%= render 'area' %>
-                  </v-tab-Item>
+                  </v-tab-item>
               </v-tabs>
             </div>        
 
       </div><!--home-->
+
+      <v-btn block>
+        Block Button
+      </v-btn>
 
     </v-app>
   </template>
