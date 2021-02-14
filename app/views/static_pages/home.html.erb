@@ -1,6 +1,6 @@
 <% provide(:title, 'COFFEE ANYWHERE') %>
 
-<div id="home">
+
   <template>
     <v-app>
 
@@ -16,11 +16,11 @@
 
             <div class="method">
               <v-tabs color="amber">
-                <v-tab class='headline text-dark '>淹れ方</v-tab>
+                <v-tab class='headline text-dark body-2'>淹れ方</v-tab>
                   <v-tab-item>
                     <%= render 'methods' %>
                   </v-tab-item>
-                <v-tab class='headline text-dark'>条件</v-tab>
+                <v-tab class='headline text-dark body-2'>条件</v-tab>
                   <v-tab-item>
                     <div class="border rounded p-3 px-4 mt-3">
                       <div class="row flex h4">
@@ -32,7 +32,7 @@
                       </div>
                     </div>
                   </v-tab-item>
-                <v-tab class='headline text-dark'>地域</v-tab>
+                <v-tab class='headline text-dark body-2'>地域</v-tab>
                   <v-tab-item>
                     <%= render 'area' %>
                   </v-tab-item>
@@ -41,11 +41,5 @@
 
       </div><!--home-->
 
-      <v-btn block>
-        Block Button
-      </v-btn>
-
-
     </v-app>
   </template>
-</div>

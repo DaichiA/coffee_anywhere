@@ -1,0 +1,15 @@
+<script>
+  $('#average_shop_<%= shop.id %>').raty({
+
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: '<%= if shop.reviews.length == 0
+                  0
+                else
+                  shop.reviews.pluck(:rate).sum / shop.reviews.length.floor(2)
+                end %>',
+  });
+</script>

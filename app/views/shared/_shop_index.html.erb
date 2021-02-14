@@ -5,12 +5,6 @@
   <div class="list_text">
     <div class="d-flex justify-content-between">
       <span><%= link_to shop.name, shop, class: "shop_name" %></span>
-      <!--
-      <% if !current_user.nil? && current_user.admin? %>
-        <span class="btn btn-warning font-weight-bold px-4 mb-3"><%= link_to "編集", edit_shop_path(shop) %></span>
-      <% end %>
-      -->
-      
     
       <div class='rate row justify-content-end align-items-center mr-1'>
         <div id="average_shop_<%= shop.id %>"></div>
