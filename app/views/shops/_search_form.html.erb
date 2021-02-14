@@ -1,9 +1,9 @@
-<div class="search_form form-row clearfix">
+<div class="search_form form-row clearfix ">
   <%= search_form_for(@q, url: shops_path) do |f| %>
 
-    <%= f.search_field :address_cont, placeholder: "地域でお店を検索", class:"search_field col-3" %>
+    <%= f.search_field :address_cont, placeholder: "地域でお店を検索", class:"search_field col-3 border" %>
 
-    <%= f.search_field :name_or_phone_number_or_description_or_tags_tag_name_cont, placeholder: "キーワードでお店を検索", class:"search_field col-8" %>
+    <%= f.search_field :name_or_phone_number_or_description_or_tags_tag_name_cont, placeholder: "キーワードでお店を検索", class:"search_field col-7 col-lg-8 border" %>
 
     <%= button_tag type: 'submit', class: "btn btn-warning col-1 text-center" do %>
       <i class="fas fa-search search_submit ml-n2"></i>
