@@ -27,8 +27,8 @@ https://coffee-anywhere.com/
 ### フロントエンド
 ・Sass  
 ・Javascript
-・Vue.js 2.6.12 (随時改良を進めています。)
-・Vuetify 2.4.4
+・Vue.js 2.6.12 (随時改良を進めています。)  
+・Vuetify 2.4.4  
 ・jQuery  
   
 ### バックエンド
