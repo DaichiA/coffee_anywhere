@@ -1,5 +1,8 @@
 <% provide(:title, '検索結果') %>
 
+<v-app>
+  <template>
+
 <div class="container">
   <div class="shop_index">
     <%= render 'search_form' %>
@@ -9,11 +12,16 @@
     <% if @shops.blank? %>
       <p class="h5 ml-4">キーワードに合致するお店はありませんでした。</p>
     <% else %>
+      <v-row>
       <% @shops.each do |shop| %>
           <%= render partial: 'shared/shop_index', locals: { shop: shop } %>
       <% end %>
+      </v-row>
     <% end %>
   </ul>
 
   <%= will_paginate @shops, list_classes: %w(pagination justify-content-center h3 mt-5), aria_label:  'Page Navigation' %>
 </div>
+
+  </template>
+</v-app>

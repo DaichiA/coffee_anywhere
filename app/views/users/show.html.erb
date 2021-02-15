@@ -71,11 +71,15 @@
       </div>
     <% end %>
 
-
-
-    <% @favorites.each do |shop| %>
-      <%= render partial: 'shared/shop_index', locals: { shop: shop } %>
-    <% end %>
+    <v-app>
+      <template>
+        <v-row>
+          <% @favorites.each do |shop| %>
+            <%= render partial: 'shared/shop_index', locals: { shop: shop } %>
+          <% end %>
+        </v-row>
+      </template>
+    </v-app>
   </ul>
 
 </div>

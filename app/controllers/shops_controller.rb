@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
   def index
     # @q = Shop.includes(:image_attachment, :reviews).ransack(params[:q])
     @q = Shop.includes(:reviews).with_attached_image.ransack(params[:q])
-    @shops = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
+    @shops = @q.result(distinct: true).paginate(page: params[:page], per_page: 12)
   end
 
   def show

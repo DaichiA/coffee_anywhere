@@ -1,0 +1,5 @@
+<% if shop.image.attached? %>
+  <%= image_tag shop.display_image, class: "shop_image" %>
+<% else %>
+  <%= image_tag "default_shop.jpg", class: "shop_image" %>
+<% end %>
