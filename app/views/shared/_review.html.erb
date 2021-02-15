@@ -2,7 +2,7 @@
    render partial: 'shared/review', locals: { user: , review:  } 
 -->
   
-<div class="my_review border flex w-100 mt-5 rounded-lg">
+<div class="my_review border flex w-100 mt-5 rounded-lg mx-2 mx-sm-0">
   <div class="user_info w-100 pl-3 py-3 border-bottom d-flex">
     
     <% if user.image.attached? %>
@@ -11,32 +11,32 @@
       <%= image_tag "default_user.jpg", :size => '45x45', class:"user_image" %>
     <% end %>
 
-    <p class="d-inline-block ml-4 mr-auto my-auto h5"><%= user.name %>さんのレビュー</p>
+    <p class="d-inline-block ml-4 mr-auto my-auto h6"><%= user.name %>さんのレビュー</p>
 
       <% if logged_in? && current_page?(user_reviews_path(current_user)) %>
-        <p class="d-inline-block ml-4 mr-4 my-auto h5">行ったお店: <span class="font-weight-bold"><%= link_to review.shop.name, shop_path(review.shop_id) %></span></p>
+        <p class="d-inline-block ml-4 mr-4 my-auto h6">行ったお店: <span class="font-weight-bold"><%= link_to review.shop.name, shop_path(review.shop_id) %></span></p>
       <% end %>
 
       <!-- 「自分のレビュー」かまたは「adminユーザーである」なら削除可能 -->
       <% if logged_in? && review.user_id == current_user.id || logged_in? && current_user.admin? %>
-        <div class="user_command">
+        <div class="user_command mt-4">
           <%= link_to "[削除]", review, method: :delete, data: { confirm: "本当に削除しますか？" }, class:"mx-3 pt-4 text-danger" %>
         </div>
       <% end %>
 
   </div>
   <div class="review flex-column w-100">
-    <p class="py-3 pl-3 mb-0"><%= review.created_at.strftime('%Y年%m月%d日') %></p>
-    <h4 class="review_title h3 border-bottom pl-3 d-inline-block font-weight-bold">
+    <p class="py-2 pl-2 mb-0"><%= review.created_at.strftime('%Y年%m月%d日') %></p>
+    <h4 class="review_title h5 border-bottom pl-2 d-inline-block font-weight-bold">
       <%= review.title %>
     </h4>
 
-    <div class='ml-3'>
+    <div class='ml-2'>
       <%= render partial: 'shared/show_rate', locals: { review: review } %>
     </div>
 
     <!--text areaでの改行を反映-->
-    <div class="review_cotent px-3 py-5 border-bottom mb-3">
+    <div class="review_cotent px-2 py-3 border-bottom mb-3">
       <%= safe_join(review.content.split("\n"), tag(:br)) %>
     </div>
 
@@ -45,8 +45,8 @@
         <% if logged_in? %>
           <div class="comment mb-3">
             <%= form_with(model: review.comments.build, url: comments_path, class: '', remote: true ) do |f| %>
-              <%= f.text_area :content, row:2, placeholder: "コメントする", class: 'comment-form col-11' %>
-              <%= f.submit '送信', class: 'comment-btn col-1 btn py-3' %>
+              <%= f.text_area :content, row:2, placeholder: "コメントする", class: 'comment-form col-11 p-1 rounded-lg' %>
+              <%= f.submit '送信', class: 'comment-btn col-1 btn py-3 px-0' %>
               <%= hidden_field_tag :review_id, review.id %>
               <%= f.hidden_field :username, value: current_user.name %>
             <% end %>
@@ -54,7 +54,7 @@
         <% end %>
 
         <!--コメント表示-->
-        <ul>
+        <ul class="mb-1">
           <% review.comments.each do |c| %>
             <li class="com-list-<%= review.id %>">
               <p class="py-2 mb-0 ">
@@ -69,7 +69,7 @@
         </ul>
         <% if review.comments.count > 1 %>
           <div class="text-center">
-            <p id="btnClick-<%= review.id %>" class="com-btn">もっと見る</p>
+            <p id="btnClick-<%= review.id %>" class="com-btn mb-1">もっと見る</p>
           </div>
         <% end %>
 
