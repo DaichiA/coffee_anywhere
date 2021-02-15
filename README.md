@@ -26,7 +26,7 @@ https://coffee-anywhere.com/
 # ⚙️使用技術
 ### フロントエンド
 ・Sass  
-・Javascript
+・Javascript  
 ・Vue.js 2.6.12 (随時改良を進めています。)  
 ・Vuetify 2.4.4  
 ・jQuery  
