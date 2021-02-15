@@ -46,7 +46,7 @@
       .shop_name {
         display: inline;
         // font-size: 25px;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-bottom: 10px;
       } 
       .location {
@@ -55,7 +55,7 @@
       }
       .shop_desc {
         display: block;
-        padding-top: 10px;
+        font-size: 0.8rem;
       }
     }
   }
@@ -63,6 +63,8 @@
 
 .shop_image {
   object-fit: cover;
+  max-width: 100%;
+  height: auto;
 }
 
 

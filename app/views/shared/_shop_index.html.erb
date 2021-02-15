@@ -1,44 +1,43 @@
-<!--renderする時 locals: shop -->
-
-<li>
-  <%= render partial: 'shared/shop_image', locals: { size: '200x185', shop: shop } %>
-  <div class="list_text">
-    <div class="d-flex justify-content-between">
-      <span><%= link_to shop.name, shop, class: "shop_name" %></span>
-    
-      <div class='rate row justify-content-end align-items-center mr-1'>
-        <div id="average_shop_<%= shop.id %>"></div>
-        <div class="ave_rate pl-2"><%= if shop.reviews.length == 0
-                                          rate_ave =  0
-                                        else
-                                          rate_sum = shop.reviews.pluck(:rate).sum
-                                          rate_ave = (rate_sum / shop.reviews.length).floor(2)
-                                        end %>
-        </div>
-      </div>
-
-      <script>
-        $('#average_shop_<%= shop.id %>').raty({
-          // size: 20,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          half: true,
-          readOnly: true,
-          score: '<%= if shop.reviews.length == 0
-                        0
-                      else
-                        shop.reviews.pluck(:rate).sum / shop.reviews.length.floor(2)
-                      end %>',
-          });
-      </script>
-
-    </div>
-
-    <div class="row justify-content-end mr-1">
-      <span class="mt-2 d-none d-md-inline-block">定休日: <%= shop.dayoff %></span>
-    </div>
-
-    <%= link_to truncate(shop.description, length: 100, omission:"..."), shop, class: "shop_desc " %>
-  </div>
-</li>
+<v-col cols="12" md="6" lg="4">
+  <%= link_to shop do %>
+    <v-card>
+        <v-col class="mx-auto text-center exe-image" max-width="320px" max-height="240px">
+          <%= render partial: 'shared/new_shop_image', locals: { shop: shop } %>
+        </v-col>
+        <v-col class="text-h6 font-weight-bold py-0">
+          <%= shop.name %>
+        </v-col>
+        <v-col  class="pl-5">
+          <v-row>
+            <div id="shop_index">
+              <v-rating
+                color="warning"
+                half-increments
+                readonly
+                length="5"
+                size="22"
+                value="<%= if shop.reviews.length == 0
+                              0
+                            else
+                              shop.reviews.pluck(:rate).sum / shop.reviews.length.floor(2)
+                            end %>"
+              ></v-rating>
+            </div>
+            <div class="ave_rate pl-2 pt-2 font-weight-bold red--text text--lighten-2"><%= if shop.reviews.length == 0
+                                        rate_ave =  0
+                                      else
+                                        rate_sum = shop.reviews.pluck(:rate).sum
+                                        rate_ave = (rate_sum / shop.reviews.length).floor(2)
+                                      end %>
+            </div>
+          </v-row>
+        </v-col>
+        <v-col  class="pt-0">
+          <%= truncate(shop.address, length: 20, omission:"...") %>
+        </v-col>
+        <v-col class="d-none d-md-block">
+          <%= truncate(shop.description, length: 100, omission:"...")  %>
+        </v-col>
+    </v-card>
+  <% end %>
+</v-col>
