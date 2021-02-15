@@ -6,7 +6,7 @@
       <%= link_to 'Twitter', "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button", data: { lang:"ja" }%>
 
       <!-- fbシェア -->
-      <span class="fb-share-button mx-2" data-href="<%= shop_url(@shop) %>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= shop_url(@shop) %>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></span>
+      <span class="fb-share-button mx-2 mb-1" data-href="<%= shop_url(@shop) %>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= shop_url(@shop) %>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></span>
 
       <!-- lineシェア -->
       <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="<%= shop_url(@shop) %>" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
@@ -46,7 +46,8 @@
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+<!--Vue導入後表示されなかったFBシェアボタンがtype="application/javascript"を記述後表示されるようになった-->
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0&appId=428189291872191&autoLogAppEvents=1" nonce="Z4Eg1rOo"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0&appId=428189291872191&autoLogAppEvents=1" nonce="Z4Eg1rOo"  type="application/javascript"></script>
 
 <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
