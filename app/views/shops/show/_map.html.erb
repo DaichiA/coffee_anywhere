@@ -1,5 +1,5 @@
 
-<script>
+<script type="application/javascript">
   function initMap() {
     // latitude,longitudeから位置を特定
     // var test = { lat: <%= @shop.latitude %>, lng: <%= @shop.longitude %>};
@@ -31,6 +31,6 @@
 
 
 
-<script async defer
+<script type="application/javascript" async defer
         src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map[:api_key] %>&callback=initMap">
 </script>

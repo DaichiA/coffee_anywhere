@@ -11,21 +11,21 @@
     <nav>
         <ul class="navbar navbar-nav navbar-expand">
           <li class="border-left border-right d-none d-md-inline-block"><%= link_to 'ブックマーク', user_path(@user) %></li>
-          <li class="border-left border-right d-sm-inline-block d-md-none">
+          <li class="border-left border-right d-inline-block d-md-none">
             <%= link_to user_path(@user) do %>
               <i class="far fa-bookmark"></i>
             <% end %>  
           </li>
 
           <li class="border-right d-none d-md-inline-block"><%= link_to 'レビュー', user_reviews_path(current_user) %></li>
-          <li class="border-right d-sm-inlineblock d-md-none">
+          <li class="border-right d-inline-block d-md-none">
             <%= link_to user_reviews_path(current_user) do %>
               <i class="far fa-comment"></i>
             <% end %>
           </li>
 
           <li class="border-right d-none d-md-inline-block"><%= link_to '通知', user_notifications_path(current_user) %></li>
-          <li class="border-right d-sm-inlineblock d-md-none">
+          <li class="border-right d-inline-block d-md-none">
             <%= link_to user_notifications_path(current_user) do %>
               <i class="far fa-bell"></i>
             <% end %>

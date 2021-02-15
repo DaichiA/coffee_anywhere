@@ -11,7 +11,7 @@
         <p class="h5 font-weight-bold mb-4">ブックマーク一覧</p>
         <div id="user-map"></div>
 
-        <script>
+        <script type="application/javascript">
           let marker = []
           let infoWindow = []
           let markerData = gon.shops
@@ -65,7 +65,7 @@
 
           }
         </script>
-        <script async defer
+        <script type="application/javascript" async defer
                 src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map[:api_key] %>&callback=initMap">
         </script>
       </div>

@@ -1,15 +1,18 @@
 <!--renderする時 locals: review -->
 
-<div id="star-rate-<%= review.id %>"></div>
-
-<script>
-  $('#star-rate-<%= review.id %>').raty({
-    // size: 20,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    half: true,
-    readOnly: true,
-    score: '<%= review.rate %>',
-  });
-</script>
+<v-col  class="pl-3">
+  <v-row>
+    <div id="shop_index">
+      <v-rating
+        color="warning"
+        half-increments
+        readonly
+        length="5"
+        size="22"
+        value="<%= review.rate %>"
+      ></v-rating>
+    </div>
+    <div class="ave_rate pl-2 pt-2 font-weight-bold red--text text--lighten-2"><%= review.rate %>
+    </div>
+  </v-row>
+</v-col>
