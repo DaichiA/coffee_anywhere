@@ -1,7 +1,7 @@
 <div class="shop_info pt-5">
   <div class="row justify-content-between mx-1">
     <h3 class="pb-3">店舗情報</h3>
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center mb-3 mt-n3 mt-sm-0">
       <!-- twitterシェア -->
       <%= link_to 'Twitter', "https://twitter.com/share?ref_src=twsrc%5Etfw", class: "twitter-share-button", data: { lang:"ja" }%>
 
@@ -44,10 +44,10 @@
   </table>
 </div>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8" type="application/javascript"></script>
 
 <!--Vue導入後表示されなかったFBシェアボタンがtype="application/javascript"を記述後表示されるようになった-->
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0&appId=428189291872191&autoLogAppEvents=1" nonce="Z4Eg1rOo"  type="application/javascript"></script>
 
-<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer" type="application/javascript"></script>

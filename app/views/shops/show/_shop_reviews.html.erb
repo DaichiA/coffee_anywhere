@@ -12,11 +12,11 @@
     <p class="h5 mt-4">レビューはまだありません。</p>
   <% elsif @shop.reviews.count >= 1 %>
     <!-- レビューが1件以上ある -->
-    <%= render partial: 'shared/review', locals: { user: @shop.reviews.first.user, review: @shop.reviews.first }  %>
+    <%= render partial: 'shared/review', locals: { user: @shop.reviews.first.user, review: @shop.reviews.first, reviews: @shop.reviews }  %>
 
     <% if @shop.reviews.count >= 2 %>
       <!-- レビューが2件以上ある -->
-      <%= render partial: 'shared/review', locals: { user: @shop.reviews.second.user, review: @shop.reviews.second }  %>
+      <%= render partial: 'shared/review', locals: { user: @shop.reviews.second.user, review: @shop.reviews.second, reviews: @shop.reviews }  %>
 
       <% if @shop.reviews.count >= 3 %>
         <!-- レビューが3件以上ある -->
