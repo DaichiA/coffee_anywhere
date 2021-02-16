@@ -4,10 +4,10 @@
 <div class="row mt-5">
   <div class="col-lg-10 offset-lg-1">
     <div class="login_left border rounded p-4 mt-5">
-      <h1>COFFEE ANYWHEREへようこそ！</h1>
-      <p class="h4 my-4">新規登録(無料)して利用を開始しましょう。</p>
+      <h3>COFFEE ANYWHEREへようこそ！</h3>
+      <p class="h6 my-4">新規登録(無料)して利用を開始しましょう。</p>
       <div class="row border-top">
-        <div class="sns col-10 offset-1 col-lg-6 offset-lg-0 mt-4 pb-4 ">
+        <div class="sns col-12 col-lg-6 offset-lg-0 mt-4 pb-4 ">
           <%= render partial: 'shared/sns', locals: { phrase: '登録' } %>
           <p class="pt-3 text-black-50">COFFEE ANYWHEREが許可なくFacebook, Twitterに投稿することはありません。</p>
           <p class="border-top pt-4">登録せずに試すにはこちら</p>
@@ -15,7 +15,7 @@
             <%= render 'shared/easy_login' %>
           </div>
         </div>
-        <div class="col-10 offset-1 col-lg-6 offset-lg-0 mt-4"><%= render 'form' %></div>
+        <div class="col-12 col-lg-6 offset-lg-0 mt-4"><%= render 'form' %></div>
       </div>
     </div>
   </div>

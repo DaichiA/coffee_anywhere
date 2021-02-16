@@ -1,17 +1,18 @@
 <% provide(:title, 'マイページ') %>
 
 <div class="row">
-  <%= render "users/user_header" %>
+  <div class="col-lg-8 offset-lg-2">
+    <%= render "users/user_header" %>
 
-  <% if @reviews.empty? %>
-    <p class="m-5 h5">まだレビューを投稿していません</p>
-  <% end %>
+    <% if @reviews.empty? %>
+      <p class="m-5 h5">まだレビューを投稿していません</p>
+    <% end %>
 
-  <% @reviews.each do |review| %>
-    <%= render partial: 'shared/review', locals: { user: @user, review: review }  %>
-  <% end %>
+    <% @reviews.each do |review| %>
+      <%= render partial: 'shared/review', locals: { user: @user, review: review }  %>
+    <% end %>
 
-
+  </div>
 </div>
 
   <%= will_paginate @reviews, list_classes: %w(pagination justify-content-center h3 mt-5), aria_label:  'Page Navigation' %>
