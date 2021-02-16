@@ -1,4 +1,3 @@
-import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
 import Vuetify from "vuetify"; // 追加
 import "vuetify/dist/vuetify.min.css"; // 追加
@@ -12,9 +11,6 @@ const vuetify = new Vuetify({
         accent: '#808080' // グレー
       },
     },
-  },
-  icons: {
-    iconfont: 'mdi', 
   },
 }); 
 
