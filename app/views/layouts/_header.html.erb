@@ -16,15 +16,44 @@
     <div class="container">
       <h1 class="pl-3"><%= link_to "coffee anywhere", root_path %></h1>
       <nav>
-        <ul class="navbar navbar-nav navbar-right navbar-expand">
+        <ul class="navbar navbar-nav navbar-right navbar-expand px-0">
           <li><%= link_to "Home", root_path %></li>
           <% if !current_user.nil? && current_user.admin? %>
             <li><%= render 'layouts/admin_nav' %></li>
           <% elsif current_user %>
             <li><%= render 'layouts/login_nav' %></li>
           <% else %>
+          <div class="d-none d-md-inline-block">
             <li><%= link_to "ログイン", login_path %></li>
+          </div>
+          <div class="d-none d-md-inline-block">
             <li><%= link_to "登録", signup_path %></li>
+          </div>
+            <li>
+              <div class="d-inline-block d-md-none">
+                <v-menu offset-y>
+                  <template v-slot:activator="{ on }">
+                    <v-btn 
+                      color="#343B3F"
+                      v-on="on"
+                      elevation = 0
+                      >
+                      <v-icon class="text-white">
+                        mdi-menu
+                      </v-icon>
+                    </v-btn>
+                  </template>
+                  <v-list>
+                    <v-list-item>
+                      <v-list-item-title><%= link_to "ログイン", login_path %></v-list-item-title>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-title><%= link_to "登録", signup_path %></v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+              </div>
+            </li>
           <% end %>
         </ul>
       </nav>
