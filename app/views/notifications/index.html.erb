@@ -1,18 +1,21 @@
 <% provide(:title, 'マイページ') %>
 
 <div class="row">
-  <%= render "users/user_header" %>
-  
-  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-  <% if notifications.exists? %>
-    <ul class='w-100'>
-      <%= render notifications %>
-    </ul>
-    <div class='w-100 text-center'>
-      <%= will_paginate @notifications, list_classes: %w(pagination justify-content-center), aria_label:  'Page Navigation' %>
-    </div>
-  <% else %>
-    <p class="m-5 h5">通知はありません</p>
-  <% end %>
+  <div class="col-lg-8 offset-lg-2">
 
+    <%= render "users/user_header" %>
+    
+    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+    <% if notifications.exists? %>
+      <ul class='w-100 pl-1'>
+        <%= render notifications %>
+      </ul>
+      <div class='w-100 text-center'>
+        <%= will_paginate @notifications, list_classes: %w(pagination justify-content-center), aria_label:  'Page Navigation' %>
+      </div>
+    <% else %>
+      <p class="m-5 h5">通知はありません</p>
+    <% end %>
+
+  </div>
 </div>

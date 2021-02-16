@@ -4,10 +4,10 @@
 <div class="row mt-5">
   <div class="col-lg-10 offset-lg-1">
     <div class="login_left border rounded p-4 mt-5">
-      <h1 class="mb-5">COFFEE ANYWHEREにログイン</h1>
+      <h3 class="mb-5">COFFEE ANYWHEREにログイン</h3>
       
       <div class="row border-top">
-        <div class="sns col-10 offset-1 col-lg-6 offset-lg-0 mt-4 pb-4 ">
+        <div class="sns col-12 col-lg-6 offset-lg-0 mt-4 pb-4 ">
           <%= render partial: 'shared/sns', locals: { phrase: 'ログイン' } %>
           <p class="border-top pt-4">登録せずに試すにはこちら</p>
           <div class="text-center pb-4 border-bottom">
@@ -15,7 +15,7 @@
           </div>
           <p class="pt-3 text-black-50 pb-4 border-bottom">COFFEE ANYWHEREのアカウントを持っていない場合は<span><%= link_to '新規登録', new_user_path, class: "text-info" %></span>から。</p>
         </div>
-        <div class="col-10 offset-1 col-lg-6 offset-lg-0 mt-4">
+        <div class="col-12 col-lg-6 offset-lg-0 mt-4">
           <%= form_with(url:login_path, local: true) do |f| %>
         
             <%= f.email_field :email, placeholder: 'メールアドレス', class:'form-control mb-2' %>
