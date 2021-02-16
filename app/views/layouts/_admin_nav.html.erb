@@ -1,14 +1,51 @@
+<!--
 <ul class="dropdown">
   <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">admin</a>
   <span class="<%= 'notice' if unchecked_notifications.any? %>"></span>
 
-  <div class="dropdown-menu">
+  <div class="dropdown-menu">-->
     <!-- リロードしないとJavaScriptが動かない問題解決のため、turbolinks無効 -->
-    <%= link_to "店舗 新規登録", new_shop_path, class:"dropdown-item text-dark", data: {"turbolinks" => false} %>
+    <!--<%= link_to "店舗 新規登録", new_shop_path, class:"dropdown-item text-dark", data: {"turbolinks" => false} %>
     <%= link_to "店舗 一覧", shops_path, class:"dropdown-item text-dark" %>
     <%= link_to "ユーザー一覧", users_path, class:"dropdown-item text-dark" %>
     <%= link_to "マイページ", current_user, class:"dropdown-item text-dark" %>
     <%= link_to "通知", user_notifications_path(current_user), class:"dropdown-item text-dark" %>
     <%= link_to "ログアウト", :logout, method: :post, class:"dropdown-item text-dark" %>
   </ul>
+-->
 
+<div class="text-center">
+  <v-menu offset-y>
+    <template v-slot:activator="{ on }">
+      <v-btn
+        color="#343B3F"
+        dark
+        v-on="on"
+        elevation=0
+      >
+        管理者
+        <b class="ml-2 dropdown-caret"></b>
+      </v-btn>
+    </template>
+    <v-list>
+      <v-list-item>
+        <v-list-item-title><%= link_to "店舗 一覧", shops_path %></v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title><%= link_to "ユーザー一覧", users_path %></v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title><%= link_to "マイページ", current_user %></v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title><%= link_to "通知", user_notifications_path(current_user) %></v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title><%= link_to '設定', edit_user_path(current_user) %></v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title><%= link_to "ログアウト", :logout, method: :post %></v-list-item-title>
+      </v-list-item>
+    </v-list>
+  </v-menu>
+</div>
