@@ -117,18 +117,6 @@ header {
         padding: 10px;
         .dropdown {
           position: relative;
-          .notice {
-            display: inline-block;
-            width: 11px;
-            height: 11px;
-            margin: 0 10px;
-            border: 1px solid #ccc;
-            position: absolute;
-            right: 10px;
-            top: -5px;
-            background-color: #FF570D;
-            border-radius: 50%;
-          }
         }
         .show {
           margin: 15px auto;
@@ -148,6 +136,19 @@ header {
     }
   }
 }
+
+.notice {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    position: absolute;
+    // right: 10px;
+    top: -5px;
+    background-color: #FF570D;
+    border-radius: 50%;
+  }
 
 .dropdown-caret {
   display: inline-block;
