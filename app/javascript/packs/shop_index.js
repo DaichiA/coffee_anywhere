@@ -13,7 +13,10 @@ const vuetify = new Vuetify({
       },
     },
   },
-}); // 追加
+  icons: {
+    iconfont: 'mdi', 
+  },
+}); 
 
 document.addEventListener('DOMContentLoaded', () => {
   const shop_index = new Vue({
